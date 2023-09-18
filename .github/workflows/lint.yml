@@ -6,6 +6,7 @@ on:
 
 jobs:
   packer:
+    name: Packer
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
