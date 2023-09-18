@@ -2,7 +2,7 @@ packer {
   required_plugins {
     docker = {
       source  = "github.com/hashicorp/docker"
-      version = "~> 1"
+      version = "1.0.8"
     }
   }
 }
