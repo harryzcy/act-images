@@ -7,7 +7,7 @@ on:
 
 jobs:
   daily:
-    name: Daily Build
+    name: Nightly Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
