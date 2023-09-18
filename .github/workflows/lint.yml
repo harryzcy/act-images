@@ -1,0 +1,21 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  packer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup `packer`
+        uses: hashicorp/setup-packer@main
+
+      - name: Run `packer init`
+        run: packer init images/ubuntu
+
+      - name: Run `packer validate`
+        run: packer validate images/ubuntu
