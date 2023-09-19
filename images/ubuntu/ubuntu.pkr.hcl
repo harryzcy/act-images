@@ -10,6 +10,10 @@ packer {
 source "docker" "ubuntu" {
   image  = "ubuntu:22.04"
   commit = true
+  changes = [
+    "ENTRYPOINT [\"\"]",
+    "CMD [\"/bin/bash\"]"
+  ]
 }
 
 build {
