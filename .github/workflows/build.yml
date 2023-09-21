@@ -17,4 +17,15 @@ jobs:
         with:
           context: images/ubuntu
           platforms: linux/amd64
+          tags: ubuntu:latest
           push: false
+
+      - name: Print package version
+        run: |
+          docker run --rm \
+            ubuntu:latest \
+            bash -c "docker -v && \
+                     node -v && \
+                     npm -v && \
+                     ansible --version && \
+                     ansible-lint --version"
