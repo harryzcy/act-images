@@ -1,5 +1,6 @@
 #!/bin/bash
 
+apt update && apt install -y && apt autoremove -y
 apt install -y curl
 
 archstr=$(uname -m)
