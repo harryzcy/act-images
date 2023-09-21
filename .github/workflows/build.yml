@@ -12,6 +12,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            harryzcy/ubuntu
+            ghcr.io/harryzcy/ubuntu
+          tags: |
+            type=schedule,pattern=22.04-{{date 'YYYYMMDD'}}
+            type=raw,value=latest
+            type=raw,value=22.04
+            type=sha
+
       - name: Build docker image
         uses: docker/build-push-action@v5
         with:
