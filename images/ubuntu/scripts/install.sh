@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt install -y curl
+
 archstr=$(uname -m)
 if [[ "$archstr" == "x86_64" ]]; then
   arch="x64"
