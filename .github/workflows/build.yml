@@ -23,8 +23,6 @@ jobs:
       - name: Print package version
         run: |
           docker run --rm \
-            -v $PWD/images/ubuntu:/app \
-            -w /app \
             ubuntu:latest \
             bash -c "docker -v \
                      && node -v \
