@@ -5,21 +5,16 @@ on:
   pull_request:
 
 jobs:
-  packer:
-    name: Packer
+  docker:
+    name: Docker Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup `packer`
-        uses: hashicorp/setup-packer@main
-
-      - name: Run `packer init`
-        run: packer init images/ubuntu
-
-      - name: Run `packer build`
-        run: packer build images/ubuntu
-
-      - name: Docker inspect
-        run: docker inspect ubuntu
+      - name: Build docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64
+          push: false

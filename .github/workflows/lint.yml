@@ -5,18 +5,6 @@ on:
   pull_request:
 
 jobs:
-  packer:
-    name: Packer
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup `packer`
-        uses: hashicorp/setup-packer@main
-
-      - name: Run `packer init`
-        run: packer init images/ubuntu
-
-      - name: Run `packer validate`
-        run: packer validate images/ubuntu
+  super-linter:
+    name: Super Linter
+    uses: harryzcy/github-actions/.github/workflows/linter.yml@main
