@@ -3,7 +3,29 @@
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade -y
-apt-get install -y curl tar xz-utils
+
+packages=(
+  ssh
+  gawk
+  curl
+  jq
+  wget
+  sudo
+  gnupg-agent
+  ca-certificates
+  software-properties-common
+  apt-transport-https
+  libyaml-0-2
+  zstd
+  zip
+  unzip
+  xz-utils
+  python3-pip
+  python3-venv
+  pipx
+)
+
+apt-get -yq install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 archstr=$(uname -m)
 if [[ "$archstr" == "x86_64" ]]; then
