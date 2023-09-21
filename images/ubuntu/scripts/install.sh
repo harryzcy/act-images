@@ -53,8 +53,13 @@ echo \
 apt-get -qq update
 apt-get -yq install --no-install-recommends --no-install-suggests docker-ce-cli
 
-docker -v
-
 # Ansible
 pipx install ansible
 pipx install ansible-lint
+
+# Verify
+docker -v
+node -v
+npm -v
+ansible --version
+ansible-lint --version
