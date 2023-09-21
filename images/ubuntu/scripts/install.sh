@@ -15,5 +15,5 @@ else
   return 1
 fi
 
-NODE_VERSION=18.8.0
+NODE_VERSION="20.7.0"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
