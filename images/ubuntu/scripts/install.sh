@@ -2,7 +2,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
-apt-get -yq upgrade
+apt-get -qq -y upgrade
 
 packages=(
   ssh
@@ -26,7 +26,7 @@ packages=(
   pipx
 )
 
-apt-get -yq install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 archstr=$(uname -m)
 if [[ "$archstr" == "x86_64" ]]; then
@@ -51,10 +51,10 @@ echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
-apt-get -yq install --no-install-recommends --no-install-suggests docker-ce-cli
+apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
 
 # Ansible
-pipx install ansible
+pipx install --include-deps ansible
 pipx install ansible-lint
 
 # export PATH=$PATH:/root/.local/bin
