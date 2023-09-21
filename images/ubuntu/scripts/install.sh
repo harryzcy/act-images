@@ -2,7 +2,7 @@
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get upgrade -y
+apt-get upgrade -yq
 
 packages=(
   ssh
@@ -50,5 +50,7 @@ codename="$(lsb_release -cs)"
 echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
-apt-get update
+apt-get update -yq
 apt-get -yq install --no-install-recommends --no-install-suggests docker-ce-cli
+
+docker -v
