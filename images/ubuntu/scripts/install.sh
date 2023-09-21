@@ -2,7 +2,7 @@
 
 apt-get update
 apt-get upgrade -y
-apt-get install -y curl xz
+apt-get install -y curl tar xz-utils
 
 archstr=$(uname -m)
 if [[ "$archstr" == "x86_64" ]]; then
