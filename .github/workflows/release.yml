@@ -2,13 +2,16 @@ name: Release
 
 on:
   schedule:
-    - cron: "0 3 * * *"
+    - cron: "30 3 * * *"
   workflow_dispatch:
 
 jobs:
   daily:
     name: Nightly Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
