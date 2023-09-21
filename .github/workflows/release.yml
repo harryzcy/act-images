@@ -21,7 +21,7 @@ jobs:
             harryzcy/ubuntu
             ghcr.io/harryzcy/ubuntu
           tags: |
-            type=schedule,pattern={{date '22.04-YYYYMMDD'}}
+            type=schedule,pattern=22.04-{{date 'YYYYMMDD'}}
             type=raw,value=latest
             type=raw,value=22.04
             type=sha
