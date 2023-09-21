@@ -15,6 +15,6 @@ jobs:
       - name: Build docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: images/ubuntu
           platforms: linux/amd64
           push: false
