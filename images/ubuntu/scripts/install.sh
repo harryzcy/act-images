@@ -56,12 +56,3 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-c
 # Ansible
 pipx install --include-deps ansible
 pipx install ansible-lint
-
-# export PATH=$PATH:/root/.local/bin
-
-# # Verify
-# docker -v
-# node -v
-# npm -v
-# ansible --version
-# ansible-lint --version
