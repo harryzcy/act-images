@@ -56,5 +56,5 @@ apt-get -yq install --no-install-recommends --no-install-suggests docker-ce-cli
 docker -v
 
 # Ansible
-pip3 install ansible
-pip3 install ansible-lint
+pip3 install pipx
+pipx install ansible ansible-lint
