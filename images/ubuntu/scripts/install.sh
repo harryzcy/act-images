@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update && apt install -y && apt autoremove -y
-apt install -y curl
+apt install -y curl xz
 
 archstr=$(uname -m)
 if [[ "$archstr" == "x86_64" ]]; then
