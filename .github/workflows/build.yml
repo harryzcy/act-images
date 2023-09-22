@@ -24,7 +24,8 @@ jobs:
         run: |
           docker run --rm \
             ubuntu:latest \
-            bash -c "docker -v && \
+            bash -c "git --version && \
+                     docker -v && \
                      node -v && \
                      npm -v && \
                      ansible --version && \
