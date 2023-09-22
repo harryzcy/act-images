@@ -24,6 +24,7 @@ packages=(
   python3-pip
   python3-venv
   pipx
+  git
 )
 
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
