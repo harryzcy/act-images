@@ -1,5 +1,8 @@
 #!/bin/bash
 
+NODE_VERSION="20.7.0"
+GO_VERSION="1.21.1"
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
 apt-get -qq -y upgrade
@@ -39,8 +42,21 @@ else
   return 1
 fi
 
-NODE_VERSION="20.7.0"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+
+# Go
+go_arch="amd64"
+if [[ "$archstr" == "x86_64" ]]; then
+  go_arch="amd64"
+elif [[ "$archstr" == "arm64" || "$archstr" == "arm" || "$archstr" == "aarch64" ]]; then
+  go_arch="arm64"
+else
+  echo "Unsupported architecture: $archstr"
+  return 1
+fi
+
+tar -C /usr/local -xzf go$GO_VERSION.linux-$go_arch.tar.gz
+# End Go
 
 # Docker
 install -m 0755 -d /etc/apt/keyrings
