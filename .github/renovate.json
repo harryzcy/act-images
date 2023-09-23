@@ -4,6 +4,28 @@
     ":disableDependencyDashboard",
     ":automergeMinor"
   ],
+  "regexManagers": [
+    {
+      "fileMatch": [
+        "configure.sh"
+      ],
+      "matchStrings": [
+        "NODE_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version"
+    },
+    {
+      "fileMatch": [
+        "Dockerfile"
+      ],
+      "matchStrings": [
+        "GO_VERSION=(?<currentValue>.*?)\\n"
+      ],
+      "depNameTemplate": "go",
+      "datasourceTemplate": "golang-version"
+    }
+  ],
   "labels": [
     "dependencies"
   ]
