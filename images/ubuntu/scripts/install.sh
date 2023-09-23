@@ -43,6 +43,7 @@ else
 fi
 
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+# End Node
 
 # Go
 go_arch="amd64"
@@ -69,7 +70,9 @@ echo \
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
+# End Docker
 
 # Ansible
 pipx install --include-deps ansible
 pipx install ansible-lint
+# End Ansible
