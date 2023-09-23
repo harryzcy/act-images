@@ -17,7 +17,7 @@
     },
     {
       "fileMatch": [
-        "Dockerfile"
+        "configure.sh"
       ],
       "matchStrings": [
         "GO_VERSION=(?<currentValue>.*?)\\n"
