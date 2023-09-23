@@ -27,6 +27,7 @@ jobs:
             bash -c "git --version && \
                      docker -v && \
                      node -v && \
+                     go version && \
                      npm -v && \
                      ansible --version && \
                      ansible-lint --version"
