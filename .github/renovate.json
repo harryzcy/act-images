@@ -8,7 +8,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "configure.sh"
+        "^images/ubuntu/configure.sh$"
       ],
       "matchStrings": [
         "NODE_VERSION=(?<currentValue>.*?)\\n"
@@ -19,7 +19,7 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "configure.sh"
+        "^images/ubuntu/configure.sh$"
       ],
       "matchStrings": [
         "GO_VERSION=(?<currentValue>.*?)\\n"
