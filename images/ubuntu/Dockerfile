@@ -7,6 +7,6 @@ RUN chmod +x /scripts/*.sh && \
   /scripts/cleanup.sh && \
   rm -rf /scripts
 
-ENV PATH="${PATH}:/root/.local/bin"
+ENV PATH="${PATH}:/root/.local/bin:/usr/local/go/bin"
 
 CMD [ "/bin/bash" ]
