@@ -56,7 +56,7 @@ else
   return 1
 fi
 
-curl https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar --file=- -C /usr/local -xzf go$GO_VERSION.linux-$go_arch.tar.gz
+curl https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar -C /usr/local -xzf -
 # End Go
 
 # Docker
