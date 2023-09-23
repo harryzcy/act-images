@@ -6,6 +6,7 @@
   ],
   "regexManagers": [
     {
+      "customType": "regex",
       "fileMatch": [
         "configure.sh"
       ],
@@ -16,6 +17,7 @@
       "datasourceTemplate": "node-version"
     },
     {
+      "customType": "regex",
       "fileMatch": [
         "configure.sh"
       ],
