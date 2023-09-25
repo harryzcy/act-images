@@ -24,6 +24,7 @@ packages=(
   zip
   unzip
   xz-utils
+  sqlite3
   python3-pip
   python3-venv
   pipx
