@@ -149,5 +149,5 @@ echo "Installing Ansible"
 python -m pipx install --include-deps ansible
 python -m pipx install ansible-lint
 echo "Ansible installed: $(ansible --version)"
-echo "Ansible Lint installed: $(ansible-lint --version)"
+echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End Ansible
