@@ -101,6 +101,7 @@ ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
 ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
 
 python -m pip install --user pipx
+python -m pipx ensurepath
 
 popd || exit
 popd || exit
