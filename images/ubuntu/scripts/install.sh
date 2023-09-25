@@ -17,6 +17,8 @@ else
   return 1
 fi
 
+export PATH="${PATH}:/root/.local/bin:/usr/local/go/bin:/root/.cargo/bin"
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
 apt-get -qq -y upgrade
