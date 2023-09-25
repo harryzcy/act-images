@@ -96,8 +96,7 @@ tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
 pushd Python-$PYTHON_VERSION/
 
 ./configure --enable-optimizations >/dev/null
-make -j $(nproc) >/dev/null
-make altinstall >/dev/null
+make -j "$(nproc)" && make -j "$(nproc)" altinstall
 python3.11 -V
 
 ln -s /usr/local/bin/python3.11 /usr/local/bin/python
