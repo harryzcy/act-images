@@ -141,6 +141,7 @@ python -m pipx ensurepath
 popd || exit
 popd || exit
 rm -rf /tmp/Python-$PYTHON_VERSION
+echo "Python installed: $(python --version) at $(which python)"
 # End Python
 
 # Ansible
