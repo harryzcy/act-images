@@ -4,7 +4,6 @@ NODE_VERSION="20.7.0"
 GO_VERSION="1.21.1"
 
 archstr=$(uname -m)
-go_arch="amd64"
 echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
   arch="x64"
