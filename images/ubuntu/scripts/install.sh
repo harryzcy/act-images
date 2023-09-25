@@ -136,3 +136,7 @@ rm -rf /tmp/Python-$PYTHON_VERSION
 python -m pipx install --include-deps ansible
 python -m pipx install ansible-lint
 # End Ansible
+
+# apt cache
+apt-get -qq clean
+rm -rf /var/lib/apt/lists/*
