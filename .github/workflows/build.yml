@@ -30,7 +30,7 @@ jobs:
             ubuntu:latest \
             bash -c "git --version && \
                      echo \"$(docker -v) $(which docker)\" && \
-                     echo \"node $(node -v)\" && \
+                     echo \"node $(node -v) $(which node)\" && \
                      echo \"$(python --version) $(which python)\" && \
                      echo \"$(go version) $(which go)\" && \
                      echo \"$(rustc --version) $which rustc)\" && \
