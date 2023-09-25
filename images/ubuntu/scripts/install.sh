@@ -2,6 +2,7 @@
 
 NODE_VERSION="20.7.0"
 GO_VERSION="1.21.1"
+PYTHON_VERSION="3.11.5"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -78,9 +79,6 @@ packages=(
   zstd
   zip
   sqlite3
-  python3-pip
-  python3-venv
-  pipx
   build-essential
   git
 )
@@ -112,7 +110,29 @@ apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
 # End Docker
 
+# Python
+pushd /tmp || exit >/dev/null
+wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
+tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
+pushd Python-$PYTHON_VERSION/ || exit
+
+./configure --enable-optimizations >/dev/null
+make -j "$(nproc)" && make -j "$(nproc)" altinstall
+
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
+
+python -m pip install --user pipx
+python -m pipx ensurepath
+
+popd || exit
+popd || exit
+rm -rf /tmp/Python-$PYTHON_VERSION
+# End Python
+
 # Ansible
-pipx install --include-deps ansible
-pipx install ansible-lint
+python -m pipx install --include-deps ansible
+python -m pipx install ansible-lint
 # End Ansible

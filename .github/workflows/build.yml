@@ -31,6 +31,7 @@ jobs:
             bash -c "git --version && \
                      docker -v && \
                      node -v && \
+                     python --version && \
                      go version && \
                      rustc --version && \
                      npm -v && \
