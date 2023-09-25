@@ -90,7 +90,7 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages
 # Node
 echo "Installing Node $NODE_VERSION"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
-echo "Node installed: $(node -v)"
+echo "Node installed: $(node -v) at $(which node)"
 # End Node
 
 # Go
