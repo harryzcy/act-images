@@ -66,7 +66,6 @@ packages=(
   zstd
   zip
   sqlite3
-  pipx
   build-essential
   git
 )
@@ -95,12 +94,12 @@ pushd Python-$PYTHON_VERSION/ || exit
 
 ./configure --enable-optimizations >/dev/null
 make -j "$(nproc)" && make -j "$(nproc)" altinstall
-python3.11 -V
 
 ln -s /usr/local/bin/python3.11 /usr/local/bin/python
 ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
 
-python -VV
+python -m pip install --user pipx
+
 popd
 popd
 # End Python
