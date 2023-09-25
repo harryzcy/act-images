@@ -140,6 +140,6 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-c
 # End Docker
 
 # Ansible
-pipx install --include-deps ansible
-pipx install ansible-lint
+python -m pipx pipx install --include-deps ansible
+python -m pipx pipx install ansible-lint
 # End Ansible
