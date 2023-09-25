@@ -86,28 +86,6 @@ fi
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
 # End Node
 
-# Python
-pushd /tmp || exit >/dev/null
-wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
-tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
-pushd Python-$PYTHON_VERSION/ || exit
-
-./configure --enable-optimizations >/dev/null
-make -j "$(nproc)" && make -j "$(nproc)" altinstall
-
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
-
-python -m pip install --user pipx
-python -m pipx ensurepath
-
-popd || exit
-popd || exit
-rm -rf /tmp/Python-$PYTHON_VERSION
-# End Python
-
 # Go
 go_arch="amd64"
 if [[ "$archstr" == "x86_64" ]]; then
@@ -138,6 +116,28 @@ echo \
 apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
 # End Docker
+
+# Python
+pushd /tmp || exit >/dev/null
+wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
+tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
+pushd Python-$PYTHON_VERSION/ || exit
+
+./configure --enable-optimizations >/dev/null
+make -j "$(nproc)" && make -j "$(nproc)" altinstall
+
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
+
+python -m pip install --user pipx
+python -m pipx ensurepath
+
+popd || exit
+popd || exit
+rm -rf /tmp/Python-$PYTHON_VERSION
+# End Python
 
 # Ansible
 python -m pipx pipx install --include-deps ansible
