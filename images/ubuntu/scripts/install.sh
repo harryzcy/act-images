@@ -96,7 +96,9 @@ pushd Python-$PYTHON_VERSION/ || exit
 make -j "$(nproc)" && make -j "$(nproc)" altinstall
 
 ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
 ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
 
 python -m pip install --user pipx
 
