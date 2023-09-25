@@ -29,11 +29,11 @@ jobs:
           docker run --rm \
             ubuntu:latest \
             bash -c "git --version && \
-                     docker -v && \
+                     echo \"$(docker -v) $(which docker)\" && \
                      echo \"node $(node -v)\" && \
-                     python --version && \
-                     go version && \
-                     rustc --version && \
-                     echo \"npm $(npm -v)\" && \
+                     echo \"$(python --version) $(which python)\" && \
+                     echo \"$(go version) $(which go)\" && \
+                     echo \"$(rustc --version) $which rustc)\" && \
+                     echo \"npm $(npm -v) $(which npm)\" && \
                      ansible --version && \
-                     ansible-lint --version"
+                     echo \"$(ansible-lint --version) $(which ansible-lint)\""
