@@ -142,4 +142,6 @@ rm -rf /tmp/Python-$PYTHON_VERSION
 echo "Installing Ansible"
 python -m pipx install --include-deps ansible
 python -m pipx install ansible-lint
+echo "Ansible installed: $(ansible --version)"
+echo "Ansible Lint installed: $(ansible-lint --version)"
 # End Ansible
