@@ -30,10 +30,10 @@ jobs:
             ubuntu:latest \
             bash -c "git --version && \
                      docker -v && \
-                     node -v && \
+                     echo \"node $(node -v)\" && \
                      python --version && \
                      go version && \
                      rustc --version && \
-                     npm -v && \
+                     echo \"npm $(npm -v)\" && \
                      ansible --version && \
                      ansible-lint --version"
