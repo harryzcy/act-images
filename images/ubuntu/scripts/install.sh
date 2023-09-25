@@ -104,6 +104,7 @@ python -m pip install --user pipx
 
 popd || exit
 popd || exit
+rm -rf /tmp/Python-$PYTHON_VERSION
 # End Python
 
 # Go
