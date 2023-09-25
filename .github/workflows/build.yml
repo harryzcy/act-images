@@ -28,6 +28,7 @@ jobs:
                      docker -v && \
                      node -v && \
                      go version && \
+                     rustc --version && \
                      npm -v && \
                      ansible --version && \
                      ansible-lint --version"
