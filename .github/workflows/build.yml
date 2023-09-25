@@ -20,6 +20,10 @@ jobs:
           tags: ubuntu:latest
           push: false
 
+      - name: Show docker image
+        run: |
+          docker images
+
       - name: Print package version
         run: |
           docker run --rm \
