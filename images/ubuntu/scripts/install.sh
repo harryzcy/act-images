@@ -34,6 +34,7 @@ packages=(
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 archstr=$(uname -m)
+echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
   arch="x64"
 elif [[ "$archstr" == "arm64" || "$archstr" == "arm" || "$archstr" == "aarch64" ]]; then
