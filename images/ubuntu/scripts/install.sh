@@ -139,5 +139,5 @@ python -m pipx install ansible-lint
 
 # apt cache
 apt-get -qq clean
-apt-get -qq auto-clean
+apt-get -qq autoremove
 rm -rf /var/lib/apt/lists/*
