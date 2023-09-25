@@ -27,6 +27,7 @@ packages=(
   python3-pip
   python3-venv
   pipx
+  build-essential
   git
 )
 
@@ -58,6 +59,9 @@ fi
 
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar -C /usr/local -xzf -
 # End Go
+
+# Rust
+curl --proto '=https' --tlsv1.3 -sSf https://sh.rustup.rs | sh -s -- -y
 
 # Docker
 install -m 0755 -d /etc/apt/keyrings
