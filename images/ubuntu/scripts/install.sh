@@ -98,12 +98,14 @@ echo "Installing Go $GO_VERSION"
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
 echo "Go installed: $(go version) at $(which go)"
 # End Go
+echo "Node installed: $(node -v) at $(which node)"
 
 # Rust
 echo "Installing Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
+echo "Node installed: $(node -v) at $(which node)"
 
 # Docker
 echo "Installing Docker"
@@ -119,6 +121,7 @@ apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
 echo "Docker installed: $(docker --version)"
 # End Docker
+echo "Node installed: $(node -v) at $(which node)"
 
 # Python
 echo "Installing Python $PYTHON_VERSION"
@@ -135,6 +138,8 @@ ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
 ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
 ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
 
+echo "Node installed: $(node -v) at $(which node)"
+
 python -m pip install --user pipx
 python -m pipx ensurepath
 
@@ -143,6 +148,7 @@ popd || exit
 rm -rf /tmp/Python-$PYTHON_VERSION
 echo "Python installed: $(python --version) at $(which python)"
 # End Python
+echo "Node installed: $(node -v) at $(which node)"
 
 # Ansible
 echo "Installing Ansible"
@@ -151,3 +157,4 @@ python -m pipx install ansible-lint
 echo "Ansible installed: $(ansible --version)"
 echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End Ansible
+echo "Node installed: $(node -v) at $(which node)"
