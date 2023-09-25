@@ -96,11 +96,13 @@ echo "Node installed: $(node -v) at $(which node)"
 # Go
 echo "Installing Go $GO_VERSION"
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
+echo "Go installed: $(go version) at $(which go)"
 # End Go
 
 # Rust
 echo "Installing Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # Docker
@@ -115,6 +117,7 @@ echo \
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
+echo "Docker installed: $(docker --version)"
 # End Docker
 
 # Python
