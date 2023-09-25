@@ -86,18 +86,22 @@ packages=(
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # Node
+echo "Installing Node $NODE_VERSION"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
 # End Node
 
 # Go
+echo "Installing Go $GO_VERSION"
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
 # End Go
 
 # Rust
+echo "Installing Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # End Rust
 
 # Docker
+echo "Installing Docker"
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 chmod a+r /etc/apt/keyrings/docker.gpg
@@ -111,6 +115,7 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-c
 # End Docker
 
 # Python
+echo "Installing Python $PYTHON_VERSION"
 pushd /tmp || exit >/dev/null
 wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
 tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
@@ -133,6 +138,7 @@ rm -rf /tmp/Python-$PYTHON_VERSION
 # End Python
 
 # Ansible
+echo "Installing Ansible"
 python -m pipx install --include-deps ansible
 python -m pipx install ansible-lint
 # End Ansible
