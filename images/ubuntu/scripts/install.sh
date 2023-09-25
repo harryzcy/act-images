@@ -61,7 +61,7 @@ curl -L https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar -C /usr/loca
 # End Go
 
 # Rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 # End Rust
 
 # Docker
