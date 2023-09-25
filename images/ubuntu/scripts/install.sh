@@ -62,6 +62,7 @@ curl -L https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar -C /usr/loca
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# End Rust
 
 # Docker
 install -m 0755 -d /etc/apt/keyrings
