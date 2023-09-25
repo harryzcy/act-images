@@ -2,6 +2,7 @@
 
 NODE_VERSION="20.7.0"
 GO_VERSION="1.21.1"
+PYTHON_VERSION="3.11.5"
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
@@ -87,6 +88,25 @@ fi
 
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
 # End Node
+
+# Python
+pushd /tmp >/dev/null
+wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
+tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
+pushd Python-$PYTHON_VERSION/
+
+./configure --enable-optimizations >/dev/null
+make -j $(nproc) >/dev/null
+make altinstall >/dev/null
+python3.11 -V
+
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
+
+python -VV
+popd
+popd
+# End Python
 
 # Go
 go_arch="amd64"
