@@ -90,10 +90,10 @@ curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.
 # End Node
 
 # Python
-pushd /tmp >/dev/null
+pushd /tmp || exit >/dev/null
 wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
 tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
-pushd Python-$PYTHON_VERSION/
+pushd Python-$PYTHON_VERSION/ || exit
 
 ./configure --enable-optimizations >/dev/null
 make -j "$(nproc)" && make -j "$(nproc)" altinstall
