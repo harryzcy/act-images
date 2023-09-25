@@ -7,10 +7,10 @@ archstr=$(uname -m)
 echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
   arch="x64"
-  go_arch="amd64"
+  arch_go="amd64"
 elif [[ "$archstr" == "arm64" || "$archstr" == "arm" || "$archstr" == "aarch64" ]]; then
   arch="arm64"
-  go_arch="arm64"
+  arch_go="arm64"
 else
   echo "Unsupported architecture: $archstr"
   return 1
@@ -91,7 +91,7 @@ curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.
 # End Node
 
 # Go
-curl -L https://go.dev/dl/go$GO_VERSION.linux-$go_arch.tar.gz | tar -C /usr/local -xzf -
+curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch_go.tar.gz | tar -C /usr/local -xzf -
 # End Go
 
 # Rust
