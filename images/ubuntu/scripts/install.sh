@@ -133,6 +133,6 @@ rm -rf /tmp/Python-$PYTHON_VERSION
 # End Python
 
 # Ansible
-python -m pipx pipx install --include-deps ansible
-python -m pipx pipx install ansible-lint
+python -m pipx install --include-deps ansible
+python -m pipx install ansible-lint
 # End Ansible
