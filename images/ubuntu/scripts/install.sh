@@ -6,11 +6,11 @@ GO_VERSION="1.21.1"
 archstr=$(uname -m)
 echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
-  arch="x64"
-  arch_go="amd64"
+  arch="amd64"
+  arch_short="x64"
 elif [[ "$archstr" == "arm64" || "$archstr" == "arm" || "$archstr" == "aarch64" ]]; then
   arch="arm64"
-  arch_go="arm64"
+  arch_short="arm64"
 else
   echo "Unsupported architecture: $archstr"
   return 1
@@ -87,11 +87,12 @@ packages=(
 
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
-curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+# Node
+curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
 # End Node
 
 # Go
-curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch_go.tar.gz | tar -C /usr/local -xzf -
+curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
 # End Go
 
 # Rust
