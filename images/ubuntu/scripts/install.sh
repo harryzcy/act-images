@@ -17,7 +17,7 @@ else
   return 1
 fi
 
-export PATH="${PATH}:/root/.local/bin:/usr/local/go/bin:/root/.cargo/bin"
+export PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
