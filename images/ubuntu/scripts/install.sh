@@ -81,6 +81,7 @@ packages=(
   zstd
   zip
   sqlite3
+  python3-dev
   build-essential
   git
 )
