@@ -23,5 +23,6 @@ echo "$(git --version) $(which git)"
 echo "$(sqlite3 --version) $(which sqlite3)"
 jq --version
 wget --version
+xz --version
 zip --version
 zstd --version
