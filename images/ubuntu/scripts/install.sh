@@ -87,24 +87,6 @@ packages=(
 
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
-# Node
-echo "Installing Node $NODE_VERSION"
-curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
-echo "Node installed: $(node -v) at $(which node)"
-# End Node
-
-# Go
-echo "Installing Go $GO_VERSION"
-curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
-echo "Go installed: $(go version) at $(which go)"
-# End Go
-
-# Rust
-echo "Installing Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-echo "Rust installed: $(rustc --version) at $(which rustc)"
-# End Rust
-
 # Docker
 echo "Installing Docker"
 install -m 0755 -d /etc/apt/keyrings
@@ -143,6 +125,24 @@ popd || exit
 rm -rf /tmp/Python-$PYTHON_VERSION
 echo "Python installed: $(python --version) at $(which python)"
 # End Python
+
+# Node
+echo "Installing Node $NODE_VERSION"
+curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+echo "Node installed: $(node -v) at $(which node)"
+# End Node
+
+# Go
+echo "Installing Go $GO_VERSION"
+curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
+echo "Go installed: $(go version) at $(which go)"
+# End Go
+
+# Rust
+echo "Installing Rust"
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+echo "Rust installed: $(rustc --version) at $(which rustc)"
+# End Rust
 
 # Ansible
 echo "Installing Ansible"
