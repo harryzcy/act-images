@@ -23,3 +23,4 @@ echo "$(sqlite3 --version) $(which sqlite3)"
 jq --version
 wget --version
 zip --version
+zstd --version
