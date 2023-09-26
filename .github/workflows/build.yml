@@ -1,7 +1,7 @@
 name: Build
 
 on:
-  push:
+  push
   pull_request:
 
 jobs:
@@ -37,4 +37,4 @@ jobs:
                      echo $(rustc --version) $(which rustc) && \
                      echo npm $(npm -v) $(which npm) && \
                      ansible --version && \
-                     echo $(ansible-lint --version) $(which ansible-lint)"
+                     ansible-lint --version"
