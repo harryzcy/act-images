@@ -99,6 +99,8 @@ echo \
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
 apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli
+rm /etc/apt/sources.list.d/docker.list
+rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
 # End Docker
 
