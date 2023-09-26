@@ -71,7 +71,6 @@ packages=(
   ssh
   gawk
   curl
-  jq
   wget
   sudo
   gnupg
