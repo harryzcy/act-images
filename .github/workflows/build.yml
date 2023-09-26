@@ -28,8 +28,7 @@ jobs:
         run: |
           docker run --rm \
             ubuntu:latest \
-            bash -c "echo PATH=$PATH && \
-                     echo $(git --version) $(which git) && \
+            bash -c "echo $(git --version) $(which git) && \
                      echo $(docker -v) $(which docker) && \
                      echo node $(node -v) $(which node) && \
                      echo $(python --version) $(which python) && \
