@@ -4,6 +4,8 @@ NODE_VERSION="20.7.0"
 GO_VERSION="1.21.1"
 PYTHON_VERSION="3.11.5"
 
+JQ_VERSION="1.7"
+
 archstr=$(uname -m)
 echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
@@ -151,3 +153,8 @@ python -m pipx install ansible-lint
 echo "Ansible installed: $(ansible --version)"
 echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End Ansible
+
+# jq
+echo "Installing jq"
+curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
+# End jq
