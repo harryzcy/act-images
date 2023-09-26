@@ -16,13 +16,13 @@ echo "$(pipx --version) $(which pipx)"
 # Tools
 ansible --version
 ansible-lint --version
-awk --version
+awk --version | head -n 1
 curl --version
 echo "$(docker -v) $(which docker)"
 echo "$(git --version) $(which git)"
-echo "$(sqlite3 --version) $(which sqlite3)"
+echo "sqlite3 $(sqlite3 --version) $(which sqlite3)"
 jq --version
-wget --version
+wget --version | head -n 1
 xz --version
-zip --version
+zip --version | head -n 2
 zstd --version
