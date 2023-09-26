@@ -26,7 +26,4 @@ jobs:
 
       - name: Print package version
         run: |
-          docker run --rm \
-            ubuntu:latest \
-            -v scripts/version.sh:/version.sh \
-            bash /version.sh
+          docker run --rm -v $PWD/scripts/version.sh:/version.sh ubuntu:latest bash /version.sh
