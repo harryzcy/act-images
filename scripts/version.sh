@@ -21,7 +21,7 @@ curl --version
 echo "$(docker -v) $(which docker)"
 echo "$(git --version) $(which git)"
 echo "sqlite3 $(sqlite3 --version) $(which sqlite3)"
-jq --version
+echo "$(jq --version) $(which jq)"
 wget --version | head -n 1
 xz --version
 zip --version | head -n 2
