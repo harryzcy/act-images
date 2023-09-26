@@ -10,6 +10,7 @@ echo "$(rustc --version) $(which rustc)"
 echo "$(cargo --version) $(which cargo)"
 echo "npm $(npm -v) $(which npm)"
 echo "$(pip -V) $(which pip)"
+echo "$(pip3 -V) $(which pip3)"
 echo "$(pipx --version) $(which pipx)"
 
 # Tools
