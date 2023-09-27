@@ -11,7 +11,7 @@ echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
   arch="amd64"
   arch_short="x64"
-elif [[ "$archstr" == "arm64" || "$archstr" == "arm" || "$archstr" == "aarch64" ]]; then
+elif [[ "$archstr" == "aarch64" ]]; then
   arch="arm64"
   arch_short="arm64"
 else
