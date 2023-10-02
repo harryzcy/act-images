@@ -88,7 +88,6 @@ packages=(
   zip
   sqlite3
   build-essential
-
 )
 
 export DEBIAN_FRONTEND=noninteractive
