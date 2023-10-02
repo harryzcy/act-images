@@ -64,13 +64,6 @@ packages=(
   xz-utils
   zlib1g-dev
   # end buildpack
-  # required for building git
-  install-info
-  dh-autoreconf
-  libexpat1-dev
-  gettext
-  libz-dev
-  # end
   ssh
   gawk
   curl
