@@ -106,6 +106,7 @@ make all
 sudo make install
 popd || exit
 popd || exit
+rm -rf /tmp/git-$GIT_VERSION
 echo "git installed: $(git --version)"
 # End git
 
