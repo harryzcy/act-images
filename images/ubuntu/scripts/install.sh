@@ -68,7 +68,6 @@ packages=(
   # required for building git
   install-info
   dh-autoreconf
-  # libcurl4-gnutls-dev
   libexpat1-dev
   gettext
   libz-dev
@@ -93,7 +92,7 @@ packages=(
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
 apt-get -qq -y upgrade
-apt-get -q -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # git (build from source)
 echo "Installing git"
