@@ -1,4 +1,15 @@
-FROM ubuntu:22.04
+FROM ubuntu:22.04 as base
+
+FROM base as builder
+
+ADD ./scripts /scripts
+RUN chmod +x /scripts/*.sh && \
+  /scripts/build.sh && \
+  rm -rf /scripts
+
+FROM base as final
+
+COPY --from=builder /usr/local/* /usr/local/
 
 ADD ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
