@@ -100,7 +100,7 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages
 # git (build from source)
 echo "Installing git"
 pushd /tmp || exit >/dev/null
-wget https://mirrors.edge.kernel.org/pub/software/scm/git/git-$GIT_VERSION.tar.gz
+curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$GIT_VERSION.tar.gz
 tar -xzvf git-$GIT_VERSION.tar.gz >/dev/null
 pushd git-$GIT_VERSION/ || exit
 make configure
