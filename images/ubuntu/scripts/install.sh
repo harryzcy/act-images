@@ -22,10 +22,6 @@ fi
 
 export PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
 
-export DEBIAN_FRONTEND=noninteractive
-apt-get -qq update
-apt-get -qq -y upgrade
-
 packages=(
   # buildpack packages
   autoconf
@@ -95,7 +91,10 @@ packages=(
 
 )
 
+export DEBIAN_FRONTEND=noninteractive
+apt-get -q update
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get -q -y upgrade
 
 # git (build from source)
 echo "Installing git"
