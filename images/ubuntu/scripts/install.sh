@@ -92,8 +92,8 @@ packages=(
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -q update
-apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 apt-get -q -y upgrade
+apt-get -q -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # git (build from source)
 echo "Installing git"
