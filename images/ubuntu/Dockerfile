@@ -9,7 +9,7 @@ RUN chmod +x /scripts/*.sh && \
 
 FROM base as final
 
-COPY --from=builder /usr/local/* /usr/local/
+COPY --from=builder /usr/local/ /usr/local/
 
 ADD ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
