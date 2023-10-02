@@ -84,6 +84,7 @@ packages=(
   zip
   sqlite3
   build-essential
+  install-info
 )
 
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
