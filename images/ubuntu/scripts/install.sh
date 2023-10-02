@@ -100,6 +100,7 @@ make all
 sudo make install
 popd || exit
 popd || exit
+echo "git installed: $(git --version)"
 # End git
 
 # Docker
