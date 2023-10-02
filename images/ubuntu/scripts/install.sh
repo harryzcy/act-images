@@ -69,6 +69,14 @@ packages=(
   xz-utils
   zlib1g-dev
   # end buildpack
+  # required for building git
+  install-info
+  dh-autoreconf
+  libcurl4-gnutls-dev
+  libexpat1-dev
+  gettext
+  libz-dev
+  # end
   ssh
   gawk
   curl
@@ -84,7 +92,7 @@ packages=(
   zip
   sqlite3
   build-essential
-  install-info
+
 )
 
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
