@@ -12,14 +12,7 @@ packages=(
   libncurses5-dev
   libsqlite3-dev
   libssl-dev
-  # buildpack packages
-  autoconf
-  automake
-  g++
-  gcc
   make
-  xz-utils
-  # end buildpack
   # required for building git
   install-info
   dh-autoreconf
@@ -27,15 +20,9 @@ packages=(
   gettext
   libz-dev
   # end
-  ssh
   curl
-  gnupg
-  gnupg-agent
   ca-certificates
   software-properties-common
-  apt-transport-https
-  libyaml-0-2
-  zstd
 )
 
 export DEBIAN_FRONTEND=noninteractive
