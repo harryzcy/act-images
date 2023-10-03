@@ -5,6 +5,7 @@ PYTHON_VERSION="3.11.5"
 GO_VERSION="1.21.1"
 
 GIT_VERSION="2.42.0"
+JQ_VERSION="1.7"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -139,3 +140,9 @@ echo "Installing Node $NODE_VERSION"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
 echo "Node installed: $(node -v) at $(which node)"
 # End Node
+
+# jq
+echo "Installing jq"
+curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
+chmod +x /usr/local/bin/jq
+# End jq
