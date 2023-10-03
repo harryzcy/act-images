@@ -102,17 +102,6 @@ rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
 # End Docker
 
-# Python
-python -m pip install --user pipx
-python -m pipx ensurepath
-# End Python
-
-# Rust
-echo "Installing Rust"
-curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=stable --profile=minimal
-echo "Rust installed: $(rustc --version) at $(which rustc)"
-# End Rust
-
 # Go
 echo "Installing Go $GO_VERSION"
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
@@ -125,11 +114,16 @@ curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_shor
 echo "Node installed: $(node -v) at $(which node)"
 # End Node
 
-# jq
-echo "Installing jq"
-curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
-chmod +x /usr/local/bin/jq
-# End jq
+# Python
+python -m pip install --user pipx
+python -m pipx ensurepath
+# End Python
+
+# Rust
+echo "Installing Rust"
+curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=stable --profile=minimal
+echo "Rust installed: $(rustc --version) at $(which rustc)"
+# End Rust
 
 # Ansible
 echo "Installing Ansible"
@@ -138,3 +132,9 @@ python -m pipx install ansible-lint
 echo "Ansible installed: $(ansible --version)"
 echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End Ansible
+
+# jq
+echo "Installing jq"
+curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
+chmod +x /usr/local/bin/jq
+# End jq
