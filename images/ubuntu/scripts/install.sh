@@ -63,21 +63,21 @@ packages=(
   xz-utils
   zlib1g-dev
   # end buildpack
-  ssh
-  gawk
+  apt-transport-https
+  build-essential
+  ca-certificates
   curl
-  wget
+  libyaml-0-2
   sudo
+  gawk
   gnupg
   gnupg-agent
-  ca-certificates
+  ssh
   software-properties-common
-  apt-transport-https
-  libyaml-0-2
+  wget
   zstd
   zip
   sqlite3
-  build-essential
 )
 
 export DEBIAN_FRONTEND=noninteractive
@@ -114,16 +114,16 @@ curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_shor
 echo "Node installed: $(node -v) at $(which node)"
 # End Node
 
-# Python
-python -m pip install --user pipx
-python -m pipx ensurepath
-# End Python
-
 # Rust
 echo "Installing Rust"
 curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=stable --profile=minimal
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
+
+# Python
+python -m pip install --user pipx
+python -m pipx ensurepath
+# End Python
 
 # Ansible
 echo "Installing Ansible"
