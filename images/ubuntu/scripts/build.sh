@@ -5,6 +5,13 @@ PYTHON_VERSION="3.11.5"
 GIT_VERSION="2.42.0"
 
 packages=(
+  build-essential
+  libbz2-dev
+  libffi-dev
+  libgdbm-dev
+  libncurses5-dev
+  libsqlite3-dev
+  libssl-dev
   # buildpack packages
   autoconf
   automake
@@ -14,30 +21,23 @@ packages=(
   g++
   gcc
   imagemagick
-  libbz2-dev
   libc6-dev
   libcurl4-openssl-dev
   libdb-dev
   libevent-dev
-  libffi-dev
-  libgdbm-dev
   libglib2.0-dev
   libkrb5-dev
-  liblzma-dev
   libmagickcore-dev
   libmagickwand-dev
   libmaxminddb-dev
-  libncurses5-dev
   libncursesw5-dev
   libreadline-dev
-  libssl-dev
   libtool
   libxml2-dev
   libxslt-dev
   make
   patch
   xz-utils
-  zlib1g-dev
   # end buildpack
   # required for building git
   install-info
@@ -47,7 +47,6 @@ packages=(
   libz-dev
   # end
   ssh
-  gawk
   curl
   gnupg
   gnupg-agent
@@ -56,7 +55,6 @@ packages=(
   apt-transport-https
   libyaml-0-2
   zstd
-  build-essential
 )
 
 export DEBIAN_FRONTEND=noninteractive
