@@ -165,7 +165,7 @@ echo "Go installed: $(go version) at $(which go)"
 
 # Rust
 echo "Installing Rust"
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=stable --profile=minimal
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
