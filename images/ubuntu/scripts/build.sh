@@ -1,11 +1,8 @@
 #!/bin/bash
 
-NODE_VERSION="20.7.0"
 PYTHON_VERSION="3.11.5"
-GO_VERSION="1.21.1"
 
 GIT_VERSION="2.42.0"
-JQ_VERSION="1.7"
 
 packages=(
   # buildpack packages
