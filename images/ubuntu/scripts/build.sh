@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PYTHON_VERSION="3.11.5"
+
 GIT_VERSION="2.42.0"
 
 packages=(
@@ -89,3 +91,24 @@ popd || exit
 rm -rf /tmp/git-$GIT_VERSION
 echo "git installed: $(git --version)"
 # End git
+
+# Python
+echo "Installing Python $PYTHON_VERSION"
+pushd /tmp || exit >/dev/null
+wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
+tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
+pushd Python-$PYTHON_VERSION/ || exit
+
+./configure --enable-optimizations >/dev/null
+make -j "$(nproc)" && make -j "$(nproc)" altinstall
+
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python
+ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
+ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
+
+popd || exit
+popd || exit
+rm -rf /tmp/Python-$PYTHON_VERSION
+echo "Python installed: $(python --version) at $(which python)"
+# End Python
