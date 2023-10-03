@@ -140,4 +140,5 @@ echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)
 echo "Installing jq"
 curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
 chmod +x /usr/local/bin/jq
+echo "jq installed: $(jq --version) at $(which jq)"
 # End jq
