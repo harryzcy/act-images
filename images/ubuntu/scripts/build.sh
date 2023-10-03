@@ -43,7 +43,6 @@ packages=(
   libyaml-dev
   make
   patch
-  unzip
   xz-utils
   zlib1g-dev
   # end buildpack
@@ -57,8 +56,6 @@ packages=(
   ssh
   gawk
   curl
-  wget
-  sudo
   gnupg
   gnupg-agent
   ca-certificates
@@ -66,8 +63,6 @@ packages=(
   apt-transport-https
   libyaml-0-2
   zstd
-  zip
-  sqlite3
   build-essential
 )
 
@@ -95,7 +90,7 @@ echo "git installed: $(git --version)"
 # Python
 echo "Installing Python $PYTHON_VERSION"
 pushd /tmp || exit >/dev/null
-wget -q https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
+curl -sSOL https://www.python.org/ftp/python/$PYTHON_VERSION/Python-$PYTHON_VERSION.tgz
 tar -xzvf Python-$PYTHON_VERSION.tgz >/dev/null
 pushd Python-$PYTHON_VERSION/ || exit
 
