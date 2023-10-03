@@ -15,28 +15,9 @@ packages=(
   # buildpack packages
   autoconf
   automake
-  bzip2
-  dpkg-dev
-  file
   g++
   gcc
-  imagemagick
-  libc6-dev
-  libcurl4-openssl-dev
-  libdb-dev
-  libevent-dev
-  libglib2.0-dev
-  libkrb5-dev
-  libmagickcore-dev
-  libmagickwand-dev
-  libmaxminddb-dev
-  libncursesw5-dev
-  libreadline-dev
-  libtool
-  libxml2-dev
-  libxslt-dev
   make
-  patch
   xz-utils
   # end buildpack
   # required for building git
