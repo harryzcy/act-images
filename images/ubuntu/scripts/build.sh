@@ -12,7 +12,6 @@ packages=(
   libncurses5-dev
   libsqlite3-dev
   libssl-dev
-  make
   # required for building git
   install-info
   dh-autoreconf
