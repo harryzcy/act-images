@@ -35,10 +35,10 @@ pushd /tmp || exit >/dev/null
 curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$GIT_VERSION.tar.gz
 tar -xzvf git-$GIT_VERSION.tar.gz >/dev/null
 pushd git-$GIT_VERSION/ || exit
-make configure
+make -j "$(nproc)" configure
 ./configure --prefix=/usr/local
-make all
-sudo make install
+make -j "$(nproc)" all
+make -j "$(nproc)" install
 popd || exit
 popd || exit
 rm -rf /tmp/git-$GIT_VERSION
