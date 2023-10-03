@@ -22,8 +22,6 @@ packages=(
   libffi-dev
   libgdbm-dev
   libglib2.0-dev
-  libgmp-dev
-  libjpeg-dev
   libkrb5-dev
   liblzma-dev
   libmagickcore-dev
@@ -31,16 +29,11 @@ packages=(
   libmaxminddb-dev
   libncurses5-dev
   libncursesw5-dev
-  libpng-dev
-  libpq-dev
   libreadline-dev
-  libsqlite3-dev
   libssl-dev
   libtool
-  libwebp-dev
   libxml2-dev
   libxslt-dev
-  libyaml-dev
   make
   patch
   xz-utils
