@@ -5,6 +5,9 @@ PYTHON_VERSION="3.11.5"
 GIT_VERSION="2.42.0"
 
 packages=(
+  ca-certificates
+  curl
+  # required by python
   build-essential
   libbz2-dev
   libffi-dev
@@ -12,16 +15,13 @@ packages=(
   libncurses5-dev
   libsqlite3-dev
   libssl-dev
-  # required for building git
+  # required by git
   install-info
   dh-autoreconf
   libexpat1-dev
   gettext
   libz-dev
   # end
-  curl
-  ca-certificates
-  software-properties-common
 )
 
 export DEBIAN_FRONTEND=noninteractive
