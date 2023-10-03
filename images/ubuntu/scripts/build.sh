@@ -2,6 +2,7 @@
 
 NODE_VERSION="20.7.0"
 PYTHON_VERSION="3.11.5"
+GO_VERSION="1.21.1"
 
 GIT_VERSION="2.42.0"
 
@@ -126,6 +127,12 @@ popd || exit
 rm -rf /tmp/Python-$PYTHON_VERSION
 echo "Python installed: $(python --version) at $(which python)"
 # End Python
+
+# Go
+echo "Installing Go $GO_VERSION"
+curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
+echo "Go installed: $(go version) at $(which go)"
+# End Go
 
 # Node
 echo "Installing Node $NODE_VERSION"

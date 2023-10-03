@@ -1,8 +1,5 @@
 #!/bin/bash
 
-NODE_VERSION="20.7.0"
-GO_VERSION="1.21.1"
-
 JQ_VERSION="1.7"
 
 archstr=$(uname -m)
@@ -106,12 +103,6 @@ echo "Docker installed: $(docker --version)"
 python -m pip install --user pipx
 python -m pipx ensurepath
 # End Python
-
-# Go
-echo "Installing Go $GO_VERSION"
-curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
-echo "Go installed: $(go version) at $(which go)"
-# End Go
 
 # Rust
 echo "Installing Rust"
