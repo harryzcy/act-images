@@ -1,5 +1,23 @@
 #!/bin/bash
 
+NODE_VERSION="20.7.0"
+GO_VERSION="1.21.1"
+
+JQ_VERSION="1.7"
+
+archstr=$(uname -m)
+echo "Architecture: $archstr"
+if [[ "$archstr" == "x86_64" ]]; then
+  arch="amd64"
+  arch_short="x64"
+elif [[ "$archstr" == "aarch64" ]]; then
+  arch="arm64"
+  arch_short="arm64"
+else
+  echo "Unsupported architecture: $archstr"
+  return 1
+fi
+
 export PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
 
 packages=(
@@ -94,6 +112,24 @@ echo "Installing Rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
+
+# Go
+echo "Installing Go $GO_VERSION"
+curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
+echo "Go installed: $(go version) at $(which go)"
+# End Go
+
+# Node
+echo "Installing Node $NODE_VERSION"
+curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+echo "Node installed: $(node -v) at $(which node)"
+# End Node
+
+# jq
+echo "Installing jq"
+curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$arch -o /usr/local/bin/jq
+chmod +x /usr/local/bin/jq
+# End jq
 
 # Ansible
 echo "Installing Ansible"
