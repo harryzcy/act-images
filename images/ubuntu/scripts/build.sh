@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o errexit
+set -o pipefail
+
 PYTHON_VERSION="3.11.5"
 
 GIT_VERSION="2.42.0"

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -o errexit
+set -o pipefail
+
 NODE_VERSION="20.7.0"
 GO_VERSION="1.21.1"
 
