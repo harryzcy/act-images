@@ -107,12 +107,6 @@ python -m pip install --user pipx
 python -m pipx ensurepath
 # End Python
 
-# Node
-echo "Installing Node $NODE_VERSION"
-curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
-echo "Node installed: $(node -v) at $(which node)"
-# End Node
-
 # Go
 echo "Installing Go $GO_VERSION"
 curl -L https://go.dev/dl/go$GO_VERSION.linux-$arch.tar.gz | tar -C /usr/local -xzf -
