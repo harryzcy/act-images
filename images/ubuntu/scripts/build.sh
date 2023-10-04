@@ -58,10 +58,10 @@ pushd Python-$PYTHON_VERSION/ || exit
 ./configure --enable-optimizations >/dev/null
 make -j "$(nproc)" && make -j "$(nproc)" altinstall
 
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
+ln -s /usr/local/bin/python3.12 /usr/local/bin/python
+ln -s /usr/local/bin/python3.12 /usr/local/bin/python3
+ln -s /usr/local/bin/pip3.12 /usr/local/bin/pip
+ln -s /usr/local/bin/pip3.12 /usr/local/bin/pip3
 
 popd || exit
 popd || exit
