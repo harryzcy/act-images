@@ -4,9 +4,12 @@ set -o errexit
 set -o pipefail
 
 PYTHON_VERSION="3.12.0"
-PYTHON_VERSION_MAJOR_MINOR="3.12"
 
 GIT_VERSION="2.42.0"
+
+# shellcheck disable=SC2034
+IFS='.' read -r PYTHON_MAJOR PYTHON_MINOR PYTHON_PATCH <<<"$PYTHON_VERSION"
+PYTHON_VERSION_MAJOR_MINOR="${PYTHON_MAJOR}.${PYTHON_MINOR}"
 
 packages=(
   ca-certificates
