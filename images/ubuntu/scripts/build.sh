@@ -25,6 +25,7 @@ packages=(
   libexpat1-dev
   gettext
   libz-dev
+  libcurl4-openssl-dev # for git-remote-http
   # end
 )
 
