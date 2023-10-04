@@ -3,7 +3,8 @@
 set -o errexit
 set -o pipefail
 
-PYTHON_VERSION="3.11.5"
+PYTHON_VERSION="3.12.0"
+PYTHON_VERSION_MAJOR_MINOR="3.12"
 
 GIT_VERSION="2.42.0"
 
@@ -58,10 +59,10 @@ pushd Python-$PYTHON_VERSION/ || exit
 ./configure --enable-optimizations >/dev/null
 make -j "$(nproc)" && make -j "$(nproc)" altinstall
 
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python
-ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip
-ln -s /usr/local/bin/pip3.11 /usr/local/bin/pip3
+ln -s "/usr/local/bin/python$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/python
+ln -s "/usr/local/bin/python$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/python3
+ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip
+ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip3
 
 popd || exit
 popd || exit
