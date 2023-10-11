@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 
 NODE_VERSION="20.8.0"
-GO_VERSION="1.21.2"
+GO_VERSION="1.21.3"
 
 JQ_VERSION="1.7"
 
