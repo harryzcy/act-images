@@ -146,4 +146,5 @@ echo "jq installed: $(jq --version) at $(which jq)"
 # typos
 echo "Installing typos"
 cargo install typos-cli
+rm -rf /root/.cargo/registry
 echo "typos installed: $(typos --version) at $(which typos)"
