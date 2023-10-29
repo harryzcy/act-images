@@ -128,13 +128,13 @@ python -m pip install --user pipx
 python -m pipx ensurepath
 # End Python
 
-# Ansible
-echo "Installing Ansible"
+# ansible
+echo "Installing ansible"
 python -m pipx install --include-deps ansible
 python -m pipx install ansible-lint
-echo "Ansible installed: $(ansible --version)"
-echo "Ansible Lint installed: $(ansible-lint --version) at $(which ansible-lint)"
-# End Ansible
+echo "ansible installed: $(ansible --version)"
+echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
+# End ansible
 
 # jq
 echo "Installing jq"
