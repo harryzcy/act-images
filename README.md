@@ -23,6 +23,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 ### Tools
 
+<!-- textlint-disable -->
 - ansible
 - ansible-lint
 - awk
@@ -36,3 +37,4 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - xz
 - zip
 - zstd
+<!-- textlint-enable -->
