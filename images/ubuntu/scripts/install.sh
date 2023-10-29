@@ -142,3 +142,8 @@ curl -L https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-$
 chmod +x /usr/local/bin/jq
 echo "jq installed: $(jq --version) at $(which jq)"
 # End jq
+
+# typos
+echo "Installing typos"
+cargo install typos-cli
+echo "typos installed: $(typos --version) at $(which typos)"
