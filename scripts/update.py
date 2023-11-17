@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from urllib.request import urlopen
 import json
+from urllib.request import urlopen
 
 
 def get_packages():
