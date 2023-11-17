@@ -1,0 +1,89 @@
+[
+  {
+    "title": "Languages",
+    "items": [
+      {
+        "name": "Go",
+        "version": "1.21.4"
+      },
+      {
+        "name": "Node",
+        "version": "20.9.0"
+      },
+      {
+        "name": "Python",
+        "version": "3.12.0"
+      },
+      {
+        "name": "Rust",
+        "version": "stable"
+      }
+    ]
+  },
+  {
+    "title": "Package Managers",
+    "items": [
+      {
+        "name": "npm"
+      },
+      {
+        "name": "pip"
+      },
+      {
+        "name": "pipx"
+      },
+      {
+        "name": "rustup"
+      },
+      {
+        "name": "cargo"
+      }
+    ]
+  },
+  {
+    "title": "Tools",
+    "items": [
+      {
+        "name": "ansible"
+      },
+      {
+        "name": "ansible-lint"
+      },
+      {
+        "name": "awk"
+      },
+      {
+        "name": "curl"
+      },
+      {
+        "name": "docker"
+      },
+      {
+        "name": "git",
+        "version": "2.42.0"
+      },
+      {
+        "name": "sqlite3"
+      },
+      {
+        "name": "jq",
+        "version": "1.7"
+      },
+      {
+        "name": "typos-cli"
+      },
+      {
+        "name": "wget"
+      },
+      {
+        "name": "xz"
+      },
+      {
+        "name": "zip"
+      },
+      {
+        "name": "zstd"
+      }
+    ]
+  }
+]
