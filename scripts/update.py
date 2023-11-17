@@ -13,7 +13,10 @@ def read_readme():
 
 def get_current_version(readme: str, language: str):
     pattern = r"{} ([0-9.]+)".format(language)
-    current = re.search(pattern, readme)[1]
+    matches = re.search(pattern, readme)
+    if matches is None:
+        raise Exception("Could not find {} version".format(language))
+    current = matches[1]
     return current
 
 
