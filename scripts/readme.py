@@ -8,8 +8,9 @@ def update_packages():
     with open("README.md") as f:
         readme = f.read()
 
-    readme = readme.split("## Installed Packages")[0]
-    readme += "## Installed Packages\n"
+    section_start = "## Installed Packages"
+    readme = readme.split(section_start)[0]
+    readme += section_start + "\n"
 
     with open("packages.json") as f:
         packages = json.load(f)
