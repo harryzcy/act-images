@@ -10,26 +10,32 @@ def get_packages():
     return packages
 
 
-def get_current_version(packages: dict, language: str):
+def write_packages(packages: dict):
+    with open("packages.json", "w") as f:
+        json.dump(packages, f, indent=2)
+
+
+def update_current(packages: dict, package: str, version: str):
     for group in packages:
         for item in group["items"]:
-            if item["name"] == language:
-                return item["version"]
-    print(f"Could not find {language} in packages.json")
+            if item["name"] == package:
+                if item["version"] == version:
+                    return False
+                item["version"] = version
+                return True
     return None
 
 
-def check_go(packages: dict):
+def update_go(packages: dict):
     url = "https://golang.org/VERSION?m=text"
     with urlopen(url) as f:
         latest = f.read().decode("utf-8").strip()
     latest = latest.split("\n")[0]
     latest = latest.removeprefix("go")
-    current = get_current_version(packages, "Go")
-    return current != latest, current, latest
+    return update_current(packages, "Go", latest)
 
 
-def check_node(packages: dict):
+def update_node(packages: dict):
     url = "https://nodejs.org/download/release/index.json"
     with urlopen(url) as f:
         releases = json.loads(f.read().decode("utf-8").strip())
@@ -39,20 +45,18 @@ def check_node(packages: dict):
             latest = release["version"]
             break
     latest = latest.removeprefix("v")
-    current = get_current_version(packages, "Node")
-    return current != latest, current, latest
+    return update_current(packages, "Node", latest)
 
 
-def check_python(packages: dict):
+def update_python(packages: dict):
     url = "https://endoflife.date/api/python.json"
     with urlopen(url) as f:
         releases = json.loads(f.read().decode("utf-8").strip())
     latest = releases[0]["latest"]
-    current = get_current_version(packages, "Python")
-    return current != latest, current, latest
+    return update_current(packages, "Python", latest)
 
 
-def check_git(packages: dict):
+def update_git(packages: dict):
     url = "https://api.github.com/repos/git/git/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
@@ -63,11 +67,10 @@ def check_git(packages: dict):
             latest = name
             break
     latest = latest.removeprefix("v")
-    current = get_current_version(packages, "git")
-    return current != latest, current, latest
+    return update_current(packages, "git", latest)
 
 
-def check_jq(packages: dict):
+def update_jq(packages: dict):
     url = "https://api.github.com/repos/jqlang/jq/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
@@ -78,29 +81,30 @@ def check_jq(packages: dict):
             latest = name
             break
     latest = latest.removeprefix("jq-")
-    current = get_current_version(packages, "jq")
-    return current != latest, current, latest
+    return update_current(packages, "jq", latest)
 
 
 def main():
     packages = get_packages()
 
     checks = {
-        "Go": check_go,
-        "Node": check_node,
-        "Python": check_python,
-        "git": check_git,
-        "jq": check_jq,
+        "Go": update_go,
+        "Node": update_node,
+        "Python": update_python,
+        "git": update_git,
+        "jq": update_jq,
     }
 
     num_updates = 0
-    for package, check in checks.items():
-        update, current, latest = check(packages)
-        if update:
+    for _, check in checks.items():
+        updated = check(packages)
+        if updated:
             num_updates += 1
-            print(f"{package}: {current} -> {latest}")
     if num_updates == 0:
         print("No updates available")
+    else:
+        write_packages(packages)
+        print(f"Updated {num_updates} packages")
 
 
 if __name__ == "__main__":
