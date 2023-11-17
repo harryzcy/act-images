@@ -13,6 +13,7 @@ def get_packages():
 def write_packages(packages: dict):
     with open("packages.json", "w") as f:
         json.dump(packages, f, indent=2)
+        f.write("\n")
 
 
 def update_current(packages: dict, package: str, version: str):
