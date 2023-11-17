@@ -50,12 +50,28 @@ def check_python_version(readme: str):
     return current != latest, current, latest
 
 
+def check_git(readme: str):
+    url = "https://api.github.com/repos/git/git/tags"
+    with urlopen(url) as f:
+        tags = json.loads(f.read().decode("utf-8").strip())
+
+    for tag in tags:
+        name = tag["name"]
+        if "-rc" not in name:
+            latest = name
+            break
+    latest = latest.removeprefix("v")
+    current = get_current_version(readme, "git")
+    return current != latest, current, latest
+
+
 def main():
     readme = read_readme()
 
     print(check_go_version(readme))
     print(check_node_version(readme))
     print(check_python_version(readme))
+    print(check_git(readme))
 
 
 if __name__ == "__main__":
