@@ -60,7 +60,7 @@
       },
       {
         "name": "git",
-        "version": "2.42.0"
+        "version": "2.42.1"
       },
       {
         "name": "sqlite3"
