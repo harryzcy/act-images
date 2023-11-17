@@ -1,37 +1,35 @@
 #!/usr/bin/env python3
 
 from urllib.request import urlopen
-import re
 import json
 
 
-def read_readme():
-    with open("README.md") as f:
-        readme = f.read()
-    return readme
+def get_packages():
+    with open("packages.json") as f:
+        packages = json.load(f)
+    return packages
 
 
-def get_current_version(readme: str, language: str):
-    pattern = r"{} ([0-9.]+)".format(language)
-    matches = re.search(pattern, readme)
-    if matches is None:
-        print("Could not find {} version in README.md".format(language))
-        return None
-    current = matches[1]
-    return current
+def get_current_version(packages: dict, language: str):
+    for group in packages:
+        for item in group["items"]:
+            if item["name"] == language:
+                return item["version"]
+    print(f"Could not find {language} in packages.json")
+    return None
 
 
-def check_go(readme: str):
+def check_go(packages: dict):
     url = "https://golang.org/VERSION?m=text"
     with urlopen(url) as f:
         latest = f.read().decode("utf-8").strip()
     latest = latest.split("\n")[0]
     latest = latest.removeprefix("go")
-    current = get_current_version(readme, "Go")
+    current = get_current_version(packages, "Go")
     return current != latest, current, latest
 
 
-def check_node(readme: str):
+def check_node(packages: dict):
     url = "https://nodejs.org/download/release/index.json"
     with urlopen(url) as f:
         releases = json.loads(f.read().decode("utf-8").strip())
@@ -41,20 +39,20 @@ def check_node(readme: str):
             latest = release["version"]
             break
     latest = latest.removeprefix("v")
-    current = get_current_version(readme, "Node")
+    current = get_current_version(packages, "Node")
     return current != latest, current, latest
 
 
-def check_python(readme: str):
+def check_python(packages: dict):
     url = "https://endoflife.date/api/python.json"
     with urlopen(url) as f:
         releases = json.loads(f.read().decode("utf-8").strip())
     latest = releases[0]["latest"]
-    current = get_current_version(readme, "Python")
+    current = get_current_version(packages, "Python")
     return current != latest, current, latest
 
 
-def check_git(readme: str):
+def check_git(packages: dict):
     url = "https://api.github.com/repos/git/git/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
@@ -65,11 +63,11 @@ def check_git(readme: str):
             latest = name
             break
     latest = latest.removeprefix("v")
-    current = get_current_version(readme, "git")
+    current = get_current_version(packages, "git")
     return current != latest, current, latest
 
 
-def check_jq(readme: str):
+def check_jq(packages: dict):
     url = "https://api.github.com/repos/jqlang/jq/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
@@ -80,12 +78,12 @@ def check_jq(readme: str):
             latest = name
             break
     latest = latest.removeprefix("jq-")
-    current = get_current_version(readme, "jq")
+    current = get_current_version(packages, "jq")
     return current != latest, current, latest
 
 
 def main():
-    readme = read_readme()
+    packages = get_packages()
 
     checks = {
         "Go": check_go,
@@ -97,7 +95,7 @@ def main():
 
     num_updates = 0
     for package, check in checks.items():
-        update, current, latest = check(readme)
+        update, current, latest = check(packages)
         if update:
             num_updates += 1
             print(f"{package}: {current} -> {latest}")
