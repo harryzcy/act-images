@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import os
 
 
 def update_packages():
@@ -28,4 +29,8 @@ def update_packages():
 
 
 if __name__ == "__main__":
+    cwd = os.getcwd()
+    if cwd.endswith("scripts"):
+        os.chdir("..")
+
     update_packages()
