@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import json
+
+
+def update_packages():
+    with open("README.md") as f:
+        readme = f.read()
+
+    readme = readme.split("## Installed Packages")[0]
+    readme += "## Installed Packages\n"
+
+    with open("packages.json") as f:
+        packages = json.load(f)
+
+    for group in packages:
+        title = group["title"]
+        items = group["items"]
+        readme += f"\n### {title}\n\n"
+        for item in items:
+            text = item["name"]
+            if "version" in item:
+                text += f" {item['version']}"
+            readme += f"- {text}\n"
+
+    with open("README.md", "w") as f:
+        f.write(readme)
+
+
+if __name__ == "__main__":
+    update_packages()
