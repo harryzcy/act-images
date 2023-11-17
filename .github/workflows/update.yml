@@ -31,7 +31,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
-          commit-message: "[chore] Update release number"
-          title: "Update release number"
+          commit-message: "[chore] Update package versions"
+          title: "Update package versions"
           labels: "chore"
-          add-paths: "src/projects.yaml"
+          add-paths: "packages.json,README.md"
