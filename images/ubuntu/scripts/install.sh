@@ -69,6 +69,7 @@ packages=(
   apt-transport-https
   build-essential
   ca-certificates
+  chktex # for latex
   curl
   libyaml-0-2
   sudo

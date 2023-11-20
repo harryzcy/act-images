@@ -56,6 +56,9 @@
         "name": "curl"
       },
       {
+        "name": "chktex"
+      },
+      {
         "name": "docker"
       },
       {
