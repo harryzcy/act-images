@@ -28,7 +28,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - awk
 - curl
 - docker
-- git 2.42.1
+- git 2.43.0
 - sqlite3
 - jq 1.7
 - typos-cli
