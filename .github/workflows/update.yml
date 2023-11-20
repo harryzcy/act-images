@@ -33,5 +33,5 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
           commit-message: "[chore] Update package versions"
           title: "Update package versions"
-          labels: "chore"
+          labels: "dependencies"
           add-paths: "packages.json,README.md"
