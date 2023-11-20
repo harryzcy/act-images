@@ -27,6 +27,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - ansible-lint
 - awk
 - curl
+- chktex
 - docker
 - git 2.42.0
 - sqlite3
