@@ -9,7 +9,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 ### Languages
 
 - Go 1.21.4
-- Node 20.9.0
+- Node 20.10.0
 - Python 3.12.0
 - Rust stable
 
