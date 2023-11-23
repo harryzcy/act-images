@@ -8,3 +8,17 @@ jobs:
   super-linter:
     name: Super Linter
     uses: harryzcy/github-actions/.github/workflows/linter.yml@main
+
+  readme:
+    name: Correct README
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure README is up to date
+        uses: danieljimeneznz/ensure-files-changed@v4
+        with:
+          prevent-changes-to: |
+            README.md
+          token: ${{ secrets.GITHUB_TOKEN }}
