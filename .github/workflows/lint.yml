@@ -8,3 +8,25 @@ jobs:
   super-linter:
     name: Super Linter
     uses: harryzcy/github-actions/.github/workflows/linter.yml@main
+
+  readme:
+    name: Correct README
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate README
+        run: |
+          python scripts/generate_readme.py
+
+      - name: Ensure README is up to date
+        uses: xalvarez/prevent-file-change-action@v1
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          pattern: README.md
