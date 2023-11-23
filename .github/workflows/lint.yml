@@ -17,8 +17,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Ensure README is up to date
-        uses: danieljimeneznz/ensure-files-changed@v4
+        uses: xalvarez/prevent-file-change-action@v1
         with:
-          prevent-changes-to: |
-            README.md
-          token: ${{ secrets.GITHUB_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          pattern: README.md
