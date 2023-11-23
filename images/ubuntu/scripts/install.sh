@@ -104,6 +104,7 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-c
 rm /etc/apt/sources.list.d/docker.list
 rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
+echo "Docker buildx installed: $(docker buildx version)"
 # End Docker
 
 # Go

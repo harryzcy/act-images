@@ -62,6 +62,9 @@
         "name": "docker"
       },
       {
+        "name": "docker buildx"
+      },
+      {
         "name": "git",
         "version": "2.43.0"
       },

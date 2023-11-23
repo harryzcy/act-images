@@ -19,6 +19,7 @@ ansible-lint --version
 awk --version | head -n 1
 curl --version
 echo "$(docker -v) $(which docker)"
+echo "$(docker buildx version)"
 echo "$(git --version) $(which git)"
 echo "sqlite3 $(sqlite3 --version) $(which sqlite3)"
 echo "$(typos --version) $(which typos)"
