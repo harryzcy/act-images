@@ -19,7 +19,7 @@ jobs:
 
       - name: Generate README
         run: |
-          python scripts/readme.py
+          python scripts/generate_readme.py
 
       - name: Ensure README is up to date
         uses: xalvarez/prevent-file-change-action@v1

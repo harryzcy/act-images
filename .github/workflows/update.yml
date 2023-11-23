@@ -19,7 +19,7 @@ jobs:
       - name: Update versions
         run: |
           python scripts/update.py
-          python scripts/readme.py
+          python scripts/generate_readme.py
 
       - uses: tibdex/github-app-token@v2
         id: generate-token
