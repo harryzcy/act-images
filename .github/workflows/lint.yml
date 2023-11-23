@@ -17,6 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate README
+        run: |
+          python scripts/readme.py
+
       - name: Ensure README is up to date
         uses: xalvarez/prevent-file-change-action@v1
         with:
