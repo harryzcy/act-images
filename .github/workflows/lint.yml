@@ -1,6 +1,7 @@
 name: Lint
 
 on:
+  push:
   pull_request:
 
 jobs:
@@ -11,6 +12,7 @@ jobs:
   readme:
     name: Correct README
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     permissions:
       pull-requests: read
     steps:
