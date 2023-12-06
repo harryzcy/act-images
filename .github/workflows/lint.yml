@@ -26,7 +26,5 @@ jobs:
           python scripts/generate_readme.py
 
       - name: Ensure README is up to date
-        uses: xalvarez/prevent-file-change-action@v1
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          pattern: README.md
+        run: |
+          git diff --exit-code README.md
