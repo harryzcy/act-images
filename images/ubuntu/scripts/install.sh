@@ -150,3 +150,8 @@ echo "Installing typos"
 cargo install typos-cli
 rm -rf /root/.cargo/registry
 echo "typos installed: $(typos --version) at $(which typos)"
+
+# ruff
+echo "Installing ruff"
+python -m pipx install ruff
+echo "ruff installed: $(ruff --version) at $(which ruff)"
