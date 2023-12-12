@@ -72,6 +72,7 @@ packages=(
   chktex # for latex
   curl
   libyaml-0-2
+  lsof # for killing processes
   sudo
   gawk
   gnupg

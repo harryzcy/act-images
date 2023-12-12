@@ -31,6 +31,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - docker
 - docker buildx
 - git 2.43.0
+- lsof
 - ruff
 - sqlite3
 - jq 1.7
