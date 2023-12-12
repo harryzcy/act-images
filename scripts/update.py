@@ -3,6 +3,11 @@
 import json
 from urllib.request import urlopen
 
+files = [
+    "images/ubuntu/scripts/build.sh",
+    "images/ubuntu/scripts/install.sh",
+]
+
 
 def get_packages():
     with open("packages.json") as f:
@@ -16,12 +21,24 @@ def write_packages(packages: dict):
         f.write("\n")
 
 
+def update_environment(package: str, from_version: str, to_version: str):
+    old_env = f'{package.upper()}_VERSION="{from_version}"'
+    new_env = f'{package.upper()}_VERSION="{to_version}"'
+    for file in files:
+        with open(file) as f:
+            contents = f.read()
+        contents = contents.replace(old_env, new_env)
+        with open(file, "w") as f:
+            f.write(contents)
+
+
 def update_current(packages: dict, package: str, version: str):
     for group in packages:
         for item in group["items"]:
             if item["name"] == package:
                 if item["version"] == version:
                     return False
+                update_environment(package, item["version"], version)
                 item["version"] = version
                 return True
     return None
