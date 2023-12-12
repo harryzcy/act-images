@@ -3,9 +3,9 @@
 set -o errexit
 set -o pipefail
 
-PYTHON_VERSION="3.12.0"
+PYTHON_VERSION="3.12.1"
 
-GIT_VERSION="2.42.0"
+GIT_VERSION="2.43.0"
 
 # shellcheck disable=SC2034
 IFS='.' read -r PYTHON_MAJOR PYTHON_MINOR PYTHON_PATCH <<<"$PYTHON_VERSION"
