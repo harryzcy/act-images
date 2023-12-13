@@ -5,7 +5,7 @@
     ":disableDependencyDashboard",
     ":automergeMinor"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "customType": "regex",
       "fileMatch": [
