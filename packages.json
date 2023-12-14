@@ -79,7 +79,7 @@
       },
       {
         "name": "jq",
-        "version": "1.7"
+        "version": "1.7.1"
       },
       {
         "name": "typos-cli"

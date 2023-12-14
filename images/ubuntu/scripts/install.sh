@@ -6,7 +6,7 @@ set -o pipefail
 NODE_VERSION="20.10.0"
 GO_VERSION="1.21.5"
 
-JQ_VERSION="1.7"
+JQ_VERSION="1.7.1"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
