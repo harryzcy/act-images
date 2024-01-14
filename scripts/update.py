@@ -27,9 +27,13 @@ def update_environment(package: str, from_version: str, to_version: str):
     for file in files:
         with open(file) as f:
             contents = f.read()
-        contents = contents.replace(old_env, new_env)
-        with open(file, "w") as f:
-            f.write(contents)
+        new_content = contents.replace(old_env, new_env)
+        if new_content != contents:
+            print(f"Updating {file}")
+            with open(file, "w") as f:
+                f.write(new_content)
+        else:
+            print(f"Skipping {file}")
 
 
 def update_current(packages: dict, package: str, version: str):
