@@ -34,4 +34,4 @@ jobs:
           commit-message: "[chore] Update package versions"
           title: "Update package versions"
           labels: "dependencies"
-          add-paths: "packages.json,README.md"
+          add-paths: "packages.json,README.md,images/ubuntu/scripts"
