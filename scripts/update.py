@@ -32,6 +32,8 @@ def update_environment(package: str, from_version: str, to_version: str):
             print(f"Updating {file}")
             with open(file, "w") as f:
                 f.write(new_content)
+        else:
+            print(f"Skipping {file}")
 
 
 def update_current(packages: dict, package: str, version: str):
