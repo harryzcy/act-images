@@ -82,6 +82,7 @@ packages=(
   wget
   zstd
   zip
+  zsh
   sqlite3
 )
 
