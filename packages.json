@@ -94,6 +94,9 @@
         "name": "zip"
       },
       {
+        "name": "zsh"
+      },
+      {
         "name": "zstd"
       }
     ]
