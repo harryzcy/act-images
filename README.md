@@ -17,7 +17,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 - npm
 - pip 23.3.2
-- pipx
+- pipx 1.4.3
 - rustup
 - cargo
 

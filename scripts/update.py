@@ -91,6 +91,15 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
     return None
 
 
+def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+
+    latest: str = content["tag_name"]
+    return latest.removeprefix(prefix)
+
+
 def update_pip(packages: dict):
     latest = get_version_from_tag("pypa", "pip", prefix="")
     return update_current(packages, "pip", latest)
@@ -106,13 +115,13 @@ def update_jq(packages: dict):
     return update_current(packages, "jq", latest)
 
 
-def update_typos_cli(packages: dict):
-    url = "https://api.github.com/repos/crate-ci/typos/releases/latest"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
+def update_pipx(packages: dict):
+    latest = get_version_from_release("pypa", "pipx")
+    return update_current(packages, "pipx", latest)
 
-    latest: str = content["tag_name"]
-    latest = latest.removeprefix("v")
+
+def update_typos_cli(packages: dict):
+    latest = get_version_from_release("crate-ci", "typos")
     return update_current(packages, "typos-cli", latest)
 
 
@@ -124,6 +133,7 @@ def main():
         "Node": update_node,
         "Python": update_python,
         "pip": update_pip,
+        "pipx": update_pipx,
         "git": update_git,
         "jq": update_jq,
         "typos-cli": update_typos_cli,
