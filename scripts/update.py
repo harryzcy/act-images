@@ -22,8 +22,9 @@ def write_packages(packages: dict):
 
 
 def update_environment(package: str, from_version: str, to_version: str):
-    old_env = f'{package.upper()}_VERSION="{from_version}"'
-    new_env = f'{package.upper()}_VERSION="{to_version}"'
+    package_env = f"${package.upper().replace('-', '_')}_VERSION"
+    old_env = f'{package_env}="{from_version}"'
+    new_env = f'{package_env}="{to_version}"'
     for file in files:
         with open(file) as f:
             contents = f.read()
@@ -98,12 +99,22 @@ def update_jq(packages: dict):
         tags = json.loads(f.read().decode("utf-8").strip())
 
     for tag in tags:
-        name = tag["name"]
+        name: str = tag["name"]
         if "rc" not in name:
             latest = name
             break
     latest = latest.removeprefix("jq-")
     return update_current(packages, "jq", latest)
+
+
+def update_typos_cli(packages: dict):
+    url = "https://api.github.com/repos/crate-ci/typos/releases/latest"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+
+    latest: str = content["tag_name"]
+    latest = latest.removeprefix("v")
+    return update_current(packages, "typos-cli", latest)
 
 
 def main():
@@ -115,6 +126,7 @@ def main():
         "Python": update_python,
         "git": update_git,
         "jq": update_jq,
+        "typos-cli": update_typos_cli,
     }
 
     num_updates = 0
