@@ -7,6 +7,7 @@ NODE_VERSION="20.11.0"
 GO_VERSION="1.21.6"
 
 JQ_VERSION="1.7.1"
+TYPOS_CLI_VERSION="1.17.2"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -149,7 +150,7 @@ echo "jq installed: $(jq --version) at $(which jq)"
 
 # typos
 echo "Installing typos"
-cargo install typos-cli
+cargo install typos-cli --version "$TYPOS_CLI_VERSION"
 rm -rf /root/.cargo/registry
 echo "typos installed: $(typos --version) at $(which typos)"
 

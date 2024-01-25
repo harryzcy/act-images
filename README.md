@@ -35,7 +35,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - ruff
 - sqlite3
 - jq 1.7.1
-- typos-cli
+- typos-cli 1.17.2
 - wget
 - xz
 - zip

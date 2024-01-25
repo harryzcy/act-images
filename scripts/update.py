@@ -22,8 +22,9 @@ def write_packages(packages: dict):
 
 
 def update_environment(package: str, from_version: str, to_version: str):
-    old_env = f'{package.upper()}_VERSION="{from_version}"'
-    new_env = f'{package.upper()}_VERSION="{to_version}"'
+    package_env = f"${package.upper().replace('-', '_')}_VERSION"
+    old_env = f'{package_env}="{from_version}"'
+    new_env = f'{package_env}="{to_version}"'
     for file in files:
         with open(file) as f:
             contents = f.read()
