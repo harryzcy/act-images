@@ -82,7 +82,7 @@ ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip
 ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip3
 
 # Upgrade pip
-pip install --upgrade pip=="$PIP_VERSION"
+pip install --upgrade "pip==$PIP_VERSION"
 
 popd || exit
 popd || exit
