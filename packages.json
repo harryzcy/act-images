@@ -27,7 +27,8 @@
         "name": "npm"
       },
       {
-        "name": "pip"
+        "name": "pip",
+        "version": "23.3.2"
       },
       {
         "name": "pipx"
