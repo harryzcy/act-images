@@ -107,6 +107,19 @@ def update_jq(packages: dict):
     return update_current(packages, "jq", latest)
 
 
+def update_typos_cli(packages: dict):
+    url = "https://github.com/crate-ci/typos"
+    with urlopen(url) as f:
+        tags = json.loads(f.read().decode("utf-8").strip())
+
+    for tag in tags:
+        name = tag["name"]
+        if "rc" not in name:
+            latest = name
+            break
+    return update_current(packages, "typos-cli", latest)
+
+
 def main():
     packages = get_packages()
 
@@ -116,6 +129,7 @@ def main():
         "Python": update_python,
         "git": update_git,
         "jq": update_jq,
+        "typos-cli": update_typos_cli,
     }
 
     num_updates = 0
