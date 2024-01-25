@@ -7,6 +7,7 @@ NODE_VERSION="20.11.0"
 GO_VERSION="1.21.6"
 
 JQ_VERSION="1.7.1"
+PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.17.2"
 
 archstr=$(uname -m)
@@ -129,7 +130,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # Python
-python -m pip install --user pipx
+python -m pip install --user "pipx==$PIPX_VERSION"
 python -m pipx ensurepath
 # End Python
 

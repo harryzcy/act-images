@@ -27,10 +27,12 @@
         "name": "npm"
       },
       {
-        "name": "pip"
+        "name": "pip",
+        "version": "23.3.2"
       },
       {
-        "name": "pipx"
+        "name": "pipx",
+        "version": "1.4.3"
       },
       {
         "name": "rustup"

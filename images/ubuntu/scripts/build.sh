@@ -5,6 +5,8 @@ set -o pipefail
 
 PYTHON_VERSION="3.12.1"
 
+PIP_VERSION="23.3.2"
+
 GIT_VERSION="2.43.0"
 
 # shellcheck disable=SC2034
@@ -78,6 +80,9 @@ ln -s "/usr/local/bin/python$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/python
 ln -s "/usr/local/bin/python$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/python3
 ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip
 ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip3
+
+# Upgrade pip
+pip install --upgrade "pip==$PIP_VERSION"
 
 popd || exit
 popd || exit

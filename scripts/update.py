@@ -22,7 +22,7 @@ def write_packages(packages: dict):
 
 
 def update_environment(package: str, from_version: str, to_version: str):
-    package_env = f"${package.upper().replace('-', '_')}_VERSION"
+    package_env = f"{package.upper().replace('-', '_')}_VERSION"
     old_env = f'{package_env}="{from_version}"'
     new_env = f'{package_env}="{to_version}"'
     for file in files:
@@ -79,41 +79,49 @@ def update_python(packages: dict):
     return update_current(packages, "Python", latest)
 
 
-def update_git(packages: dict):
-    url = "https://api.github.com/repos/git/git/tags"
-    with urlopen(url) as f:
-        tags = json.loads(f.read().decode("utf-8").strip())
-
-    for tag in tags:
-        name = tag["name"]
-        if "-rc" not in name:
-            latest = name
-            break
-    latest = latest.removeprefix("v")
-    return update_current(packages, "git", latest)
-
-
-def update_jq(packages: dict):
-    url = "https://api.github.com/repos/jqlang/jq/tags"
+def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
 
     for tag in tags:
         name: str = tag["name"]
-        if "rc" not in name:
-            latest = name
-            break
-    latest = latest.removeprefix("jq-")
-    return update_current(packages, "jq", latest)
+        if name.startswith(prefix):
+            return name.removeprefix(prefix)
+    return None
 
 
-def update_typos_cli(packages: dict):
-    url = "https://api.github.com/repos/crate-ci/typos/releases/latest"
+def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
     with urlopen(url) as f:
         content = json.loads(f.read().decode("utf-8").strip())
 
     latest: str = content["tag_name"]
-    latest = latest.removeprefix("v")
+    return latest.removeprefix(prefix)
+
+
+def update_pip(packages: dict):
+    latest = get_version_from_tag("pypa", "pip", prefix="")
+    return update_current(packages, "pip", latest)
+
+
+def update_git(packages: dict):
+    latest = get_version_from_tag("git", "git")
+    return update_current(packages, "git", latest)
+
+
+def update_jq(packages: dict):
+    latest = get_version_from_tag("jqlang", "jq", prefix="jq-")
+    return update_current(packages, "jq", latest)
+
+
+def update_pipx(packages: dict):
+    latest = get_version_from_release("pypa", "pipx")
+    return update_current(packages, "pipx", latest)
+
+
+def update_typos_cli(packages: dict):
+    latest = get_version_from_release("crate-ci", "typos")
     return update_current(packages, "typos-cli", latest)
 
 
@@ -124,6 +132,8 @@ def main():
         "Go": update_go,
         "Node": update_node,
         "Python": update_python,
+        "pip": update_pip,
+        "pipx": update_pipx,
         "git": update_git,
         "jq": update_jq,
         "typos-cli": update_typos_cli,
