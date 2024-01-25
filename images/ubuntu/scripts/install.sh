@@ -130,7 +130,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # Python
-python -m pip install --user pipx
+python -m pip install --user --upgrade pipx=="$PIPX_VERSION"
 python -m pipx ensurepath
 # End Python
 
