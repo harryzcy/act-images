@@ -99,7 +99,7 @@ def update_jq(packages: dict):
         tags = json.loads(f.read().decode("utf-8").strip())
 
     for tag in tags:
-        name = tag["name"]
+        name: str = tag["name"]
         if "rc" not in name:
             latest = name
             break
@@ -108,15 +108,12 @@ def update_jq(packages: dict):
 
 
 def update_typos_cli(packages: dict):
-    url = "https://github.com/crate-ci/typos"
+    url = "https://api.github.com/repos/crate-ci/typos/releases/latest"
     with urlopen(url) as f:
-        tags = json.loads(f.read().decode("utf-8").strip())
+        content = json.loads(f.read().decode("utf-8").strip())
 
-    for tag in tags:
-        name = tag["name"]
-        if "rc" not in name:
-            latest = name
-            break
+    latest: str = content["tag_name"]
+    latest = latest.removeprefix("v")
     return update_current(packages, "typos-cli", latest)
 
 
