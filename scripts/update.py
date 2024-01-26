@@ -113,8 +113,13 @@ def update_git(packages: dict):
 
 
 def update_ansible(packages: dict):
-    latest = get_version_from_release("ansible", "ansible")
+    latest = get_version_from_tag("ansible-community", "ansible-build-data", prefix="")
     return update_current(packages, "ansible", latest)
+
+
+def update_ansible_core(packages: dict):
+    latest = get_version_from_release("ansible", "ansible")
+    return update_current(packages, "ansible-core", latest)
 
 
 def update_ansible_lint(packages: dict):
@@ -153,6 +158,7 @@ def main():
         "pipx": update_pipx,
         "git": update_git,
         "ansible": update_ansible,
+        "ansible-core": update_ansible_core,
         "ansible-lint": update_ansible_lint,
         "jq": update_jq,
         "typos-cli": update_typos_cli,

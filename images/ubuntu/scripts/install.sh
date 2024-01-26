@@ -6,7 +6,8 @@ set -o pipefail
 NODE_VERSION="20.11.0"
 GO_VERSION="1.21.6"
 
-ANSIBLE_VERSION="2.16.2"
+ANSIBLE_VERSION="9.1.0"
+ANSIBLE_CORE_VERSION="2.16.2"
 ANSIBLE_LINT_VERSION="6.22.2"
 JQ_VERSION="1.7.1"
 PIPX_VERSION="1.4.3"
@@ -139,7 +140,7 @@ python -m pipx ensurepath
 
 # ansible
 echo "Installing ansible"
-python -m pipx install --include-deps "ansible==$ANSIBLE_VERSION"
+python -m pipx install --include-deps "ansible==$ANSIBLE_VERSION" "ansible-core==$ANSIBLE_CORE_VERSION"
 python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
 echo "ansible installed: $(ansible --version)"
 echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
