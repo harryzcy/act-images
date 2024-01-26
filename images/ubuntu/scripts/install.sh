@@ -140,7 +140,7 @@ python -m pipx ensurepath
 
 # ansible
 echo "Installing ansible"
-python -m pipx install"ansible-core==$ANSIBLE_CORE_VERSION"
+python -m pipx install "ansible-core==$ANSIBLE_CORE_VERSION"
 python -m pipx install --include-deps "ansible==$ANSIBLE_VERSION"
 python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
 echo "ansible installed: $(ansible --version)"
