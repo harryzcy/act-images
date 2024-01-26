@@ -23,7 +23,8 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 ### Tools
 
-- ansible 2.16.2
+- ansible 9.1.0
+- ansible-core 2.16.2
 - ansible-lint 6.22.2
 - awk
 - curl
