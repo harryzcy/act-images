@@ -86,6 +86,8 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
 
     for tag in tags:
         name: str = tag["name"]
+        if "rc" in name:
+            continue
         if name.startswith(prefix):
             return name.removeprefix(prefix)
     return None
@@ -110,6 +112,16 @@ def update_git(packages: dict):
     return update_current(packages, "git", latest)
 
 
+def update_ansible(packages: dict):
+    latest = get_version_from_release("ansible", "ansible")
+    return update_current(packages, "ansible", latest)
+
+
+def update_ansible_lint(packages: dict):
+    latest = get_version_from_release("ansible", "ansible-lint")
+    return update_current(packages, "ansible-lint", latest)
+
+
 def update_jq(packages: dict):
     latest = get_version_from_tag("jqlang", "jq", prefix="jq-")
     return update_current(packages, "jq", latest)
@@ -125,6 +137,11 @@ def update_typos_cli(packages: dict):
     return update_current(packages, "typos-cli", latest)
 
 
+def update_ruff(packages: dict):
+    latest = get_version_from_release("astral-sh", "ruff")
+    return update_current(packages, "ruff", latest)
+
+
 def main():
     packages = get_packages()
 
@@ -135,8 +152,11 @@ def main():
         "pip": update_pip,
         "pipx": update_pipx,
         "git": update_git,
+        "ansible": update_ansible,
+        "ansible-lint": update_ansible_lint,
         "jq": update_jq,
         "typos-cli": update_typos_cli,
+        "ruff": update_ruff,
     }
 
     num_updates = 0

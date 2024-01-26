@@ -6,9 +6,12 @@ set -o pipefail
 NODE_VERSION="20.11.0"
 GO_VERSION="1.21.6"
 
+ANSIBLE_VERSION="2.16.2"
+ANSIBLE_LINT_VERSION="6.22.2"
 JQ_VERSION="1.7.1"
 PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.17.2"
+RUFF_VERSION="0.1.14"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -136,8 +139,8 @@ python -m pipx ensurepath
 
 # ansible
 echo "Installing ansible"
-python -m pipx install --include-deps ansible
-python -m pipx install ansible-lint
+python -m pipx install --include-deps "ansible==$ANSIBLE_VERSION"
+python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
 echo "ansible installed: $(ansible --version)"
 echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End ansible
@@ -157,5 +160,5 @@ echo "typos installed: $(typos --version) at $(which typos)"
 
 # ruff
 echo "Installing ruff"
-python -m pipx install ruff
+python -m pipx install "ruff==$RUFF_VERSION"
 echo "ruff installed: $(ruff --version) at $(which ruff)"
