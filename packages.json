@@ -47,11 +47,11 @@
     "items": [
       {
         "name": "ansible",
-        "version": "9.1.0"
+        "version": "9.2.0"
       },
       {
         "name": "ansible-core",
-        "version": "2.16.2"
+        "version": "2.16.3"
       },
       {
         "name": "ansible-lint",
@@ -81,7 +81,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.1.14"
+        "version": "0.1.15"
       },
       {
         "name": "sqlite3"
