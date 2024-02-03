@@ -28,7 +28,7 @@
       },
       {
         "name": "pip",
-        "version": "23.3.2"
+        "version": "24.0"
       },
       {
         "name": "pipx",
