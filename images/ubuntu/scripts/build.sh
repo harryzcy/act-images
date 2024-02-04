@@ -5,7 +5,7 @@ set -o pipefail
 
 PYTHON_VERSION="3.12.1"
 
-PIP_VERSION="23.3.2"
+PIP_VERSION="24.0"
 
 GIT_VERSION="2.43.0"
 
