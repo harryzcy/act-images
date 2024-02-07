@@ -8,9 +8,9 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 ### Languages
 
-- Go 1.21.6
+- Go 1.21.7
 - Node 20.11.0
-- Python 3.12.1
+- Python 3.12.2
 - Rust stable
 
 ### Package Managers
@@ -25,7 +25,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 - ansible 9.2.0
 - ansible-core 2.16.3
-- ansible-lint 6.22.2
+- ansible-lint 24.2.0
 - awk
 - curl
 - chktex
