@@ -155,6 +155,11 @@ def update_ruff(packages: dict):
     return update_current(packages, "ruff", latest)
 
 
+def update_rust_up(packages: dict):
+    latest = get_version_from_tag("rust-lang", "rustup")
+    return update_current(packages, "rustup", latest)
+
+
 def main():
     packages = get_packages()
 
@@ -172,6 +177,7 @@ def main():
         "jq": update_jq,
         "typos-cli": update_typos_cli,
         "ruff": update_ruff,
+        "rustup": update_rust_up,
     }
 
     num_updates = 0

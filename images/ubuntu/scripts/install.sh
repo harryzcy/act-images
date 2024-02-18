@@ -14,6 +14,7 @@ JQ_VERSION="1.7.1"
 PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.18.2"
 RUFF_VERSION="0.2.2"
+RUST_UP_VERSION="1.26.0"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -130,7 +131,7 @@ echo "Node installed: $(node -v) at $(which node)"
 
 # Rust
 echo "Installing Rust"
-curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
+curl -fsSL https://raw.githubusercontent.com/rust-lang/rustup/$RUST_UP_VERSION/rustup-init.sh | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
