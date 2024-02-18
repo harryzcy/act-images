@@ -11,7 +11,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - Go 1.22.0
 - Node 20.11.1
 - Python 3.12.2
-- Rust stable
+- Rust 1.76.0
 
 ### Package Managers
 
