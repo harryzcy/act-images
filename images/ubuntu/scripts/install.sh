@@ -12,7 +12,7 @@ ANSIBLE_LINT_VERSION="24.2.0"
 JQ_VERSION="1.7.1"
 PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.18.2"
-RUFF_VERSION="0.2.1"
+RUFF_VERSION="0.2.2"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
