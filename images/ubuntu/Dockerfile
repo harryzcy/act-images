@@ -23,6 +23,7 @@ RUN grounpadd runner && \
 
 FROM scratch as final
 
+USER runner
 COPY --from=installer / /
 
 ENV PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
