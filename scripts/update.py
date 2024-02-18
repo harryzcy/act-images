@@ -79,14 +79,6 @@ def update_python(packages: dict):
     return update_current(packages, "Python", latest)
 
 
-def update_rust(packages: dict):
-    url = "https://api.github.com/repos/rust-lang/rust/releases/latest"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
-    latest = content["tag_name"]
-    return update_current(packages, "Rust", latest)
-
-
 def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
     url = f"https://api.github.com/repos/{owner}/{repo}/tags"
     with urlopen(url) as f:
@@ -107,7 +99,14 @@ def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
         content = json.loads(f.read().decode("utf-8").strip())
 
     latest: str = content["tag_name"]
-    return latest.removeprefix(prefix)
+    if latest.startswith(prefix):
+        latest = latest.removeprefix(prefix)
+    return latest
+
+
+def update_rust(packages: dict):
+    latest = get_version_from_tag("rust-lang", "rust")
+    return update_current(packages, "Rust", latest)
 
 
 def update_pip(packages: dict):
@@ -156,7 +155,7 @@ def update_ruff(packages: dict):
 
 
 def update_rustup(packages: dict):
-    latest = get_version_from_tag("rust-lang", "rustup")
+    latest = get_version_from_tag("rust-lang", "rustup", prefix="")
     return update_current(packages, "rustup", latest)
 
 
