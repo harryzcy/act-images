@@ -90,6 +90,8 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
             continue
         if name.startswith(prefix):
             return name.removeprefix(prefix)
+        if prefix == "" and name[0].isdigit():
+            return name
     return None
 
 
