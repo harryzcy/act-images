@@ -5,6 +5,9 @@ on:
     - cron: "0 17 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   release-number:
     name: Package Version Update
