@@ -105,7 +105,7 @@ def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
 
 
 def update_rust(packages: dict):
-    latest = get_version_from_tag("rust-lang", "rust")
+    latest = get_version_from_release("rust-lang", "rust")
     return update_current(packages, "Rust", latest)
 
 
