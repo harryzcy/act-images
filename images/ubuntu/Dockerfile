@@ -2,7 +2,7 @@ FROM ubuntu:22.04@sha256:f9d633ff6640178c2d0525017174a688e2c1aef28f0a0130b26bd55
 
 FROM base as builder
 
-ADD ./scripts /scripts
+COPY ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
   /scripts/build.sh && \
   rm -rf /scripts
@@ -11,12 +11,15 @@ FROM base as installer
 
 COPY --from=builder /usr/local/ /usr/local/
 
-ADD ./scripts /scripts
+COPY ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
   /scripts/install.sh && \
   /scripts/configure.sh && \
   /scripts/cleanup.sh && \
   rm -rf /scripts
+
+RUN grounpadd runner && \
+  useradd -m -G runner,sudo runner 
 
 FROM scratch as final
 
