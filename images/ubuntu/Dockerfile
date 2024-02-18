@@ -18,12 +18,8 @@ RUN chmod +x /scripts/*.sh && \
   /scripts/cleanup.sh && \
   rm -rf /scripts
 
-RUN grounpadd runner && \
-  useradd -m -G runner,sudo runner 
-
 FROM scratch as final
 
-USER runner
 COPY --from=installer / /
 
 ENV PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
