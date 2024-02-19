@@ -108,7 +108,11 @@ def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
 
 def update_rust(packages: dict):
     latest = get_version_from_release("rust-lang", "rust")
-    return update_current(packages, "Rust", latest)
+    rust_updated = update_current(packages, "Rust", latest)
+    cargo_updated = update_current(packages, "cargo", latest)
+    if rust_updated != cargo_updated:
+        print("Rust and cargo versions are out of sync")
+    return rust_updated
 
 
 def update_pip(packages: dict):
