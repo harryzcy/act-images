@@ -5,6 +5,7 @@ set -o pipefail
 
 NODE_VERSION="20.11.1"
 GO_VERSION="1.22.0"
+RUST_VERSION="1.76.0"
 
 ANSIBLE_VERSION="9.2.0"
 ANSIBLE_CORE_VERSION="2.16.3"
@@ -13,6 +14,7 @@ JQ_VERSION="1.7.1"
 PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.18.2"
 RUFF_VERSION="0.2.2"
+RUSTUP_VERSION="1.26.0"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -129,7 +131,7 @@ echo "Node installed: $(node -v) at $(which node)"
 
 # Rust
 echo "Installing Rust"
-curl -fsSL https://sh.rustup.rs | sh -s -- -y --default-toolchain=stable --profile=minimal
+curl -fsSL https://raw.githubusercontent.com/rust-lang/rustup/$RUSTUP_VERSION/rustup-init.sh | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 

@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "stable"
+        "version": "1.76.0"
       }
     ]
   },
@@ -35,7 +35,8 @@
         "version": "1.4.3"
       },
       {
-        "name": "rustup"
+        "name": "rustup",
+        "version": "1.26.0"
       },
       {
         "name": "cargo"

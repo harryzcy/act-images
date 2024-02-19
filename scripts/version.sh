@@ -8,6 +8,7 @@ echo "$(rustc --version) $(which rustc)"
 
 # Package Managers
 echo "$(cargo --version) $(which cargo)"
+echo "$(rustup --version 2>/dev/null) $(which rustup)"
 echo "npm $(npm -v) $(which npm)"
 echo "$(pip -V) $(which pip)"
 echo "$(pip3 -V) $(which pip3)"

@@ -90,6 +90,8 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
             continue
         if name.startswith(prefix):
             return name.removeprefix(prefix)
+        if prefix == "" and name[0].isdigit():
+            return name
     return None
 
 
@@ -99,7 +101,14 @@ def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
         content = json.loads(f.read().decode("utf-8").strip())
 
     latest: str = content["tag_name"]
-    return latest.removeprefix(prefix)
+    if latest.startswith(prefix):
+        latest = latest.removeprefix(prefix)
+    return latest
+
+
+def update_rust(packages: dict):
+    latest = get_version_from_release("rust-lang", "rust")
+    return update_current(packages, "Rust", latest)
 
 
 def update_pip(packages: dict):
@@ -147,6 +156,11 @@ def update_ruff(packages: dict):
     return update_current(packages, "ruff", latest)
 
 
+def update_rustup(packages: dict):
+    latest = get_version_from_tag("rust-lang", "rustup", prefix="")
+    return update_current(packages, "rustup", latest)
+
+
 def main():
     packages = get_packages()
 
@@ -154,6 +168,7 @@ def main():
         "Go": update_go,
         "Node": update_node,
         "Python": update_python,
+        "Rust": update_rust,
         "pip": update_pip,
         "pipx": update_pipx,
         "git": update_git,
@@ -163,6 +178,7 @@ def main():
         "jq": update_jq,
         "typos-cli": update_typos_cli,
         "ruff": update_ruff,
+        "rustup": update_rustup,
     }
 
     num_updates = 0
