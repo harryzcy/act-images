@@ -41,7 +41,7 @@
       {
         "name": "cargo",
         "version": "1.76.0",
-        "extra": "[cargo-the-binary version](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
+        "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
   },
