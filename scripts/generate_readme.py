@@ -23,6 +23,8 @@ def update_packages():
             text = item["name"]
             if "version" in item:
                 text += f" {item['version']}"
+            if "extra" in item:
+                text += f" ({item['extra']})"
             readme += f"- {text}\n"
 
     with open("README.md", "w") as f:
