@@ -15,6 +15,7 @@ PIPX_VERSION="1.4.3"
 TYPOS_CLI_VERSION="1.18.2"
 RUFF_VERSION="0.2.2"
 RUSTUP_VERSION="1.26.0"
+YAMLLINT_VERSION="1.35.1"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -166,3 +167,8 @@ echo "typos installed: $(typos --version) at $(which typos)"
 echo "Installing ruff"
 python -m pipx install "ruff==$RUFF_VERSION"
 echo "ruff installed: $(ruff --version) at $(which ruff)"
+
+# yamllint
+echo "Installing yamllint"
+python -m pipx install yamllint==$YAMLLINT_VERSION
+echo "yamllint installed: $(yamllint --version) at $(which yamllint)"

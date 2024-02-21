@@ -39,6 +39,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - typos-cli 1.18.2
 - wget
 - xz
+- yamllint 1.35.1
 - zip
 - zsh
 - zstd
