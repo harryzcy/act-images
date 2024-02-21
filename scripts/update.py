@@ -165,6 +165,11 @@ def update_rustup(packages: dict):
     return update_current(packages, "rustup", latest)
 
 
+def update_yamllint(packages: dict):
+    latest = get_version_from_tag("adrienverge", "yamllint")
+    return update_current(packages, "yamllint", latest)
+
+
 def main():
     packages = get_packages()
 
@@ -183,6 +188,7 @@ def main():
         "typos-cli": update_typos_cli,
         "ruff": update_ruff,
         "rustup": update_rustup,
+        "yamllint": update_yamllint,
     }
 
     num_updates = 0
