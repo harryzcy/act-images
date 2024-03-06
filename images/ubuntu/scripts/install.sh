@@ -4,7 +4,7 @@ set -o errexit
 set -o pipefail
 
 NODE_VERSION="20.11.1"
-GO_VERSION="1.22.0"
+GO_VERSION="1.22.1"
 RUST_VERSION="1.76.0"
 
 ANSIBLE_VERSION="9.3.0"
