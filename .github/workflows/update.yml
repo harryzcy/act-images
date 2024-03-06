@@ -2,7 +2,7 @@ name: Update
 
 on:
   schedule:
-    - cron: "0 17 * * *"
+    - cron: "0 2,17 * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,9 +32,17 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@a4f52f8033a6168103c2538976c07b467e8163bc # v6
+        id: cpr
         with:
           token: ${{ steps.generate-token.outputs.token }}
           commit-message: "[chore] Update package versions"
           title: "Update package versions"
           labels: "dependencies"
           add-paths: "packages.json,README.md,images/ubuntu/scripts"
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: "squash"
