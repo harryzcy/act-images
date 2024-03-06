@@ -50,11 +50,11 @@
     "items": [
       {
         "name": "ansible",
-        "version": "9.2.0"
+        "version": "9.3.0"
       },
       {
         "name": "ansible-core",
-        "version": "2.16.3"
+        "version": "2.16.4"
       },
       {
         "name": "ansible-lint",
@@ -77,14 +77,14 @@
       },
       {
         "name": "git",
-        "version": "2.43.2"
+        "version": "2.44.0"
       },
       {
         "name": "lsof"
       },
       {
         "name": "ruff",
-        "version": "0.2.2"
+        "version": "0.3.0"
       },
       {
         "name": "sqlite3"
@@ -95,7 +95,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.18.2"
+        "version": "1.19.0"
       },
       {
         "name": "wget"
