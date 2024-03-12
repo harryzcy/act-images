@@ -18,7 +18,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - npm
 - pip 24.0
 - pipx 1.4.3
-- rustup 1.26.0
+- rustup 1.27.0
 - cargo 1.76.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
