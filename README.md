@@ -11,15 +11,15 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - Go 1.22.1
 - Node 20.12.0
 - Python 3.12.2
-- Rust 1.77.0
+- Rust 1.77.1
 
 ### Package Managers
 
 - npm
 - pip 24.0
-- pipx 1.4.3
+- pipx 1.5.0
 - rustup 1.27.0
-- cargo 1.77.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
+- cargo 1.77.1 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
 

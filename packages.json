@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.77.0"
+        "version": "1.77.1"
       }
     ]
   },
@@ -32,7 +32,7 @@
       },
       {
         "name": "pipx",
-        "version": "1.4.3"
+        "version": "1.5.0"
       },
       {
         "name": "rustup",
@@ -40,7 +40,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.77.0",
+        "version": "1.77.1",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
