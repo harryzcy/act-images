@@ -141,7 +141,7 @@ def update_ansible_lint(packages: dict):
 
 
 def update_kube_linter(packages: dict):
-    latest = get_version_from_tag(
+    latest = get_version_from_release(
         "stackrox",
         "kube-linter",
     )
