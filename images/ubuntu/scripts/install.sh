@@ -10,6 +10,7 @@ RUST_VERSION="1.77.1"
 ANSIBLE_VERSION="9.4.0"
 ANSIBLE_CORE_VERSION="2.16.5"
 ANSIBLE_LINT_VERSION="24.2.1"
+KUBE_LINTER_VERSION="0.6.8"
 JQ_VERSION="1.7.1"
 PIPX_VERSION="1.5.0"
 TYPOS_CLI_VERSION="1.19.0"
@@ -149,6 +150,17 @@ python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
 echo "ansible installed: $(ansible --version)"
 echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End ansible
+
+# kube-linter
+echo "Installing kube-linter"
+kube_linter_arch_ext=""
+if [[ "$arch" == "arm64" ]]; then
+  kube_linter_arch_ext="_arm64"
+fi
+curl -L https://github.com/stackrox/kube-linter/releases/download/v$KUBE_LINTER_VERSION/kube-linter-linux$kube_linter_arch_ext -o /usr/local/bin/kube-linter
+chmod +x /usr/local/bin/kube-linter
+echo "kube-linter installed: $(kube-linter version) at $(which kube-linter)"
+# End kube-linter
 
 # jq
 echo "Installing jq"
