@@ -10,6 +10,7 @@ RUST_VERSION="1.77.1"
 ANSIBLE_VERSION="9.4.0"
 ANSIBLE_CORE_VERSION="2.16.5"
 ANSIBLE_LINT_VERSION="24.2.1"
+KUBECONFORM_VERSION="0.6.4"
 KUBE_LINTER_VERSION="0.6.8"
 JQ_VERSION="1.7.1"
 PIPX_VERSION="1.5.0"
@@ -150,6 +151,13 @@ python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
 echo "ansible installed: $(ansible --version)"
 echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End ansible
+
+# kubeconform
+echo "Installing kubeconform"
+curl -L https://github.com/yannh/kubeconform/releases/download/v$KUBECONFORM_VERSION/kubeconform-linux-$arch.tar.gz | tar -C /usr/local/bin -xzf -
+chmod +x /usr/local/bin/kubeconform
+echo "kubeconform installed: $(kubeconform version) at $(which kubeconform)"
+# End kubeconform
 
 # kube-linter
 echo "Installing kube-linter"
