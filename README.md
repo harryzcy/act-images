@@ -32,6 +32,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - docker
 - docker buildx
 - git 2.44.0
+- kubeconform 0.6.4
 - kube-linter 0.6.8
 - lsof
 - ruff 0.3.4
