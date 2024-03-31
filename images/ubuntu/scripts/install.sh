@@ -156,7 +156,7 @@ echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)
 echo "Installing kubeconform"
 curl -L https://github.com/yannh/kubeconform/releases/download/v$KUBECONFORM_VERSION/kubeconform-linux-$arch.tar.gz | tar -C /usr/local/bin -xzf -
 chmod +x /usr/local/bin/kubeconform
-echo "kubeconform installed: $(kubeconform version) at $(which kubeconform)"
+echo "kubeconform installed: $(kubeconform -v) at $(which kubeconform)"
 # End kubeconform
 
 # kube-linter
