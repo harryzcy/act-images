@@ -140,6 +140,14 @@ def update_ansible_lint(packages: dict):
     return update_current(packages, "ansible-lint", latest)
 
 
+def update_kubeconform(packages: dict):
+    latest = get_version_from_release(
+        "yannh",
+        "kubeconform",
+    )
+    return update_current(packages, "kubeconform", latest)
+
+
 def update_kube_linter(packages: dict):
     latest = get_version_from_release(
         "stackrox",
@@ -192,6 +200,7 @@ def main():
         "ansible": update_ansible,
         "ansible-core": update_ansible_core,
         "ansible-lint": update_ansible_lint,
+        "kubeconform": update_kubeconform,
         "kube-linter": update_kube_linter,
         "jq": update_jq,
         "typos-cli": update_typos_cli,

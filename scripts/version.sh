@@ -22,6 +22,8 @@ curl --version
 echo "$(docker -v) $(which docker)"
 docker buildx version
 echo "$(git --version) $(which git)"
+echo "kubeconform $(kubeconform -v) $(which kubeconform)"
+echo "kube-linter $(kube-linter version) $(which kube-linter)"
 echo "sqlite3 $(sqlite3 --version) $(which sqlite3)"
 echo "$(typos --version) $(which typos)"
 echo "$(jq --version) $(which jq)"
