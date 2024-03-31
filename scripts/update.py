@@ -140,6 +140,14 @@ def update_ansible_lint(packages: dict):
     return update_current(packages, "ansible-lint", latest)
 
 
+def update_kube_linter(packages: dict):
+    latest = get_version_from_release(
+        "stackrox",
+        "kube-linter",
+    )
+    return update_current(packages, "kube-linter", latest)
+
+
 def update_jq(packages: dict):
     latest = get_version_from_tag("jqlang", "jq", prefix="jq-")
     return update_current(packages, "jq", latest)
@@ -184,6 +192,7 @@ def main():
         "ansible": update_ansible,
         "ansible-core": update_ansible_core,
         "ansible-lint": update_ansible_lint,
+        "kube-linter": update_kube_linter,
         "jq": update_jq,
         "typos-cli": update_typos_cli,
         "ruff": update_ruff,
