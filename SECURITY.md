@@ -2,4 +2,8 @@
 
 ## Reporting a Vulnerability
 
-To report a security issue, please report it by email to `security@zcy.dev`. Please include the repository name **"act-images"** anywhere in your email.
+To report a security issue through email, please report to `security@zcy.dev`. Please include the repository name **"act-images"** anywhere in your email.
+
+### Private Reporting on GitHub
+
+Private vulnerability reporting on GitHub is enabled for this repository.
