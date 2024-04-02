@@ -35,10 +35,10 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - kubeconform 0.6.4
 - kube-linter 0.6.8
 - lsof
-- ruff 0.3.4
+- ruff 0.3.5
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.19.0
+- typos-cli 1.20.1
 - wget
 - xz
 - yamllint 1.35.1
