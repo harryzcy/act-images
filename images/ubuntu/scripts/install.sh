@@ -140,7 +140,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 
 # Python
 read -r -d '' pipx_requirements <<EOM
-"pipx==$PYTHON_PIPX_VERSION" \
+pipx==$PYTHON_PIPX_VERSION \
   --hash=sha256:801a55a9d58004bb18a464f668508e79fbffc22deb6f07982832d3ce3ff3756d \
   --hash=sha256:2371af2b772954cdb5c1dbfa0170219e3d2c09d9ff9b18e975f65562eeb7ab0a
 EOM
