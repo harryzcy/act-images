@@ -19,6 +19,8 @@ RUFF_VERSION="0.3.5"
 RUSTUP_VERSION="1.27.0"
 YAMLLINT_VERSION="1.35.1"
 
+BASEDIR=$(dirname $0)
+
 archstr=$(uname -m)
 echo "Architecture: $archstr"
 if [[ "$archstr" == "x86_64" ]]; then
@@ -139,7 +141,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # Python
-python -m pip install --user --require-hashes -r pipx.requirements.txt
+python -m pip install --user --require-hashes -r "$BASEDIR/pipx.requirements.txt"
 python -m pipx ensurepath
 # End Python
 
