@@ -43,7 +43,7 @@ def update_environment(
                 line_number = 0
                 for line in lines:
                     line_number += 1
-                    if f"${package_env}" in line and "pip install" in line:
+                    if f"${package_env}" in line and "==" in line:
                         break
                 if not line.strip().endswith("\\"):
                     line[line_number] = line.strip() + " \\"
