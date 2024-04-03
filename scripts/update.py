@@ -6,9 +6,13 @@ from urllib.request import urlopen
 padding = 2
 padding_str = " " * padding
 
-files = [
+script_files = [
     "images/ubuntu/scripts/build.sh",
     "images/ubuntu/scripts/install.sh",
+]
+
+requirements_files = [
+    "images/ubuntu/scripts/pipx.requirements.txt",
 ]
 
 
@@ -24,47 +28,69 @@ def write_packages(packages: dict):
         f.write("\n")
 
 
-def update_environment(
-    package: str, from_version: str, to_version: str, sha256s: list = None
-):
+def update_script_files(package: str, from_version: str, to_version: str):
     package_env = f"{package.upper().replace('-', '_')}_VERSION"
     old_env = f'{package_env}="{from_version}"'
     new_env = f'{package_env}="{to_version}"'
-    for file in files:
+    for file in script_files:
         with open(file) as f:
             contents = f.read()
         new_content = contents.replace(old_env, new_env)
-        if new_content != contents:
-            print(f"Updating {file}")
-
-            if sha256s:
-                # Update the sha256s
-                lines = new_content.split("\n")
-                line_number = 0
-                for line in lines:
-                    line_number += 1
-                    if f"${package_env}" in line and "==" in line:
-                        break
-                if not line.strip().endswith("\\"):
-                    line[line_number] = line.strip() + " \\"
-                    line_number += 1
-                # remove the old sha256s
-                while "sha256:" in lines[line_number]:
-                    lines.pop(line_number)
-                # add the new sha256s
-                for index, sha256 in enumerate(sha256s):
-                    lines.insert(
-                        line_number,
-                        f"{padding_str}--hash=sha256:{sha256}"
-                        + (" \\" if index < len(sha256s) - 1 else ""),
-                    )
-                    line_number += 1
-                new_content = "\n".join(lines)
-
-            with open(file, "w") as f:
-                f.write(new_content)
-        else:
+        if new_content == contents:
             print(f"Skipping {file}")
+            continue
+        print(f"Updating {file}")
+
+        with open(file, "w") as f:
+            f.write(new_content)
+
+
+def update_requirements_files(
+    package: str, from_version: str, to_version: str, sha256s: list = None
+):
+    old = f"{package}=={from_version}"
+    new = f"{package}=={to_version}"
+    for file in requirements_files:
+        with open(file) as f:
+            contents = f.read()
+        new_content = contents.replace(old, new)
+        if new_content == contents:
+            print(f"Skipping {file}")
+            continue
+
+        if sha256s:
+            # Update the sha256s
+            lines = new_content.split("\n")
+            line_number = 0
+            for line in lines:
+                if f"{package}==" in line:
+                    break
+                line_number += 1
+            if not line.strip().endswith("\\"):
+                lines[line_number] = line.strip() + " \\"
+                line_number += 1
+            # remove the old sha256s
+            while "sha256:" in lines[line_number]:
+                lines.pop(line_number)
+            # add the new sha256s
+            for index, sha256 in enumerate(sha256s):
+                lines.insert(
+                    line_number,
+                    f"{padding_str}--hash=sha256:{sha256}"
+                    + (" \\" if index < len(sha256s) - 1 else ""),
+                )
+                line_number += 1
+            new_content = "\n".join(lines)
+
+        with open(file, "w") as f:
+            f.write(new_content)
+
+
+def update_environment(
+    package: str, from_version: str, to_version: str, sha256s: list = None
+):
+    update_script_files(package, from_version, to_version)
+    update_requirements_files(package, from_version, to_version, sha256s)
 
 
 def update_current(packages: dict, package: str, version: str, sha256s: list = None):
@@ -231,23 +257,23 @@ def main():
     packages = get_packages()
 
     checks = {
-        "Go": update_go,
-        "Node": update_node,
-        "Python": update_python,
-        "Rust": update_rust,
-        "pip": update_pip,
+        # "Go": update_go,
+        # "Node": update_node,
+        # "Python": update_python,
+        # "Rust": update_rust,
+        # "pip": update_pip,
         "pipx": update_pipx,
-        "git": update_git,
-        "ansible": update_ansible,
-        "ansible-core": update_ansible_core,
-        "ansible-lint": update_ansible_lint,
-        "kubeconform": update_kubeconform,
-        "kube-linter": update_kube_linter,
-        "jq": update_jq,
-        "typos-cli": update_typos_cli,
-        "ruff": update_ruff,
-        "rustup": update_rustup,
-        "yamllint": update_yamllint,
+        # "git": update_git,
+        # "ansible": update_ansible,
+        # "ansible-core": update_ansible_core,
+        # "ansible-lint": update_ansible_lint,
+        # "kubeconform": update_kubeconform,
+        # "kube-linter": update_kube_linter,
+        # "jq": update_jq,
+        # "typos-cli": update_typos_cli,
+        # "ruff": update_ruff,
+        # "rustup": update_rustup,
+        # "yamllint": update_yamllint,
     }
 
     num_updates = 0
