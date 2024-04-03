@@ -3,6 +3,9 @@
 import json
 from urllib.request import urlopen
 
+padding = 2
+padding_str = " " * padding
+
 files = [
     "images/ubuntu/scripts/build.sh",
     "images/ubuntu/scripts/install.sh",
@@ -52,9 +55,8 @@ def update_environment(
                 for index, sha256 in enumerate(sha256s):
                     lines.insert(
                         line_number,
-                        f"  --hash=sha256:{sha256}"
-                        if index == len(sha256s) - 1
-                        else f"  --hash=sha256:{sha256} \\",
+                        f"{padding_str}--hash=sha256:{sha256}"
+                        + (" \\" if index < len(sha256s) - 1 else ""),
                     )
                     line_number += 1
                 new_content = "\n".join(lines)
