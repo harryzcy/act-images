@@ -5,29 +5,8 @@
     ":disableDependencyDashboard",
     ":automergeMinor"
   ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": [
-        "^images/ubuntu/configure.sh$"
-      ],
-      "matchStrings": [
-        "NODE_VERSION=(?<currentValue>.*?)\\n"
-      ],
-      "depNameTemplate": "node",
-      "datasourceTemplate": "node-version"
-    },
-    {
-      "customType": "regex",
-      "fileMatch": [
-        "^images/ubuntu/configure.sh$"
-      ],
-      "matchStrings": [
-        "GO_VERSION=(?<currentValue>.*?)\\n"
-      ],
-      "depNameTemplate": "go",
-      "datasourceTemplate": "golang-version"
-    }
+  "ignorePaths": [
+    "images/ubuntu/scripts/"
   ],
   "labels": [
     "dependencies"
