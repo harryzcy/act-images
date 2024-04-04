@@ -83,7 +83,7 @@ ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip
 ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip3
 
 # Upgrade pip
-pip install --require-hashes -r "$BASEDIR/pip.requirements.txt"
+pip install --require-hashes -r "$BASEDIR/requirements-pip.txt"
 
 popd || exit
 popd || exit

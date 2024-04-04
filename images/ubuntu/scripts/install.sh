@@ -141,7 +141,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # Python
-python -m pip install --user --require-hashes -r "$BASEDIR/pipx.requirements.txt"
+python -m pip install --user --require-hashes -r "$BASEDIR/requirements-pipx.txt"
 python -m pipx ensurepath
 # End Python
 
