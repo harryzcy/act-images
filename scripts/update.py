@@ -12,6 +12,7 @@ script_files = [
 ]
 
 requirements_files = [
+    "images/ubuntu/scripts/pip.requirements.txt",
     "images/ubuntu/scripts/pipx.requirements.txt",
 ]
 
@@ -183,8 +184,8 @@ def update_rust(packages: dict):
 
 
 def update_pip(packages: dict):
-    latest = get_version_from_tag("pypa", "pip", prefix="")
-    return update_current(packages, "pip", latest)
+    latest, hashes = get_version_from_pypi("pip")
+    return update_current(packages, "pip", latest, hashes)
 
 
 def update_git(packages: dict):

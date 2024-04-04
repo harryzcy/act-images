@@ -6,8 +6,9 @@ set -o pipefail
 PYTHON_VERSION="3.12.2"
 
 PIP_VERSION="24.0"
-
 GIT_VERSION="2.44.0"
+
+BASEDIR=$(dirname $0)
 
 # shellcheck disable=SC2034
 IFS='.' read -r PYTHON_MAJOR PYTHON_MINOR PYTHON_PATCH <<<"$PYTHON_VERSION"
@@ -82,7 +83,7 @@ ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip
 ln -s "/usr/local/bin/pip$PYTHON_VERSION_MAJOR_MINOR" /usr/local/bin/pip3
 
 # Upgrade pip
-pip install --upgrade "pip==$PIP_VERSION"
+pip install --require-hashes -r "$BASEDIR/pip.requirements.txt"
 
 popd || exit
 popd || exit
