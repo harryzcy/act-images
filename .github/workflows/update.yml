@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "0 2,17 * * *"
   workflow_dispatch:
+  push:
 
 permissions:
   contents: read
@@ -34,6 +35,7 @@ jobs:
       # The workflows will not be triggered by "github-actions" user.
       # See https://github.com/peter-evans/create-pull-request/issues/48.
       - uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
+        if: github.event_name != 'push'
         id: generate-token
         with:
           app_id: ${{ secrets.APP_ID }}
@@ -41,6 +43,7 @@ jobs:
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@70a41aba780001da0a30141984ae2a0c95d8704e # v6
+        if: github.event_name != 'push'
         id: cpr
         with:
           token: ${{ steps.generate-token.outputs.token }}
@@ -50,7 +53,7 @@ jobs:
           add-paths: "packages.json,README.md,images/ubuntu/scripts"
 
       - name: Enable auto-merge
-        if: steps.cpr.outputs.pull-request-operation == 'created'
+        if: steps.cpr.outputs.pull-request-operation == 'created' && github.event_name != 'push'
         uses: peter-evans/enable-pull-request-automerge@a660677d5469627102a1c1e11409dd063606628d # v3
         with:
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
