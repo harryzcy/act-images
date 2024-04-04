@@ -12,8 +12,8 @@ script_files = [
 ]
 
 requirements_files = [
-    "images/ubuntu/scripts/pip.requirements.txt",
-    "images/ubuntu/scripts/pipx.requirements.txt",
+    "images/ubuntu/scripts/requirements-pip.txt",
+    "images/ubuntu/scripts/requirements-pipx.txt",
 ]
 
 
