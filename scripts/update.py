@@ -178,7 +178,7 @@ def update_python(packages: dict):
 
 
 def update_rust(packages: dict):
-    latest = get_version_from_release("rust-lang", "rust")
+    latest = get_version_from_release("rust-lang/rust")
     rust_updated = update_current(packages, "Rust", latest)
     cargo_updated = update_current(packages, "cargo", latest)
     if rust_updated != cargo_updated:
