@@ -237,6 +237,7 @@ def main():
         "ansible": {
             "source": "github-tag",
             "repo": "ansible-community/ansible-build-data",
+            "prefix": "",
         },
         "ansible-core": {
             "source": "github-release",
@@ -270,6 +271,7 @@ def main():
         "rustup": {
             "source": "github-tag",
             "repo": "rust-lang/rustup",
+            "prefix": "",
         },
         "yamllint": {
             "source": "github-tag",
