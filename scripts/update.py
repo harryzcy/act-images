@@ -139,8 +139,8 @@ def update_python(packages: dict):
     return update_current(packages, "Python", latest)
 
 
-def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
-    url = f"https://api.github.com/repos/{owner}/{repo}/tags"
+def get_version_from_tag(repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{repo}/tags"
     with urlopen(url) as f:
         tags = json.loads(f.read().decode("utf-8").strip())
 
@@ -155,8 +155,8 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
     return None
 
 
-def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
-    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+def get_version_from_release(repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{repo}/releases/latest"
     with urlopen(url) as f:
         content = json.loads(f.read().decode("utf-8").strip())
 
@@ -186,21 +186,6 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def update_npm(packages: dict):
-    latest = get_version_from_release("npm", "cli")
-    return update_current(packages, "npm", latest)
-
-
-def update_pip(packages: dict):
-    latest, hashes = get_version_from_pypi("pip")
-    return update_current(packages, "pip", latest, hashes)
-
-
-def update_pipx(packages: dict):
-    latest, sha256s = get_version_from_pypi("pipx")
-    return update_current(packages, "pipx", latest, sha256s)
-
-
 def main():
     packages = get_packages()
 
@@ -226,12 +211,12 @@ def main():
             "repo": "npm/cli",
         },
         "pip": {
-            "source": "custom",
-            "function": update_pip,
+            "source": "pypi",
+            "project": "pip",
         },
         "pipx": {
-            "source": "custom",
-            "function": update_pipx,
+            "source": "pypi",
+            "project": "pipx",
         },
         "git": {
             "source": "github-tag",
@@ -290,17 +275,16 @@ def main():
         elif check["source"] == "github-tag":
             repo = check["repo"]
             prefix = check.get("prefix", "v")
-            latest = get_version_from_tag(
-                repo.split("/")[0], repo.split("/")[1], prefix=prefix
-            )
+            latest = get_version_from_tag(repo, prefix=prefix)
             updated = update_current(packages, package, latest)
         elif check["source"] == "github-release":
             repo = check["repo"]
             prefix = check.get("prefix", "v")
-            latest = get_version_from_release(
-                repo.split("/")[0], repo.split("/")[1], prefix=prefix
-            )
+            latest = get_version_from_release(repo, prefix=prefix)
             updated = update_current(packages, package, latest)
+        elif check["source"] == "pypi":
+            latest, sha256s = get_version_from_pypi(check["project"])
+            updated = update_current(packages, package, latest, sha256s)
         else:
             print(f"Unknown source for {package}")
             continue
