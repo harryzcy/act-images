@@ -33,9 +33,8 @@ jobs:
           git tag "nightly-$(date '+%Y%m%d')"
 
       - name: Push tag
-        run: |
-          git push origin "nightly-$(date '+%Y%m%d')"
-        if: github.event_name == 'schedule'
+        run: git push origin "nightly-$(date '+%Y%m%d')"
+        if: ${{ github.event_name == 'schedule' }}
 
       - name: Docker meta
         id: meta
