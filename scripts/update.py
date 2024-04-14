@@ -193,99 +193,112 @@ def update_pip(packages: dict):
     return update_current(packages, "pip", latest, hashes)
 
 
-def update_git(packages: dict):
-    latest = get_version_from_tag("git", "git")
-    return update_current(packages, "git", latest)
-
-
-def update_ansible(packages: dict):
-    latest = get_version_from_tag("ansible-community", "ansible-build-data", prefix="")
-    return update_current(packages, "ansible", latest)
-
-
-def update_ansible_core(packages: dict):
-    latest = get_version_from_release("ansible", "ansible")
-    return update_current(packages, "ansible-core", latest)
-
-
-def update_ansible_lint(packages: dict):
-    latest = get_version_from_release("ansible", "ansible-lint")
-    return update_current(packages, "ansible-lint", latest)
-
-
-def update_kubeconform(packages: dict):
-    latest = get_version_from_release(
-        "yannh",
-        "kubeconform",
-    )
-    return update_current(packages, "kubeconform", latest)
-
-
-def update_kube_linter(packages: dict):
-    latest = get_version_from_release(
-        "stackrox",
-        "kube-linter",
-    )
-    return update_current(packages, "kube-linter", latest)
-
-
-def update_jq(packages: dict):
-    latest = get_version_from_tag("jqlang", "jq", prefix="jq-")
-    return update_current(packages, "jq", latest)
-
-
 def update_pipx(packages: dict):
     latest, sha256s = get_version_from_pypi("pipx")
     return update_current(packages, "pipx", latest, sha256s)
-
-
-def update_typos_cli(packages: dict):
-    latest = get_version_from_release("crate-ci", "typos")
-    return update_current(packages, "typos-cli", latest)
-
-
-def update_ruff(packages: dict):
-    latest = get_version_from_release("astral-sh", "ruff")
-    return update_current(packages, "ruff", latest)
-
-
-def update_rustup(packages: dict):
-    latest = get_version_from_tag("rust-lang", "rustup", prefix="")
-    return update_current(packages, "rustup", latest)
-
-
-def update_yamllint(packages: dict):
-    latest = get_version_from_tag("adrienverge", "yamllint")
-    return update_current(packages, "yamllint", latest)
 
 
 def main():
     packages = get_packages()
 
     checks = {
-        "Go": update_go,
-        "Node": update_node,
-        "Python": update_python,
-        "Rust": update_rust,
-        "npm": update_npm,
-        "pip": update_pip,
-        "pipx": update_pipx,
-        "git": update_git,
-        "ansible": update_ansible,
-        "ansible-core": update_ansible_core,
-        "ansible-lint": update_ansible_lint,
-        "kubeconform": update_kubeconform,
-        "kube-linter": update_kube_linter,
-        "jq": update_jq,
-        "typos-cli": update_typos_cli,
-        "ruff": update_ruff,
-        "rustup": update_rustup,
-        "yamllint": update_yamllint,
+        "Go": {
+            "source": "custom",
+            "function": update_go,
+        },
+        "Node": {
+            "source": "custom",
+            "function": update_node,
+        },
+        "Python": {
+            "source": "custom",
+            "function": update_python,
+        },
+        "Rust": {
+            "source": "custom",
+            "function": update_rust,
+        },
+        "npm": {
+            "source": "github-release",
+            "repo": "npm/cli",
+        },
+        "pip": {
+            "source": "custom",
+            "function": update_pip,
+        },
+        "pipx": {
+            "source": "custom",
+            "function": update_pipx,
+        },
+        "git": {
+            "source": "github-tag",
+            "repo": "git/git",
+        },
+        "ansible": {
+            "source": "github-tag",
+            "repo": "ansible-community/ansible-build-data",
+        },
+        "ansible-core": {
+            "source": "github-release",
+            "repo": "ansible/ansible",
+        },
+        "ansible-lint": {
+            "source": "github-release",
+            "repo": "ansible/ansible-lint",
+        },
+        "kubeconform": {
+            "source": "github-release",
+            "repo": "yannh/kubeconform",
+        },
+        "kube-linter": {
+            "source": "github-release",
+            "repo": "stackrox/kube-linter",
+        },
+        "jq": {
+            "source": "github-tag",
+            "repo": "jqlang/jq",
+            "prefix": "jq-",
+        },
+        "typos-cli": {
+            "source": "github-release",
+            "repo": "crate-ci/typos",
+        },
+        "ruff": {
+            "source": "github-release",
+            "repo": "astral-sh/ruff",
+        },
+        "rustup": {
+            "source": "github-tag",
+            "repo": "rust-lang/rustup",
+        },
+        "yamllint": {
+            "source": "github-tag",
+            "repo": "adrienverge/yamllint",
+        },
     }
 
     num_updates = 0
-    for _, check in checks.items():
-        updated = check(packages)
+    for package, check in checks.items():
+        if check["source"] == "custom":
+            f = check["function"]
+            updated = f(packages)
+        elif check["source"] == "github-tag":
+            repo = check["repo"]
+            prefix = check.get("prefix", "v")
+            latest = get_version_from_tag(
+                repo.split("/")[0], repo.split("/")[1], prefix=prefix
+            )
+            updated = update_current(packages, package, latest)
+        elif check["source"] == "github-release":
+            repo = check["repo"]
+            prefix = check.get("prefix", "v")
+            latest = get_version_from_release(
+                repo.split("/")[0], repo.split("/")[1], prefix=prefix
+            )
+            updated = update_current(packages, package, latest)
+        else:
+            print(f"Unknown source for {package}")
+            continue
         if updated:
             num_updates += 1
     if num_updates == 0:
