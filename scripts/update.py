@@ -177,6 +177,45 @@ def update_python(packages: dict):
     return update_current(packages, "Python", latest)
 
 
+
+def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/tags"
+    with urlopen(url) as f:
+        tags = json.loads(f.read().decode("utf-8").strip())
+
+    for tag in tags:
+        name: str = tag["name"]
+        if "rc" in name or "a" in name or "b" in name:
+            continue
+        if name.startswith(prefix):
+            return name.removeprefix(prefix)
+        if prefix == "" and name[0].isdigit():
+            return name
+    return None
+
+
+def get_version_from_pypi(project: str):
+    url = f"https://pypi.org/pypi/{project}/json"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+    version = content["info"]["version"]
+    sha256s = []
+    for release in content["releases"][version]:
+        sha256s.append(release["digests"]["sha256"])
+    return version, sha256s
+
+
+def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+
+    latest: str = content["tag_name"]
+    if latest.startswith(prefix):
+        latest = latest.removeprefix(prefix)
+    return latest
+
+
 def update_rust(packages: dict):
     latest = get_version_from_release("rust-lang/rust")
     rust_updated = update_current(packages, "Rust", latest)
