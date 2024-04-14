@@ -9,9 +9,9 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 ### Languages
 
 - Go 1.22.2
-- Node 20.12.1
-- Python 3.12.2
-- Rust 1.77.1
+- Node 20.12.2
+- Python 3.12.3
+- Rust 1.77.2
 
 ### Package Managers
 
@@ -19,13 +19,13 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - pip 24.0
 - pipx 1.5.0
 - rustup 1.27.0
-- cargo 1.77.1 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
+- cargo 1.77.2 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
 
 - ansible 9.4.0
 - ansible-core 2.16.5
-- ansible-lint 24.2.1
+- ansible-lint 24.2.2
 - awk
 - curl
 - chktex
@@ -35,10 +35,10 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - kubeconform 0.6.4
 - kube-linter 0.6.8
 - lsof
-- ruff 0.3.5
+- ruff 0.3.7
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.20.3
+- typos-cli 1.20.8
 - wget
 - xz
 - yamllint 1.35.1

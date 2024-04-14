@@ -8,15 +8,15 @@
       },
       {
         "name": "Node",
-        "version": "20.12.1"
+        "version": "20.12.2"
       },
       {
         "name": "Python",
-        "version": "3.12.2"
+        "version": "3.12.3"
       },
       {
         "name": "Rust",
-        "version": "1.77.1"
+        "version": "1.77.2"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.77.1",
+        "version": "1.77.2",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "24.2.1"
+        "version": "24.2.2"
       },
       {
         "name": "awk"
@@ -93,7 +93,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.3.5"
+        "version": "0.3.7"
       },
       {
         "name": "sqlite3"
@@ -104,7 +104,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.20.3"
+        "version": "1.20.8"
       },
       {
         "name": "wget"
