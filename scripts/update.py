@@ -183,6 +183,11 @@ def update_rust(packages: dict):
     return rust_updated
 
 
+def update_npm(packages: dict):
+    latest = get_version_from_release("npm", "cli")
+    return update_current(packages, "npm", latest)
+
+
 def update_pip(packages: dict):
     latest, hashes = get_version_from_pypi("pip")
     return update_current(packages, "pip", latest, hashes)
@@ -258,23 +263,24 @@ def main():
     packages = get_packages()
 
     checks = {
-        # "Go": update_go,
-        # "Node": update_node,
-        # "Python": update_python,
-        # "Rust": update_rust,
-        # "pip": update_pip,
+        "Go": update_go,
+        "Node": update_node,
+        "Python": update_python,
+        "Rust": update_rust,
+        "pip": update_pip,
         "pipx": update_pipx,
-        # "git": update_git,
-        # "ansible": update_ansible,
-        # "ansible-core": update_ansible_core,
-        # "ansible-lint": update_ansible_lint,
-        # "kubeconform": update_kubeconform,
-        # "kube-linter": update_kube_linter,
-        # "jq": update_jq,
-        # "typos-cli": update_typos_cli,
-        # "ruff": update_ruff,
-        # "rustup": update_rustup,
-        # "yamllint": update_yamllint,
+        "npm": update_npm,
+        "git": update_git,
+        "ansible": update_ansible,
+        "ansible-core": update_ansible_core,
+        "ansible-lint": update_ansible_lint,
+        "kubeconform": update_kubeconform,
+        "kube-linter": update_kube_linter,
+        "jq": update_jq,
+        "typos-cli": update_typos_cli,
+        "ruff": update_ruff,
+        "rustup": update_rustup,
+        "yamllint": update_yamllint,
     }
 
     num_updates = 0
