@@ -183,6 +183,11 @@ def update_rust(packages: dict):
     return rust_updated
 
 
+def update_npm(packages: dict):
+    latest = get_version_from_release("npm", "cli")
+    return update_current(packages, "npm", latest)
+
+
 def update_pip(packages: dict):
     latest, hashes = get_version_from_pypi("pip")
     return update_current(packages, "pip", latest, hashes)
@@ -262,6 +267,7 @@ def main():
         "Node": update_node,
         "Python": update_python,
         "Rust": update_rust,
+        "npm": update_npm,
         "pip": update_pip,
         "pipx": update_pipx,
         "git": update_git,

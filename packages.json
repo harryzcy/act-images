@@ -24,7 +24,8 @@
     "title": "Package Managers",
     "items": [
       {
-        "name": "npm"
+        "name": "npm",
+        "version": "10.5.2"
       },
       {
         "name": "pip",

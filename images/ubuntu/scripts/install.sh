@@ -7,6 +7,8 @@ NODE_VERSION="20.12.1"
 GO_VERSION="1.22.2"
 RUST_VERSION="1.77.1"
 
+NPM_VERSION="10.5.2"
+
 ANSIBLE_VERSION="9.4.0"
 ANSIBLE_CORE_VERSION="2.16.5"
 ANSIBLE_LINT_VERSION="24.2.1"
@@ -131,7 +133,9 @@ echo "Go installed: $(go version) at $(which go)"
 # Node
 echo "Installing Node $NODE_VERSION"
 curl https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-$arch_short.tar.xz | tar --file=- --extract --xz --directory /usr/local/ --strip-components=1
+npm install -g npm@$NPM_VERSION
 echo "Node installed: $(node -v) at $(which node)"
+echo "npm installed: $(npm -v) at $(which npm)"
 # End Node
 
 # Rust
