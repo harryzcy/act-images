@@ -109,36 +109,6 @@ def update_current(packages: dict, package: str, version: str, sha256s: list = N
     return None
 
 
-def update_go(packages: dict):
-    url = "https://golang.org/VERSION?m=text"
-    with urlopen(url) as f:
-        latest = f.read().decode("utf-8").strip()
-    latest = latest.split("\n")[0]
-    latest = latest.removeprefix("go")
-    return update_current(packages, "Go", latest)
-
-
-def update_node(packages: dict):
-    url = "https://nodejs.org/download/release/index.json"
-    with urlopen(url) as f:
-        releases = json.loads(f.read().decode("utf-8").strip())
-
-    for release in releases:
-        if release["lts"]:
-            latest = release["version"]
-            break
-    latest = latest.removeprefix("v")
-    return update_current(packages, "Node", latest)
-
-
-def update_python(packages: dict):
-    url = "https://endoflife.date/api/python.json"
-    with urlopen(url) as f:
-        releases = json.loads(f.read().decode("utf-8").strip())
-    latest = releases[0]["latest"]
-    return update_current(packages, "Python", latest)
-
-
 def get_version_from_tag(repo: str, prefix: str = "v"):
     url = f"https://api.github.com/repos/{repo}/tags"
     with urlopen(url) as f:
@@ -175,6 +145,36 @@ def get_version_from_pypi(project: str):
     for release in content["releases"][version]:
         sha256s.append(release["digests"]["sha256"])
     return version, sha256s
+
+
+def update_go(packages: dict):
+    url = "https://golang.org/VERSION?m=text"
+    with urlopen(url) as f:
+        latest = f.read().decode("utf-8").strip()
+    latest = latest.split("\n")[0]
+    latest = latest.removeprefix("go")
+    return update_current(packages, "Go", latest)
+
+
+def update_node(packages: dict):
+    url = "https://nodejs.org/download/release/index.json"
+    with urlopen(url) as f:
+        releases = json.loads(f.read().decode("utf-8").strip())
+
+    for release in releases:
+        if release["lts"]:
+            latest = release["version"]
+            break
+    latest = latest.removeprefix("v")
+    return update_current(packages, "Node", latest)
+
+
+def update_python(packages: dict):
+    url = "https://endoflife.date/api/python.json"
+    with urlopen(url) as f:
+        releases = json.loads(f.read().decode("utf-8").strip())
+    latest = releases[0]["latest"]
+    return update_current(packages, "Python", latest)
 
 
 def update_rust(packages: dict):
