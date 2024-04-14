@@ -95,6 +95,9 @@ def update_environment(
 
 
 def update_current(packages: dict, package: str, version: str, sha256s: list = None):
+    if version is None:
+        print(f"Failed to get version for {package}")
+        return None
     for group in packages:
         for item in group["items"]:
             if item["name"] == package:
