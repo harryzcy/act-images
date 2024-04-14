@@ -95,6 +95,9 @@ def update_environment(
 
 
 def update_current(packages: dict, package: str, version: str, sha256s: list = None):
+    if version is None:
+        print(f"Failed to get version for {package}")
+        return None
     for group in packages:
         for item in group["items"]:
             if item["name"] == package:
@@ -104,6 +107,44 @@ def update_current(packages: dict, package: str, version: str, sha256s: list = N
                 item["version"] = version
                 return True
     return None
+
+
+def get_version_from_tag(repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{repo}/tags"
+    with urlopen(url) as f:
+        tags = json.loads(f.read().decode("utf-8").strip())
+
+    for tag in tags:
+        name: str = tag["name"]
+        if "rc" in name or "a" in name or "b" in name:
+            continue
+        if prefix != "" and name.startswith(prefix):
+            return name.removeprefix(prefix)
+        if prefix == "" and name[0].isdigit():
+            return name
+    return None
+
+
+def get_version_from_release(repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{repo}/releases/latest"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+
+    latest: str = content["tag_name"]
+    if prefix != "" and latest.startswith(prefix):
+        latest = latest.removeprefix(prefix)
+    return latest
+
+
+def get_version_from_pypi(project: str):
+    url = f"https://pypi.org/pypi/{project}/json"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+    version = content["info"]["version"]
+    sha256s = []
+    for release in content["releases"][version]:
+        sha256s.append(release["digests"]["sha256"])
+    return version, sha256s
 
 
 def update_go(packages: dict):
@@ -136,46 +177,8 @@ def update_python(packages: dict):
     return update_current(packages, "Python", latest)
 
 
-def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
-    url = f"https://api.github.com/repos/{owner}/{repo}/tags"
-    with urlopen(url) as f:
-        tags = json.loads(f.read().decode("utf-8").strip())
-
-    for tag in tags:
-        name: str = tag["name"]
-        if "rc" in name or "a" in name or "b" in name:
-            continue
-        if name.startswith(prefix):
-            return name.removeprefix(prefix)
-        if prefix == "" and name[0].isdigit():
-            return name
-    return None
-
-
-def get_version_from_pypi(project: str):
-    url = f"https://pypi.org/pypi/{project}/json"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
-    version = content["info"]["version"]
-    sha256s = []
-    for release in content["releases"][version]:
-        sha256s.append(release["digests"]["sha256"])
-    return version, sha256s
-
-
-def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
-    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
-
-    latest: str = content["tag_name"]
-    if latest.startswith(prefix):
-        latest = latest.removeprefix(prefix)
-    return latest
-
-
 def update_rust(packages: dict):
-    latest = get_version_from_release("rust-lang", "rust")
+    latest = get_version_from_release("rust-lang/rust")
     rust_updated = update_current(packages, "Rust", latest)
     cargo_updated = update_current(packages, "cargo", latest)
     if rust_updated != cargo_updated:
@@ -183,109 +186,108 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def update_npm(packages: dict):
-    latest = get_version_from_release("npm", "cli")
-    return update_current(packages, "npm", latest)
-
-
-def update_pip(packages: dict):
-    latest, hashes = get_version_from_pypi("pip")
-    return update_current(packages, "pip", latest, hashes)
-
-
-def update_git(packages: dict):
-    latest = get_version_from_tag("git", "git")
-    return update_current(packages, "git", latest)
-
-
-def update_ansible(packages: dict):
-    latest = get_version_from_tag("ansible-community", "ansible-build-data", prefix="")
-    return update_current(packages, "ansible", latest)
-
-
-def update_ansible_core(packages: dict):
-    latest = get_version_from_release("ansible", "ansible")
-    return update_current(packages, "ansible-core", latest)
-
-
-def update_ansible_lint(packages: dict):
-    latest = get_version_from_release("ansible", "ansible-lint")
-    return update_current(packages, "ansible-lint", latest)
-
-
-def update_kubeconform(packages: dict):
-    latest = get_version_from_release(
-        "yannh",
-        "kubeconform",
-    )
-    return update_current(packages, "kubeconform", latest)
-
-
-def update_kube_linter(packages: dict):
-    latest = get_version_from_release(
-        "stackrox",
-        "kube-linter",
-    )
-    return update_current(packages, "kube-linter", latest)
-
-
-def update_jq(packages: dict):
-    latest = get_version_from_tag("jqlang", "jq", prefix="jq-")
-    return update_current(packages, "jq", latest)
-
-
-def update_pipx(packages: dict):
-    latest, sha256s = get_version_from_pypi("pipx")
-    return update_current(packages, "pipx", latest, sha256s)
-
-
-def update_typos_cli(packages: dict):
-    latest = get_version_from_release("crate-ci", "typos")
-    return update_current(packages, "typos-cli", latest)
-
-
-def update_ruff(packages: dict):
-    latest = get_version_from_release("astral-sh", "ruff")
-    return update_current(packages, "ruff", latest)
-
-
-def update_rustup(packages: dict):
-    latest = get_version_from_tag("rust-lang", "rustup", prefix="")
-    return update_current(packages, "rustup", latest)
-
-
-def update_yamllint(packages: dict):
-    latest = get_version_from_tag("adrienverge", "yamllint")
-    return update_current(packages, "yamllint", latest)
-
-
 def main():
     packages = get_packages()
 
     checks = {
-        "Go": update_go,
-        "Node": update_node,
-        "Python": update_python,
-        "Rust": update_rust,
-        "npm": update_npm,
-        "pip": update_pip,
-        "pipx": update_pipx,
-        "git": update_git,
-        "ansible": update_ansible,
-        "ansible-core": update_ansible_core,
-        "ansible-lint": update_ansible_lint,
-        "kubeconform": update_kubeconform,
-        "kube-linter": update_kube_linter,
-        "jq": update_jq,
-        "typos-cli": update_typos_cli,
-        "ruff": update_ruff,
-        "rustup": update_rustup,
-        "yamllint": update_yamllint,
+        "Go": {
+            "source": "custom",
+            "function": update_go,
+        },
+        "Node": {
+            "source": "custom",
+            "function": update_node,
+        },
+        "Python": {
+            "source": "custom",
+            "function": update_python,
+        },
+        "Rust": {
+            "source": "custom",
+            "function": update_rust,
+        },
+        "npm": {
+            "source": "github-release",
+            "repo": "npm/cli",
+        },
+        "pip": {
+            "source": "pypi",
+            "project": "pip",
+        },
+        "pipx": {
+            "source": "pypi",
+            "project": "pipx",
+        },
+        "git": {
+            "source": "github-tag",
+            "repo": "git/git",
+        },
+        "ansible": {
+            "source": "github-tag",
+            "repo": "ansible-community/ansible-build-data",
+            "prefix": "",
+        },
+        "ansible-core": {
+            "source": "github-release",
+            "repo": "ansible/ansible",
+        },
+        "ansible-lint": {
+            "source": "github-release",
+            "repo": "ansible/ansible-lint",
+        },
+        "kubeconform": {
+            "source": "github-release",
+            "repo": "yannh/kubeconform",
+        },
+        "kube-linter": {
+            "source": "github-release",
+            "repo": "stackrox/kube-linter",
+        },
+        "jq": {
+            "source": "github-tag",
+            "repo": "jqlang/jq",
+            "prefix": "jq-",
+        },
+        "typos-cli": {
+            "source": "github-release",
+            "repo": "crate-ci/typos",
+        },
+        "ruff": {
+            "source": "github-release",
+            "repo": "astral-sh/ruff",
+        },
+        "rustup": {
+            "source": "github-tag",
+            "repo": "rust-lang/rustup",
+            "prefix": "",
+        },
+        "yamllint": {
+            "source": "github-tag",
+            "repo": "adrienverge/yamllint",
+        },
     }
 
     num_updates = 0
-    for _, check in checks.items():
-        updated = check(packages)
+    for package, check in checks.items():
+        if check["source"] == "custom":
+            f = check["function"]
+            updated = f(packages)
+        elif check["source"] == "github-tag":
+            repo = check["repo"]
+            prefix = check.get("prefix", "v")
+            latest = get_version_from_tag(repo, prefix=prefix)
+            updated = update_current(packages, package, latest)
+        elif check["source"] == "github-release":
+            repo = check["repo"]
+            prefix = check.get("prefix", "v")
+            latest = get_version_from_release(repo, prefix=prefix)
+            updated = update_current(packages, package, latest)
+        elif check["source"] == "pypi":
+            latest, sha256s = get_version_from_pypi(check["project"])
+            updated = update_current(packages, package, latest, sha256s)
+        else:
+            print(f"Unknown source for {package}")
+            continue
         if updated:
             num_updates += 1
     if num_updates == 0:
