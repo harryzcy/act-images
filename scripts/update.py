@@ -145,11 +145,22 @@ def get_version_from_tag(owner: str, repo: str, prefix: str = "v"):
         name: str = tag["name"]
         if "rc" in name:
             continue
-        if name.startswith(prefix):
+        if prefix != "" and name.startswith(prefix):
             return name.removeprefix(prefix)
         if prefix == "" and name[0].isdigit():
             return name
     return None
+
+
+def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
+    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+    with urlopen(url) as f:
+        content = json.loads(f.read().decode("utf-8").strip())
+
+    latest: str = content["tag_name"]
+    if prefix != "" and latest.startswith(prefix):
+        latest = latest.removeprefix(prefix)
+    return latest
 
 
 def get_version_from_pypi(project: str):
@@ -161,17 +172,6 @@ def get_version_from_pypi(project: str):
     for release in content["releases"][version]:
         sha256s.append(release["digests"]["sha256"])
     return version, sha256s
-
-
-def get_version_from_release(owner: str, repo: str, prefix: str = "v"):
-    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
-
-    latest: str = content["tag_name"]
-    if latest.startswith(prefix):
-        latest = latest.removeprefix(prefix)
-    return latest
 
 
 def update_rust(packages: dict):
