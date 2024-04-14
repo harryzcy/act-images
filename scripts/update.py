@@ -116,7 +116,7 @@ def get_version_from_tag(repo: str, prefix: str = "v"):
 
     for tag in tags:
         name: str = tag["name"]
-        if "rc" in name:
+        if "rc" in name or "a" in name or "b" in name:
             continue
         if prefix != "" and name.startswith(prefix):
             return name.removeprefix(prefix)
