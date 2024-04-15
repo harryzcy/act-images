@@ -13,16 +13,28 @@ jobs:
     name: Nightly Build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
-      - name: Harden Runner
+      - name: Harden runner
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
         with:
           egress-policy: audit
 
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Tag commit
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag "nightly-$(date '+%Y%m%d')"
+
+      - name: Push tag
+        run: git push origin "nightly-$(date '+%Y%m%d')"
+        if: ${{ github.event_name == 'schedule' }}
 
       - name: Docker meta
         id: meta
