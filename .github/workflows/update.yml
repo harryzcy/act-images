@@ -23,7 +23,7 @@ jobs:
           egress-policy: audit
 
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Update versions
         run: |
@@ -34,7 +34,7 @@ jobs:
       # so that the PR will trigger the workflows.
       # The workflows will not be triggered by "github-actions" user.
       # See https://github.com/peter-evans/create-pull-request/issues/48.
-      - uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2
+      - uses: tibdex/github-app-token@3beb63f4bd073e61482598c45c71c1019b59b73a # v2.1.0
         if: github.event_name != 'push'
         id: generate-token
         with:
@@ -42,7 +42,7 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@9153d834b60caba6d51c9b9510b087acf9f33f83 # v6
+        uses: peter-evans/create-pull-request@9153d834b60caba6d51c9b9510b087acf9f33f83 # v6.0.4
         if: github.event_name != 'push'
         id: cpr
         with:
