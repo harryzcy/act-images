@@ -270,7 +270,7 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def check(ubuntu_version: str):
+def update(ubuntu_version: str):
     packages = get_packages(ubuntu_version)
 
     checks = {
@@ -401,4 +401,4 @@ def check(ubuntu_version: str):
 
 if __name__ == "__main__":
     for ubuntu_version in ["22.04", "24.04"]:
-        check(ubuntu_version)
+        update(ubuntu_version)
