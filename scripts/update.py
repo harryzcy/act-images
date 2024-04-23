@@ -397,6 +397,7 @@ def update(ubuntu_version: str):
             f"Updated {num_updates} packages for {ubuntu_version}:",
             ", ".join(updated_packages),
         )
+    print("=" * 80)
 
 
 if __name__ == "__main__":
