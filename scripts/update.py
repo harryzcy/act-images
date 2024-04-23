@@ -147,6 +147,22 @@ def get_version_from_pypi(project: str):
     return version, sha256s
 
 
+def get_version_from_apt(url: str, package: str):
+    distribution = "jammy"
+    url = f"{url}/dists/{distribution}/stable/binary-amd64/Packages"
+    with urlopen(url) as f:
+        content: str = f.read().decode("utf-8")
+
+    latest = None
+    correct_package = False
+    for line in content.split("\n"):
+        if line.startswith("Package: "):
+            correct_package = line.removeprefix("Package: ") == package
+        if correct_package and line.startswith("Version: "):
+            latest = line.removeprefix("Version: ")
+    return latest
+
+
 def update_go(packages: dict):
     url = "https://golang.org/VERSION?m=text"
     with urlopen(url) as f:
@@ -184,6 +200,13 @@ def update_rust(packages: dict):
     if rust_updated != cargo_updated:
         print("Rust and cargo versions are out of sync")
     return rust_updated
+
+
+def update_docker_ce(packages: dict):
+    latest = get_version_from_apt(
+        "https://download.docker.com/linux/ubuntu", "docker-ce"
+    )
+    return update_current(packages, "docker-ce", latest)
 
 
 def main():
@@ -234,6 +257,10 @@ def main():
         "ansible-lint": {
             "source": "github-release",
             "repo": "ansible/ansible-lint",
+        },
+        "docker-ce": {
+            "source": "custom",
+            "function": update_docker_ce,
         },
         "kubeconform": {
             "source": "github-release",
