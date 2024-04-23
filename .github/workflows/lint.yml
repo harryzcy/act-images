@@ -35,4 +35,5 @@ jobs:
 
       - name: Ensure README is up to date
         run: |
-          git diff --exit-code README.md
+          git diff --exit-code images/ubuntu/22.04/README.md
+          git diff --exit-code images/ubuntu/24.04/README.md
