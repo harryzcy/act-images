@@ -208,9 +208,13 @@ def get_version_from_pypi(project: str):
     return version, sha256s
 
 
-def get_version_from_apt(url: str, distribution: str, package: str):
-    if distribution not in ["jammy", "noble"]:
-        print(f"Unknown distribution {distribution}")
+def get_version_from_apt(url: str, ubuntu_version: str, package: str):
+    if ubuntu_version == "22.04":
+        distribution = "jammy"
+    elif ubuntu_version == "24.04":
+        distribution = "noble"
+    else:
+        print(f"Unknown Ubuntu version {ubuntu_version}")
         return None
 
     url = f"{url}/dists/{distribution}/stable/binary-amd64/Packages"
@@ -396,5 +400,5 @@ def check(ubuntu_version: str):
 
 
 if __name__ == "__main__":
-    for ubuntu_version in ["noble", "jammy"]:
+    for ubuntu_version in ["22.04", "24.04"]:
         check(ubuntu_version)
