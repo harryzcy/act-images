@@ -71,10 +71,6 @@
         "name": "chktex"
       },
       {
-        "name": "docker-ce-cli",
-        "version": "5:26.0.1-1~ubuntu.22.04~jammy"
-      },
-      {
         "name": "docker buildx"
       },
       {
@@ -125,6 +121,15 @@
       },
       {
         "name": "zstd"
+      }
+    ]
+  },
+  {
+    "title": "apt Packages",
+    "items": [
+      {
+        "name": "docker-ce-cli",
+        "version": "5:26.0.1-1~ubuntu.22.04~jammy"
       }
     ]
   }
