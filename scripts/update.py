@@ -7,13 +7,13 @@ padding = 2
 padding_str = " " * padding
 
 script_files = [
-    "images/ubuntu/scripts/build.sh",
-    "images/ubuntu/scripts/install.sh",
+    "images/ubuntu/22.04/scripts/build.sh",
+    "images/ubuntu/22.04/scripts/install.sh",
 ]
 
 requirements_files = [
-    "images/ubuntu/scripts/requirements-pip.txt",
-    "images/ubuntu/scripts/requirements-pipx.txt",
+    "images/ubuntu/22.04/scripts/requirements-pip.txt",
+    "images/ubuntu/22.04/scripts/requirements-pipx.txt",
 ]
 
 

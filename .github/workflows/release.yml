@@ -72,7 +72,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@2cdde995de11925a030ce8070c3d77a52ffcf1c0 # v5.3.0
         with:
-          context: images/ubuntu
+          context: images/ubuntu/22.04
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name == 'schedule' }}
           tags: ${{ steps.meta.outputs.tags }}
