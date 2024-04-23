@@ -34,6 +34,7 @@ jobs:
 
       - name: Push tag
         run: git push origin "nightly-$(date '+%Y%m%d')"
+        continue-on-error: true
         if: ${{ github.event_name == 'schedule' }}
 
       - name: Docker meta
