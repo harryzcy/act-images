@@ -46,5 +46,5 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 ### apt Packages
 
-- docker-ce-cli 5:26.0.1-1~ubuntu.22.04~jammy
-- docker-buildx-plugin 0.14.0-1~ubuntu.22.04~jammy
+- docker-ce-cli 5:26.0.1-1\~ubuntu.22.04\~jammy
+- docker-buildx-plugin 0.14.0-1\~ubuntu.22.04\~jammy
