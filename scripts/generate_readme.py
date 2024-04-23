@@ -22,7 +22,8 @@ def update_packages():
         for item in items:
             text = item["name"]
             if "version" in item:
-                text += f" {item['version']}"
+                version = item["version"].replace("~", "\\~")
+                text += f" {version}"
             if "extra" in item:
                 text += f" ({item['extra']})"
             readme += f"- {text}\n"
