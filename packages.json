@@ -71,7 +71,8 @@
         "name": "chktex"
       },
       {
-        "name": "docker"
+        "name": "docker-ce-cli",
+        "version": "5:26.0.1-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker buildx"

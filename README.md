@@ -29,7 +29,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - awk
 - curl
 - chktex
-- docker
+- docker-ce-cli 5:26.0.1-1~ubuntu.22.04~jammy
 - docker buildx
 - git 2.44.0
 - kubeconform 0.6.4
