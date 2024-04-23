@@ -6,7 +6,7 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 
 ## Images
 
-| Image | Installed Packages |
-| ----- | ----- |
-| Ubuntu 22.04 | [images/ubuntu/22.04](images/ubuntu/22.04/README.md) |
-| Ubuntu 24.04 | [images/ubuntu/24.04](images/ubuntu/24.04/README.md) |
+| OS | Image | Installed Packages |
+| ----- | ----- | ----- |
+| Ubuntu 22.04 | `ghcr.io/harryzcy/ubuntu:22.04` | [images/ubuntu/22.04](images/ubuntu/22.04/README.md) |
+| Ubuntu 24.04 | `ghcr.io/harryzcy/ubuntu:24.04` | [images/ubuntu/24.04](images/ubuntu/24.04/README.md) |
