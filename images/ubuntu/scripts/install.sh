@@ -12,6 +12,8 @@ NPM_VERSION="10.5.2"
 ANSIBLE_VERSION="9.4.0"
 ANSIBLE_CORE_VERSION="2.16.6"
 ANSIBLE_LINT_VERSION="24.2.2"
+DOCKER_CE_CLI_VERSION="5:26.0.1-1~ubuntu.22.04~jammy"
+DOCKER_BUILDX_VERSION="0.14.0-1~ubuntu.22.04~jammy"
 KUBECONFORM_VERSION="0.6.4"
 KUBE_LINTER_VERSION="0.6.8"
 JQ_VERSION="1.7.1"
@@ -117,7 +119,7 @@ echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends --no-install-suggests docker-ce-cli docker-buildx-plugin
+apt-get -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_VERSION"
 rm /etc/apt/sources.list.d/docker.list
 rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
