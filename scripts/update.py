@@ -202,13 +202,6 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def update_docker_ce_cli(packages: dict):
-    latest = get_version_from_apt(
-        "https://download.docker.com/linux/ubuntu", "docker-ce"
-    )
-    return update_current(packages, "docker-ce-cli", latest)
-
-
 def main():
     packages = get_packages()
 
@@ -259,8 +252,12 @@ def main():
             "repo": "ansible/ansible-lint",
         },
         "docker-ce-cli": {
-            "source": "custom",
-            "function": update_docker_ce_cli,
+            "source": "apt",
+            "url": "https://download.docker.com/linux/ubuntu",
+        },
+        "docker-buildx-plugin": {
+            "source": "apt",
+            "url": "https://download.docker.com/linux/ubuntu",
         },
         "kubeconform": {
             "source": "github-release",
@@ -312,6 +309,9 @@ def main():
         elif check["source"] == "pypi":
             latest, sha256s = get_version_from_pypi(check["project"])
             updated = update_current(packages, package, latest, sha256s)
+        elif check["source"] == "apt":
+            latest = get_version_from_apt(check["url"], package)
+            updated = update_current(packages, package, latest)
         else:
             print(f"Unknown source for {package}")
             continue
