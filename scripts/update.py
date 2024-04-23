@@ -147,6 +147,22 @@ def get_version_from_pypi(project: str):
     return version, sha256s
 
 
+def get_version_from_apt(url: str, package: str):
+    distribution = "jammy"
+    url = f"{url}/dists/{distribution}/stable/binary-amd64/Packages"
+    with urlopen(url) as f:
+        content: str = f.read().decode("utf-8")
+
+    latest = None
+    correct_package = False
+    for line in content.split("\n"):
+        if line.startswith("Package: "):
+            correct_package = line.removeprefix("Package: ") == package
+        if correct_package and line.startswith("Version: "):
+            latest = line.removeprefix("Version: ")
+    return latest
+
+
 def update_go(packages: dict):
     url = "https://golang.org/VERSION?m=text"
     with urlopen(url) as f:
@@ -235,6 +251,14 @@ def main():
             "source": "github-release",
             "repo": "ansible/ansible-lint",
         },
+        "docker-ce-cli": {
+            "source": "apt",
+            "url": "https://download.docker.com/linux/ubuntu",
+        },
+        "docker-buildx-plugin": {
+            "source": "apt",
+            "url": "https://download.docker.com/linux/ubuntu",
+        },
         "kubeconform": {
             "source": "github-release",
             "repo": "yannh/kubeconform",
@@ -285,6 +309,9 @@ def main():
         elif check["source"] == "pypi":
             latest, sha256s = get_version_from_pypi(check["project"])
             updated = update_current(packages, package, latest, sha256s)
+        elif check["source"] == "apt":
+            latest = get_version_from_apt(check["url"], package)
+            updated = update_current(packages, package, latest)
         else:
             print(f"Unknown source for {package}")
             continue
