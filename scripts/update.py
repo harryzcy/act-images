@@ -21,9 +21,9 @@ def clean_ubuntu_versions(ubuntu_version: str | None):
     if ubuntu_version is None:
         return ["22.04", "24.04"]
     if ubuntu_version == "noble" or ubuntu_version == "24.04":
-        return "24.04"
+        return ["24.04"]
     if ubuntu_version == "jammy" or ubuntu_version == "22.04":
-        return "22.04"
+        return ["22.04"]
     print(f"Unknown Ubuntu version {ubuntu_version}")
 
 
