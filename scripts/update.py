@@ -202,11 +202,11 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def update_docker_ce(packages: dict):
+def update_docker_ce_cli(packages: dict):
     latest = get_version_from_apt(
         "https://download.docker.com/linux/ubuntu", "docker-ce"
     )
-    return update_current(packages, "docker-ce", latest)
+    return update_current(packages, "docker-ce-cli", latest)
 
 
 def main():
@@ -258,9 +258,9 @@ def main():
             "source": "github-release",
             "repo": "ansible/ansible-lint",
         },
-        "docker-ce": {
+        "docker-ce-cli": {
             "source": "custom",
-            "function": update_docker_ce,
+            "function": update_docker_ce_cli,
         },
         "kubeconform": {
             "source": "github-release",
