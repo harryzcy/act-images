@@ -45,14 +45,14 @@ def get_requirements_files(ubuntu_version: str | None = None):
     return files
 
 
-def get_packages():
-    with open("packages.json") as f:
+def get_packages(ubuntu_version: str):
+    with open(f"images/ubuntu/{ubuntu_version}/packages.json") as f:
         packages = json.load(f)
     return packages
 
 
-def write_packages(packages: dict):
-    with open("packages.json", "w") as f:
+def write_packages(ubuntu_version: str, packages: dict):
+    with open(f"images/ubuntu/{ubuntu_version}/packages.json", "w") as f:
         json.dump(packages, f, indent=2)
         f.write("\n")
 
@@ -266,8 +266,8 @@ def update_rust(packages: dict):
     return rust_updated
 
 
-def main():
-    packages = get_packages()
+def check(ubuntu_version: str):
+    packages = get_packages(ubuntu_version)
 
     checks = {
         "Go": {
@@ -375,13 +375,10 @@ def main():
             latest, sha256s = get_version_from_pypi(check["project"])
             updated = update_current(packages, package, latest, sha256s)
         elif check["source"] == "apt":
-            updated = False
-            for version in ["noble", "jammy"]:
-                latest = get_version_from_apt(check["url"], version, package)
-                single_updated = update_current(
-                    packages, package, latest, ubuntu_version=version
-                )
-                updated = updated or single_updated
+            latest = get_version_from_apt(check["url"], ubuntu_version, package)
+            updated = update_current(
+                packages, package, latest, ubuntu_version=ubuntu_version
+            )
         else:
             print(f"Unknown source for {package}")
             continue
@@ -391,9 +388,13 @@ def main():
     if num_updates == 0:
         print("No updates available")
     else:
-        write_packages(packages)
-        print(f"Updated {num_updates} packages:", ", ".join(updated_packages))
+        write_packages(ubuntu_version, packages)
+        print(
+            f"Updated {num_updates} packages for {ubuntu_version}:",
+            ", ".join(updated_packages),
+        )
 
 
 if __name__ == "__main__":
-    main()
+    for ubuntu_version in ["noble", "jammy"]:
+        check(ubuntu_version)
