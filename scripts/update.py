@@ -375,8 +375,13 @@ def main():
             latest, sha256s = get_version_from_pypi(check["project"])
             updated = update_current(packages, package, latest, sha256s)
         elif check["source"] == "apt":
-            latest = get_version_from_apt(check["url"], "jammy", package)
-            updated = update_current(packages, package, latest)
+            updated = False
+            for version in ["noble", "jammy"]:
+                latest = get_version_from_apt(check["url"], version, package)
+                single_updated = update_current(
+                    packages, package, latest, ubuntu_version=version
+                )
+                updated = updated or single_updated
         else:
             print(f"Unknown source for {package}")
             continue
