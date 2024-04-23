@@ -71,9 +71,6 @@
         "name": "chktex"
       },
       {
-        "name": "docker buildx"
-      },
-      {
         "name": "git",
         "version": "2.44.0"
       },
@@ -130,6 +127,10 @@
       {
         "name": "docker-ce-cli",
         "version": "5:26.0.1-1~ubuntu.22.04~jammy"
+      },
+      {
+        "name": "docker-buildx-plugin",
+        "version": "0.14.0-1~ubuntu.22.04~jammy"
       }
     ]
   }
