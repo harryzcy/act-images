@@ -292,6 +292,7 @@ def main():
     }
 
     num_updates = 0
+    updated_packages = []
     for package, check in checks.items():
         if check["source"] == "custom":
             f = check["function"]
@@ -317,11 +318,12 @@ def main():
             continue
         if updated:
             num_updates += 1
+            updated_packages.append(package)
     if num_updates == 0:
         print("No updates available")
     else:
         write_packages(packages)
-        print(f"Updated {num_updates} packages")
+        print(f"Updated {num_updates} packages:", ", ".join(updated_packages))
 
 
 if __name__ == "__main__":
