@@ -29,7 +29,6 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 - awk
 - curl
 - chktex
-- docker buildx
 - git 2.44.0
 - kubeconform 0.6.4
 - kube-linter 0.6.8
@@ -48,3 +47,4 @@ The docker image can be used for [act](https://github.com/nektos/act) and [act r
 ### apt Packages
 
 - docker-ce-cli 5:26.0.1-1~ubuntu.22.04~jammy
+- docker-buildx-plugin 0.14.0-1~ubuntu.22.04~jammy
