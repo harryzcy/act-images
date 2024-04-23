@@ -7,14 +7,42 @@ padding = 2
 padding_str = " " * padding
 
 script_files = [
-    "images/ubuntu/22.04/scripts/build.sh",
-    "images/ubuntu/22.04/scripts/install.sh",
+    "images/ubuntu/{ubuntu_version}/scripts/build.sh",
+    "images/ubuntu/{ubuntu_version}/scripts/install.sh",
 ]
 
 requirements_files = [
-    "images/ubuntu/22.04/scripts/requirements-pip.txt",
-    "images/ubuntu/22.04/scripts/requirements-pipx.txt",
+    "images/ubuntu/{ubuntu_version}/scripts/requirements-pip.txt",
+    "images/ubuntu/{ubuntu_version}/scripts/requirements-pipx.txt",
 ]
+
+
+def clean_ubuntu_versions(ubuntu_version: str | None):
+    if ubuntu_version is None:
+        return ["22.04", "24.04"]
+    if ubuntu_version == "noble" or ubuntu_version == "24.04":
+        return "24.04"
+    if ubuntu_version == "jammy" or ubuntu_version == "22.04":
+        return "22.04"
+    print(f"Unknown Ubuntu version {ubuntu_version}")
+
+
+def get_script_files(ubuntu_version: str | None = None):
+    files = []
+    versions = clean_ubuntu_versions(ubuntu_version)
+    for version in versions:
+        for file in script_files:
+            files.append(file.format(ubuntu_version=version))
+    return files
+
+
+def get_requirements_files(ubuntu_version: str | None = None):
+    files = []
+    versions = clean_ubuntu_versions(ubuntu_version)
+    for version in versions:
+        for file in requirements_files:
+            files.append(file.format(ubuntu_version=version))
+    return files
 
 
 def get_packages():
@@ -29,11 +57,16 @@ def write_packages(packages: dict):
         f.write("\n")
 
 
-def update_script_files(package: str, from_version: str, to_version: str):
+def update_script_files(
+    package: str,
+    from_version: str,
+    to_version: str,
+    ubuntu_version: str | None = None,
+):
     package_env = f"{package.upper().replace('-', '_')}_VERSION"
     old_env = f'{package_env}="{from_version}"'
     new_env = f'{package_env}="{to_version}"'
-    for file in script_files:
+    for file in get_script_files(ubuntu_version):
         with open(file) as f:
             contents = f.read()
         new_content = contents.replace(old_env, new_env)
@@ -47,11 +80,15 @@ def update_script_files(package: str, from_version: str, to_version: str):
 
 
 def update_requirements_files(
-    package: str, from_version: str, to_version: str, sha256s: list = None
+    package: str,
+    from_version: str,
+    to_version: str,
+    sha256s: list = None,
+    ubuntu_version: str | None = None,
 ):
     old = f"{package}=={from_version}"
     new = f"{package}=={to_version}"
-    for file in requirements_files:
+    for file in get_requirements_files(ubuntu_version):
         with open(file) as f:
             contents = f.read()
         new_content = contents.replace(old, new)
@@ -88,13 +125,31 @@ def update_requirements_files(
 
 
 def update_environment(
-    package: str, from_version: str, to_version: str, sha256s: list = None
+    package: str,
+    from_version: str,
+    to_version: str,
+    sha256s: list = None,
+    ubuntu_version: str | None = None,
 ):
-    update_script_files(package, from_version, to_version)
-    update_requirements_files(package, from_version, to_version, sha256s)
+    update_script_files(
+        package, from_version, to_version, ubuntu_version=ubuntu_version
+    )
+    update_requirements_files(
+        package,
+        from_version,
+        to_version,
+        sha256s=sha256s,
+        ubuntu_version=ubuntu_version,
+    )
 
 
-def update_current(packages: dict, package: str, version: str, sha256s: list = None):
+def update_current(
+    packages: dict,
+    package: str,
+    version: str,
+    sha256s: list = None,
+    ubuntu_version: str | None = None,
+):
     if version is None:
         print(f"Failed to get version for {package}")
         return None
@@ -103,7 +158,13 @@ def update_current(packages: dict, package: str, version: str, sha256s: list = N
             if item["name"] == package:
                 if item["version"] == version:
                     return False
-                update_environment(package, item["version"], version, sha256s)
+                update_environment(
+                    package,
+                    item["version"],
+                    version,
+                    sha256s=sha256s,
+                    ubuntu_version=ubuntu_version,
+                )
                 item["version"] = version
                 return True
     return None
@@ -147,8 +208,11 @@ def get_version_from_pypi(project: str):
     return version, sha256s
 
 
-def get_version_from_apt(url: str, package: str):
-    distribution = "jammy"
+def get_version_from_apt(url: str, distribution: str, package: str):
+    if distribution not in ["jammy", "noble"]:
+        print(f"Unknown distribution {distribution}")
+        return None
+
     url = f"{url}/dists/{distribution}/stable/binary-amd64/Packages"
     with urlopen(url) as f:
         content: str = f.read().decode("utf-8")
@@ -311,7 +375,7 @@ def main():
             latest, sha256s = get_version_from_pypi(check["project"])
             updated = update_current(packages, package, latest, sha256s)
         elif check["source"] == "apt":
-            latest = get_version_from_apt(check["url"], package)
+            latest = get_version_from_apt(check["url"], "jammy", package)
             updated = update_current(packages, package, latest)
         else:
             print(f"Unknown source for {package}")
