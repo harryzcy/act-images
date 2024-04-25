@@ -26,8 +26,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
-        with:
-          fetch-depth: 0
 
       - name: Generate README
         run: |
@@ -35,4 +33,5 @@ jobs:
 
       - name: Ensure README is up to date
         run: |
-          git diff --exit-code README.md
+          git diff --exit-code images/ubuntu/22.04/README.md
+          git diff --exit-code images/ubuntu/24.04/README.md
