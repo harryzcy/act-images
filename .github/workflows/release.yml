@@ -63,7 +63,7 @@ jobs:
             ghcr.io/harryzcy/ubuntu
           tags: |
             type=schedule,pattern=${{ matrix.base-image }}-{{date 'YYYYMMDD'}}
-            type=raw,value=latest
+            type=raw,value=latest,enable=${{ matrix.base-image == '24.04' }}
             type=raw,value=${{ matrix.base-image }}
             type=sha
 
