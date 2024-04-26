@@ -50,7 +50,7 @@ jobs:
           commit-message: "[chore] Update package versions"
           title: "Update package versions"
           labels: "dependencies"
-          add-paths: "images/ubuntu/22.04/scripts,images/ubuntu/24.04/scripts"
+          add-paths: "images/ubuntu"
 
       - name: Enable auto-merge
         if: steps.cpr.outputs.pull-request-operation == 'created' && github.event_name != 'push'
