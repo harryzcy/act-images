@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "24.2.2"
+        "version": "24.2.3"
       },
       {
         "name": "awk"
@@ -126,7 +126,7 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:26.1.0-1~ubuntu.22.04~jammy"
+        "version": "5:26.1.1-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker-buildx-plugin",
