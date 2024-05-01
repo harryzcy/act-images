@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 10.6.0
+- npm 10.7.0
 - pip 24.0
 - pipx 1.5.0
 - rustup 1.27.0
@@ -32,7 +32,7 @@
 - ruff 0.4.2
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.20.10
+- typos-cli 1.21.0
 - wget
 - xz
 - yamllint 1.35.1
