@@ -4,11 +4,11 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.22.2"
+        "version": "1.22.3"
       },
       {
         "name": "Node",
-        "version": "20.12.2"
+        "version": "20.13.0"
       },
       {
         "name": "Python",
