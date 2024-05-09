@@ -8,7 +8,7 @@
       },
       {
         "name": "Node",
-        "version": "20.13.0"
+        "version": "20.13.1"
       },
       {
         "name": "Python",
@@ -76,7 +76,7 @@
       },
       {
         "name": "kubeconform",
-        "version": "0.6.4"
+        "version": "0.6.5"
       },
       {
         "name": "kube-linter",
@@ -126,7 +126,7 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:26.1.1-1~ubuntu.22.04~jammy"
+        "version": "5:26.1.2-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker-buildx-plugin",
