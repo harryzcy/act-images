@@ -5,7 +5,7 @@
 ### Languages
 
 - Go 1.22.3
-- Node 20.13.0
+- Node 20.13.1
 - Python 3.12.3
 - Rust 1.78.0
 
@@ -26,7 +26,7 @@
 - curl
 - chktex
 - git 2.45.0
-- kubeconform 0.6.4
+- kubeconform 0.6.5
 - kube-linter 0.6.8
 - lsof
 - ruff 0.4.3
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:26.1.1-1\~ubuntu.24.04\~noble
+- docker-ce-cli 5:26.1.2-1\~ubuntu.24.04\~noble
 - docker-buildx-plugin 0.14.0-1\~ubuntu.24.04\~noble
