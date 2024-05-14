@@ -6,7 +6,7 @@ set -o pipefail
 PYTHON_VERSION="3.12.3"
 
 PIP_VERSION="24.0"
-GIT_VERSION="2.45.0"
+GIT_VERSION="2.45.1"
 
 BASEDIR=$(dirname $0)
 
