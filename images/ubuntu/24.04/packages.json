@@ -126,7 +126,7 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:26.1.2-1~ubuntu.24.04~noble"
+        "version": "5:26.1.3-1~ubuntu.24.04~noble"
       },
       {
         "name": "docker-buildx-plugin",
