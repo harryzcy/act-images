@@ -4,7 +4,7 @@
 
 ### Languages
 
-- Go 1.22.3
+- Go 1.22.4
 - Node 20.14.0
 - Python 3.12.3
 - Rust 1.78.0
@@ -21,7 +21,7 @@
 
 - ansible 10.0.0
 - ansible-core 2.17.0
-- ansible-lint 24.5.0
+- ansible-lint 24.6.0
 - awk
 - curl
 - chktex

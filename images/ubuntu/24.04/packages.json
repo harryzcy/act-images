@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.22.3"
+        "version": "1.22.4"
       },
       {
         "name": "Node",
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "24.5.0"
+        "version": "24.6.0"
       },
       {
         "name": "awk"
