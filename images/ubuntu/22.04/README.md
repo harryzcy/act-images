@@ -29,10 +29,10 @@
 - kubeconform 0.6.6
 - kube-linter 0.6.8
 - lsof
-- ruff 0.4.7
+- ruff 0.4.8
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.22.0
+- typos-cli 1.22.1
 - wget
 - xz
 - yamllint 1.35.1
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:26.1.3-1\~ubuntu.22.04\~jammy
-- docker-buildx-plugin 0.14.0-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:26.1.4-1\~ubuntu.22.04\~jammy
+- docker-buildx-plugin 0.14.1-1\~ubuntu.22.04\~jammy
