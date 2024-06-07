@@ -6,7 +6,7 @@
 
 - Go 1.22.4
 - Node 20.14.0
-- Python 3.12.3
+- Python 3.12.4
 - Rust 1.78.0
 
 ### Package Managers
@@ -32,7 +32,7 @@
 - ruff 0.4.8
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.22.1
+- typos-cli 1.22.3
 - wget
 - xz
 - yamllint 1.35.1
