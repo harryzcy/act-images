@@ -21,7 +21,7 @@
 
 - ansible 10.1.0
 - ansible-core 2.17.1
-- ansible-lint 24.6.0
+- ansible-lint 24.6.1
 - awk
 - curl
 - chktex
