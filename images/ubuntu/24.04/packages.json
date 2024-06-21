@@ -8,7 +8,7 @@
       },
       {
         "name": "Node",
-        "version": "20.14.0"
+        "version": "20.15.0"
       },
       {
         "name": "Python",
@@ -29,7 +29,7 @@
       },
       {
         "name": "pip",
-        "version": "24.0"
+        "version": "24.1"
       },
       {
         "name": "pipx",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.4.9"
+        "version": "0.4.10"
       },
       {
         "name": "sqlite3"

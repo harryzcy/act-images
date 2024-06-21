@@ -5,14 +5,14 @@
 ### Languages
 
 - Go 1.22.4
-- Node 20.14.0
+- Node 20.15.0
 - Python 3.12.4
 - Rust 1.79.0
 
 ### Package Managers
 
 - npm 10.8.1
-- pip 24.0
+- pip 24.1
 - pipx 1.6.0
 - rustup 1.27.1
 - cargo 1.79.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
@@ -29,7 +29,7 @@
 - kubeconform 0.6.6
 - kube-linter 0.6.8
 - lsof
-- ruff 0.4.9
+- ruff 0.4.10
 - sqlite3
 - jq 1.7.1
 - typos-cli 1.22.7
