@@ -12,7 +12,7 @@
 ### Package Managers
 
 - npm 10.8.1
-- pip 24.1
+- pip 24.1.1
 - pipx 1.6.0
 - rustup 1.27.1
 - cargo 1.79.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:27.0.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:27.0.2-1\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.15.1-1\~ubuntu.22.04\~jammy
