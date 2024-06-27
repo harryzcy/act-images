@@ -91,7 +91,9 @@ def update_requirements_files(
     for file in get_requirements_files(ubuntu_version):
         with open(file) as f:
             contents = f.read()
-        new_content = contents.replace(old, new)
+        new_content = contents.replace(f"{old}\n", f"{new}\n").replace(
+            f"{old} \\", f"{new} \\"
+        )
         if new_content == contents:
             print(f"Skipping {file}")
             continue
@@ -205,6 +207,7 @@ def get_version_from_pypi(project: str):
     sha256s = []
     for release in content["releases"][version]:
         sha256s.append(release["digests"]["sha256"])
+    print(sha256s)
     return version, sha256s
 
 
