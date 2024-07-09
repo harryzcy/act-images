@@ -3,7 +3,7 @@
 set -o errexit
 set -o pipefail
 
-NODE_VERSION="20.15.0"
+NODE_VERSION="20.15.1"
 GO_VERSION="1.22.5"
 RUST_VERSION="1.79.0"
 
