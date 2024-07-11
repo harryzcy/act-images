@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 10.8.1
+- npm 10.8.2
 - pip 24.1.2
 - pipx 1.6.0
 - rustup 1.27.1
@@ -21,7 +21,7 @@
 
 - ansible 10.1.0
 - ansible-core 2.17.1
-- ansible-lint 24.6.1
+- ansible-lint 24.7.0
 - awk
 - curl
 - chktex
