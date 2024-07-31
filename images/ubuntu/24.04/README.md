@@ -26,7 +26,7 @@
 - curl
 - chktex
 - git 2.46.0
-- kubeconform 0.6.6
+- kubeconform 0.6.7
 - kube-linter 0.6.8
 - lsof
 - ruff 0.5.5
