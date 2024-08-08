@@ -12,7 +12,7 @@
       },
       {
         "name": "Python",
-        "version": "3.12.4"
+        "version": "3.12.5"
       },
       {
         "name": "Rust",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.5.6"
+        "version": "0.5.7"
       },
       {
         "name": "sqlite3"
