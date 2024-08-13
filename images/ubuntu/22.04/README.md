@@ -4,7 +4,7 @@
 
 ### Languages
 
-- Go 1.22.6
+- Go 1.23rc2
 - Node 20.16.0
 - Python 3.12.5
 - Rust 1.80.0
@@ -19,7 +19,7 @@
 
 ### Tools
 
-- ansible 10.2.0
+- ansible 10.3.0
 - ansible-core 2.17.3
 - ansible-lint 24.7.0
 - awk
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:27.1.1-1\~ubuntu.22.04\~jammy
-- docker-buildx-plugin 0.16.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:27.1.2-1\~ubuntu.22.04\~jammy
+- docker-buildx-plugin 0.16.2-1\~ubuntu.22.04\~jammy
