@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.22.6"
+        "version": "1.23rc2"
       },
       {
         "name": "Node",
@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "10.2.0"
+        "version": "10.3.0"
       },
       {
         "name": "ansible-core",
@@ -126,11 +126,11 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:27.1.1-1~ubuntu.24.04~noble"
+        "version": "5:27.1.2-1~ubuntu.24.04~noble"
       },
       {
         "name": "docker-buildx-plugin",
-        "version": "0.16.1-1~ubuntu.24.04~noble"
+        "version": "0.16.2-1~ubuntu.24.04~noble"
       }
     ]
   }
