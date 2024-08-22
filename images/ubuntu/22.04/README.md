@@ -13,7 +13,7 @@
 
 - npm 10.8.2
 - pip 24.2
-- pipx 1.6.0
+- pipx 1.7.0
 - rustup 1.27.1
 - cargo 1.80.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
@@ -29,10 +29,10 @@
 - kubeconform 0.6.7
 - kube-linter 0.6.8
 - lsof
-- ruff 0.6.1
+- ruff 0.6.2
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.23.6
+- typos-cli 1.23.7
 - wget
 - xz
 - yamllint 1.35.1

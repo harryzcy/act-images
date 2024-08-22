@@ -33,7 +33,7 @@
       },
       {
         "name": "pipx",
-        "version": "1.6.0"
+        "version": "1.7.0"
       },
       {
         "name": "rustup",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.6.1"
+        "version": "0.6.2"
       },
       {
         "name": "sqlite3"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.23.6"
+        "version": "1.23.7"
       },
       {
         "name": "wget"
