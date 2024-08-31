@@ -11,9 +11,9 @@
 
 ### Package Managers
 
-- npm 10.8.2
+- npm 10.8.3
 - pip 24.2
-- pipx 1.7.0
+- pipx 1.7.1
 - rustup 1.27.1
 - cargo 1.80.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
@@ -29,10 +29,10 @@
 - kubeconform 0.6.7
 - kube-linter 0.6.8
 - lsof
-- ruff 0.6.2
+- ruff 0.6.3
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.23.7
+- typos-cli 1.24.3
 - wget
 - xz
 - yamllint 1.35.1
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:27.1.2-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:27.2.0-1\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.16.2-1\~ubuntu.22.04\~jammy

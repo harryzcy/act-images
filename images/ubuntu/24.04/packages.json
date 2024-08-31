@@ -25,7 +25,7 @@
     "items": [
       {
         "name": "npm",
-        "version": "10.8.2"
+        "version": "10.8.3"
       },
       {
         "name": "pip",
@@ -33,7 +33,7 @@
       },
       {
         "name": "pipx",
-        "version": "1.7.0"
+        "version": "1.7.1"
       },
       {
         "name": "rustup",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.6.2"
+        "version": "0.6.3"
       },
       {
         "name": "sqlite3"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.23.7"
+        "version": "1.24.3"
       },
       {
         "name": "wget"
@@ -126,7 +126,7 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:27.1.2-1~ubuntu.24.04~noble"
+        "version": "5:27.2.0-1~ubuntu.24.04~noble"
       },
       {
         "name": "docker-buildx-plugin",
