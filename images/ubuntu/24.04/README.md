@@ -7,7 +7,7 @@
 - Go 1.23.0
 - Node 20.17.0
 - Python 3.12.5
-- Rust 1.80.0
+- Rust 1.80.1
 
 ### Package Managers
 
@@ -15,7 +15,7 @@
 - pip 24.2
 - pipx 1.7.1
 - rustup 1.27.1
-- cargo 1.80.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
+- cargo 1.80.1 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
 
@@ -32,7 +32,7 @@
 - ruff 0.6.3
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.24.4
+- typos-cli 1.24.5
 - wget
 - xz
 - yamllint 1.35.1
