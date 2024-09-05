@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.23.0"
+        "version": "1.23.1"
       },
       {
         "name": "Node",
@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.80.1"
+        "version": "1.81.0"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.80.1",
+        "version": "1.81.0",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.6.3"
+        "version": "0.6.4"
       },
       {
         "name": "sqlite3"
