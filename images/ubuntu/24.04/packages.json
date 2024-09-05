@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.80.0"
+        "version": "1.80.1"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.80.0",
+        "version": "1.80.1",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.24.4"
+        "version": "1.24.5"
       },
       {
         "name": "wget"
