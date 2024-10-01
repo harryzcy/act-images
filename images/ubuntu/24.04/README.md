@@ -6,7 +6,7 @@
 
 - Go 1.23.1
 - Node 20.17.0
-- Python 3.12.6
+- Python 3.12.7
 - Rust 1.81.0
 
 ### Package Managers
