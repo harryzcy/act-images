@@ -5,13 +5,13 @@
 ### Languages
 
 - Go 1.23.2
-- Node 20.17.0
+- Node 20.18.0
 - Python 3.12.7
 - Rust 1.81.0
 
 ### Package Managers
 
-- npm 10.8.3
+- npm 10.9.0
 - pip 24.2
 - pipx 1.7.1
 - rustup 1.27.1

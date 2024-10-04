@@ -8,7 +8,7 @@
       },
       {
         "name": "Node",
-        "version": "20.17.0"
+        "version": "20.18.0"
       },
       {
         "name": "Python",
@@ -25,7 +25,7 @@
     "items": [
       {
         "name": "npm",
-        "version": "10.8.3"
+        "version": "10.9.0"
       },
       {
         "name": "pip",
