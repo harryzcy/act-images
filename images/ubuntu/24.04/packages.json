@@ -72,7 +72,7 @@
       },
       {
         "name": "git",
-        "version": "2.46.2"
+        "version": "2.47.0"
       },
       {
         "name": "kubeconform",
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.25.0"
+        "version": "1.26.0"
       },
       {
         "name": "wget"
