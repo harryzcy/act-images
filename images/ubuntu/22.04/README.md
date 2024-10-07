@@ -25,14 +25,14 @@
 - awk
 - curl
 - chktex
-- git 2.46.2
+- git 2.47.0
 - kubeconform 0.6.7
 - kube-linter 0.6.8
 - lsof
 - ruff 0.6.9
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.25.0
+- typos-cli 1.26.0
 - wget
 - xz
 - yamllint 1.35.1
