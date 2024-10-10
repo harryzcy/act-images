@@ -5,7 +5,7 @@
   "packageRules": [
     {
       "fileMatch": [
-        "requirements-*.txt"
+        "requirements-.*.txt"
       ],
       "enabled": false
     }
