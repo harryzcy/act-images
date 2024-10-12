@@ -2,12 +2,7 @@
   "extends": [
     "github>harryzcy/renovate-config"
   ],
-  "packageRules": [
-    {
-      "fileMatch": [
-        "requirements-.*.txt"
-      ],
-      "enabled": false
-    }
+  "ignorePaths": [
+    "requirements-*.txt"
   ]
 }
