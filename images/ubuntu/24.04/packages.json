@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.7.0"
+        "version": "0.7.1"
       },
       {
         "name": "sqlite3"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.26.1"
+        "version": "1.26.3"
       },
       {
         "name": "wget"
