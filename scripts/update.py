@@ -109,6 +109,7 @@ def update_requirements_files(
             if not line.strip().endswith("\\"):
                 lines[line_number] = line.strip() + " \\"
                 line_number += 1
+            line_number += 1
             # remove the old sha256s
             while "sha256:" in lines[line_number]:
                 lines.pop(line_number)
