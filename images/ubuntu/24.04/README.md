@@ -12,7 +12,7 @@
 ### Package Managers
 
 - npm 10.9.0
-- pip 24.2
+- pip 24.3.1
 - pipx 1.7.1
 - rustup 1.27.1
 - cargo 1.82.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
