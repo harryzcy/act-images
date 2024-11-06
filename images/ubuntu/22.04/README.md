@@ -27,12 +27,12 @@
 - chktex
 - git 2.47.0
 - kubeconform 0.6.7
-- kube-linter 0.6.8
+- kube-linter 0.7.0
 - lsof
 - ruff 0.7.2
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.27.0
+- typos-cli 1.27.1
 - wget
 - xz
 - yamllint 1.35.1

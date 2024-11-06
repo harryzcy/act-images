@@ -80,7 +80,7 @@
       },
       {
         "name": "kube-linter",
-        "version": "0.6.8"
+        "version": "0.7.0"
       },
       {
         "name": "lsof"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.27.0"
+        "version": "1.27.1"
       },
       {
         "name": "wget"
