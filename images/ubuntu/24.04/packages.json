@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.23.2"
+        "version": "1.23.3"
       },
       {
         "name": "Node",
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.27.1"
+        "version": "1.27.2"
       },
       {
         "name": "wget"
