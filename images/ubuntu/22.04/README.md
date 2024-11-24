@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 10.9.0
+- npm 10.9.1
 - pip 24.3.1
 - pipx 1.7.1
 - rustup 1.27.1
