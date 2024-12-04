@@ -4,11 +4,11 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.23.3"
+        "version": "1.23.4"
       },
       {
         "name": "Node",
-        "version": "22.11.0"
+        "version": "22.12.0"
       },
       {
         "name": "Python",
@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "11.0.0"
+        "version": "11.1.0"
       },
       {
         "name": "ansible-core",
