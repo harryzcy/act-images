@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "24.12.1"
+        "version": "24.12.2"
       },
       {
         "name": "awk"
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.8.2"
+        "version": "0.8.3"
       },
       {
         "name": "sqlite3"
