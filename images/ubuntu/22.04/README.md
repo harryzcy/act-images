@@ -21,7 +21,7 @@
 
 - ansible 11.1.0
 - ansible-core 2.18.1
-- ansible-lint 24.12.1
+- ansible-lint 24.12.2
 - awk
 - curl
 - chktex
@@ -29,7 +29,7 @@
 - kubeconform 0.6.7
 - kube-linter 0.7.1
 - lsof
-- ruff 0.8.2
+- ruff 0.8.3
 - sqlite3
 - jq 1.7.1
 - typos-cli 1.28.2
