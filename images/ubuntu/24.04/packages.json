@@ -72,7 +72,7 @@
       },
       {
         "name": "git",
-        "version": "2.47.1"
+        "version": "2.48.0"
       },
       {
         "name": "kubeconform",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.9.0"
+        "version": "0.9.1"
       },
       {
         "name": "sqlite3"
