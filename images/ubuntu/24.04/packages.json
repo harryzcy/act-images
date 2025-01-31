@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.84.0"
+        "version": "1.84.1"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.84.0",
+        "version": "1.84.1",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.9.3"
+        "version": "0.9.4"
       },
       {
         "name": "sqlite3"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.29.4"
+        "version": "1.29.5"
       },
       {
         "name": "wget"
