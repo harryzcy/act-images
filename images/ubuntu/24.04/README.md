@@ -4,7 +4,7 @@
 
 ### Languages
 
-- Go 1.23.5
+- Go 1.23.6
 - Node 22.13.1
 - Python 3.13.1
 - Rust 1.84.1
