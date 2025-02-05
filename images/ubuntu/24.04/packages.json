@@ -12,7 +12,7 @@
       },
       {
         "name": "Python",
-        "version": "3.13.1"
+        "version": "3.13.2"
       },
       {
         "name": "Rust",
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "25.1.1"
+        "version": "25.1.2"
       },
       {
         "name": "awk"
