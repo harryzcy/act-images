@@ -6,7 +6,7 @@
 
 - Go 1.23.6
 - Node 22.13.1
-- Python 3.13.1
+- Python 3.13.2
 - Rust 1.84.1
 
 ### Package Managers
@@ -21,7 +21,7 @@
 
 - ansible 11.2.0
 - ansible-core 2.18.2
-- ansible-lint 25.1.1
+- ansible-lint 25.1.2
 - awk
 - curl
 - chktex
