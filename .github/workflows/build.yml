@@ -3,11 +3,7 @@ name: Build
 on:
   push:
   pull_request:
-    types:
-      - opened
-      - synchronize
-      - labeled
-      - reopened
+    types: [opened, synchronize, labeled, reopened]
 
 permissions:
   contents: read
