@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "30 3 * * *"
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: read
@@ -14,8 +15,6 @@ jobs:
     runs-on: ubuntu-24.04
     permissions:
       contents: write
-    strategy:
-      fail-fast: false
     steps:
       - name: Harden runner
         uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
@@ -32,11 +31,12 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag "nightly-$(date '+%Y%m%d')"
+        continue-on-error: true
 
       - name: Push tag
+        if: ${{ github.event_name == 'schedule' }}
         run: git push origin "nightly-$(date '+%Y%m%d')"
         continue-on-error: true
-        if: ${{ github.event_name == 'schedule' }}
 
   daily:
     name: Nightly Build
@@ -45,6 +45,7 @@ jobs:
       packages: write
     needs: tag
     strategy:
+      fail-fast: false
       matrix:
         base-image: [22.04, 24.04]
     steps:
