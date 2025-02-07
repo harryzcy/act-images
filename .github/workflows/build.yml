@@ -10,7 +10,7 @@ permissions:
 jobs:
   docker-build:
     name: Docker Build
-    runs-on: ${{ matrix.arch == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    runs-on: ${{ startsWith(matrix.arch, 'amd64') && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
       matrix:
