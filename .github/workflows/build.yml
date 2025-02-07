@@ -10,11 +10,11 @@ permissions:
 jobs:
   docker:
     name: Docker Build
-    runs-on: ${{ matrix.runner }}
+    runs-on: ${{ matrix.arch == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     strategy:
       fail-fast: false
       matrix:
-        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+        arch: [amd64, arm64]
         base-image: [22.04, 24.04]
     steps:
       - name: Harden Runner
