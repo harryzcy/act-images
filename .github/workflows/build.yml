@@ -82,22 +82,21 @@ jobs:
       - name: Download artifacts (amd64)
         uses: actions/download-artifact@v4.1.8
         with:
-          name: ubuntu-amd64
-          path: ${{ runner.temp }}/ubuntu-amd64.tar
+          path: ${{ runner.temp }}
+          merge-multiple: true
 
-      - name: Download artifacts (arm64)
-        uses: actions/download-artifact@v4.1.8
-        with:
-          name: ubuntu-arm64
-          path: ${{ runner.temp }}/ubuntu-arm64.tar
+      - name: List artifacts (amd64)
+        run: ls -l ${{ runner.temp }}
 
       - name: Load docker images
         run: |
           docker load -i ${{ runner.temp }}/ubuntu-amd64.tar
+          docker load -i ${{ runner.temp }}/ubuntu-arm64-v3.tar
           docker load -i ${{ runner.temp }}/ubuntu-arm64.tar
           docker images ls -a
 
       - name: Create docker manifest
         run: |
-          docker manifest create harryzcy/ubuntu:latest harryzcy/ubuntu:latest-amd64 harryzcy/ubuntu:latest-arm64
+          docker manifest create harryzcy/ubuntu:latest \
+            harryzcy/ubuntu:latest-amd64 harryzcy/ubuntu:latest-arm64-v3 harryzcy/ubuntu:latest-arm64
           docker images ls -a
