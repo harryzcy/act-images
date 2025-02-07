@@ -38,15 +38,17 @@ jobs:
 
       - name: Generate output path
         run: |
-          mkdir -p $(dirname ${{ runner.temp }}/ubuntu-${{ matrix.arch }}.tar)
+          # replace / with - in base image
+          arch=${{ matrix.arch }}
+          echo "suffix=${arch//\//-}" >> $GITHUB_ENV
 
       - name: Build docker image
         uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
         with:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
-          tags: ubuntu:latest-${{ matrix.arch }}
-          outputs: type=oci,dest=${{ runner.temp }}/ubuntu-${{ matrix.arch }}.tar
+          tags: ubuntu:latest-${{ env.suffix }}
+          outputs: type=oci,dest=${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
           push: false
 
       - name: Show docker image
