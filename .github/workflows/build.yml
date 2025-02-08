@@ -57,7 +57,8 @@ jobs:
           sudo ls /var/lib/docker/tmp/
           sudo mkdir -p /var/lib/docker/tmp/
           cd ${{ runner.temp }}
-          docker load --input ubuntu-${{ env.suffix }}.tar
+          cat ubuntu-${{ env.suffix }}.tar | docker load
+          # docker load --input ubuntu-${{ env.suffix }}.tar
           docker images
 
       - name: Print package version
