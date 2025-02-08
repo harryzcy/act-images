@@ -48,7 +48,7 @@ jobs:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
           tags: ubuntu:latest-${{ env.suffix }}
-          # outputs: type=docker,dest=${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+          outputs: type=docker
           push: false
 
       - name: Show docker image
