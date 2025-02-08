@@ -74,9 +74,9 @@ jobs:
         run: |
           docker images
 
-      - name: Print package version
-        run: |
-          docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest bash /version.sh
+      # - name: Print package version
+      #   run: |
+      #     docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest bash /version.sh
 
       - name: Upload digest
         uses: actions/upload-artifact@v4
