@@ -62,7 +62,7 @@ jobs:
         with:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
-          tags: ubuntu:${{ matrix.base-image }}-${{ matrix.arch }}
+          tags: ubuntu:${{ matrix.base-image }}
 
       - name: Show docker image
         run: |
@@ -71,7 +71,7 @@ jobs:
       - name: Print package version
         run: |
           docker run --rm -v "$PWD/scripts/version.sh:/version.sh" \
-            ubuntu:${{ matrix.base-image }}-${{ matrix.arch }} bash /version.sh
+            ubuntu:${{ matrix.base-image }} bash /version.sh
 
       - name: Build and push by digest
         id: build
