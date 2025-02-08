@@ -40,14 +40,14 @@ jobs:
         run: |
           # replace / with - in base image
           arch=${{ matrix.arch }}
-          echo "suffix=${arch//\//-}" >> $GITHUB_ENV
+          echo "tag=${{ matrix.base-image }}-${arch//\//-}" >> $GITHUB_ENV
 
       - name: Build docker image
         uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
         with:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
-          tags: ubuntu:${{ matrix.base-image }}-${{ env.suffix }}
+          tags: ubuntu:${{ env.tag }}
           outputs: type=docker
           push: false
 
@@ -59,11 +59,11 @@ jobs:
       - name: Print package version
         run: |
           ls "$PWD/scripts"
-          # docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:${{ matrix.base-image }}-${{ env.suffix }} bash /version.sh
+          # docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:${{ env.tag }} bash /version.sh
 
       - name: Save docker image
         run: |
-          docker save ubuntu:${{ matrix.base-image }}-${{ env.suffix }} -o ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+          docker save ubuntu:${{ env.tag }} -o ${{ runner.temp }}/${{ env.tag }}.tar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4.6.0
