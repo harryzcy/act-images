@@ -104,10 +104,10 @@ jobs:
             docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ubuntu:latest-amd64-v3
           fi
           docker import ${{ runner.temp }}/${{ matrix.base-image }}-arm64.tar ubuntu:latest-arm64
-          docker images ls -a
+          docker images
 
       - name: Create docker manifest
         run: |
-          docker manifest create harryzcy/ubuntu:latest \
-            harryzcy/ubuntu:latest-amd64 harryzcy/ubuntu:latest-arm64-v3 harryzcy/ubuntu:latest-arm64
-          docker images ls -a
+          docker manifest create ubuntu:latest \
+            ubuntu:latest-amd64 ubuntu:latest-arm64-v3 ubuntu:latest-arm64
+          docker images
