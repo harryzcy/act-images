@@ -54,12 +54,13 @@ jobs:
       - name: Show docker image
         continue-on-error: true
         run: |
-          sudo ls /var/lib/docker/tmp/
-          sudo mkdir -p /var/lib/docker/tmp/
-          cd ${{ runner.temp }}
-          ls -l ubuntu-${{ env.suffix }}.tar
-          cat ubuntu-${{ env.suffix }}.tar | docker load
-          # docker load --input ubuntu-${{ env.suffix }}.tar
+          # sudo ls /var/lib/docker/tmp/
+          # sudo mkdir -p /var/lib/docker/tmp/
+          # cd ${{ runner.temp }}
+          # ls -l ubuntu-${{ env.suffix }}.tar
+          # cat ubuntu-${{ env.suffix }}.tar | docker load
+          # # docker load --input ubuntu-${{ env.suffix }}.tar
+          docker import ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
           docker images
 
       - name: Print package version
