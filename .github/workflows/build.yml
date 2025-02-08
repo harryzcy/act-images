@@ -7,12 +7,105 @@ on:
 permissions:
   contents: read
 
+env:
+  GHCR_REPO: ghcr.io/${{ github.repository_owner }}/ubuntu-dev
+
 jobs:
-  docker:
+  build:
     name: Docker Build
-    runs-on: ubuntu-24.04
+    runs-on: ${{ startsWith(matrix.arch, 'amd64') && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    permissions:
+      packages: write
     strategy:
-      fail-fast: false
+      matrix:
+        arch: [amd64, amd64/v3, arm64]
+        base-image: [22.04, 24.04]
+    steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
+        with:
+          egress-policy: audit
+
+      - name: Show runner
+        run: |
+          uname -a
+          cat /etc/os-release
+
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Prepare
+        run: |
+          ARTIFACT_NAME=ubuntu-${{ matrix.base-image }}-linux/${{ matrix.arch }}
+          echo "ARTIFACT_NAME=${ARTIFACT_NAME//\//-}" >> $GITHUB_ENV
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
+        with:
+          images: |
+            ${{ env.GHCR_REPO }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3.9.0
+
+      - name: Build image
+        uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
+        with:
+          context: images/ubuntu/${{ matrix.base-image }}
+          platforms: linux/${{ matrix.arch }}
+          tags: ubuntu:${{ matrix.base-image }}
+          outputs: type=docker
+
+      - name: Show docker image
+        run: |
+          docker images
+
+      - name: Print package version
+        run: |
+          docker run --rm -v "$PWD/scripts/version.sh:/version.sh" \
+            ubuntu:${{ matrix.base-image }} bash /version.sh
+
+      - name: Build and push by digest
+        id: build
+        uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
+        with:
+          context: images/ubuntu/${{ matrix.base-image }}
+          platforms: linux/${{ matrix.arch }}
+          outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true
+          labels: ${{ steps.meta.outputs.labels }}
+          push: ${{ github.event_name == 'pull_request' }}
+
+      - name: Export digest
+        run: |
+          mkdir -p ${{ runner.temp }}/digests
+          digest="${{ steps.build.outputs.digest }}"
+          touch "${{ runner.temp }}/digests/${digest#sha256:}"
+
+      - name: Upload digest
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: digests-${{ env.ARTIFACT_NAME }}
+          path: ${{ runner.temp }}/digests/*
+          if-no-files-found: error
+          retention-days: 1
+
+  merge:
+    name: Merge Digests
+    runs-on: ubuntu-24.04
+    if: github.event_name == 'pull_request'
+    needs:
+      - build
+    permissions:
+      packages: write
+    strategy:
       matrix:
         base-image: [22.04, 24.04]
     steps:
@@ -21,21 +114,38 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: Checkout
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-
-      - name: Build docker image
-        uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
+      - name: Download digests
+        uses: actions/download-artifact@v4.1.8
         with:
-          context: images/ubuntu/${{ matrix.base-image }}
-          platforms: linux/amd64
-          tags: ubuntu:latest
-          push: false
+          path: ${{ runner.temp }}/digests
+          pattern: digests-ubuntu-${{ matrix.base-image }}-*
+          merge-multiple: true
 
-      - name: Show docker image
-        run: |
-          docker images
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3.3.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Print package version
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3.9.0
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 # v5.6.1
+        with:
+          images: |
+            ${{ env.GHCR_REPO }}
+          tags: |
+            type=ref,event=pr
+
+      - name: Create manifest list and push
+        working-directory: ${{ runner.temp }}/digests
         run: |
-          docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest bash /version.sh
+          docker buildx imagetools create $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
+            $(printf '${{ env.GHCR_REPO }}@sha256:%s ' *)
+
+      - name: Inspect image
+        run: |
+          docker buildx imagetools inspect ${{ env.GHCR_REPO }}:${{ steps.meta.outputs.version }}
