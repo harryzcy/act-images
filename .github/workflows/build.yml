@@ -57,6 +57,22 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3.9.0
 
+      - name: Build image
+        uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
+        with:
+          context: images/ubuntu/${{ matrix.base-image }}
+          platforms: linux/${{ matrix.arch }}
+          tags: ubuntu:${{ matrix.base-image }}-${{ matrix.arch }}
+
+      - name: Show docker image
+        run: |
+          docker images
+
+      - name: Print package version
+        run: |
+          docker run --rm -v "$PWD/scripts/version.sh:/version.sh" \
+            ubuntu:${{ matrix.base-image }}-${{ matrix.arch }} bash /version.sh
+
       - name: Build and push by digest
         id: build
         uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6.13.0
@@ -71,16 +87,8 @@ jobs:
           digest="${{ steps.build.outputs.digest }}"
           touch "${{ runner.temp }}/digests/${digest#sha256:}"
 
-      - name: Show docker image
-        run: |
-          docker images
-
-      - name: Print package version
-        run: |
-          docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest bash /version.sh
-
       - name: Upload digest
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: digests-${{ env.ARTIFACT_NAME }}
           path: ${{ runner.temp }}/digests/*
@@ -119,11 +127,11 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3.9.0
 
       - name: Docker meta
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v5.6.1
         with:
           images: |
             ${{ env.GHCR_REPO }}
