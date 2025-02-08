@@ -52,8 +52,10 @@ jobs:
           push: false
 
       - name: Show docker image
+        continue-on-error: true
         run: |
-          mkdir /var/lib/docker/tmp/
+          ls /var/lib/docker/tmp/
+          sudo mkdir -p /var/lib/docker/tmp/
           docker load -i ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
           docker images
 
