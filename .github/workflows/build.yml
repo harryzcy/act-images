@@ -63,7 +63,7 @@ jobs:
         with:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
-          outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true,push=true
+          outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true,push=${{ github.event_name == 'pull_request' }}
 
       - name: Export digest
         run: |
@@ -88,7 +88,9 @@ jobs:
           retention-days: 1
 
   merge:
+    name: Merge digests
     runs-on: ubuntu-24.04
+    if: github.event_name == 'pull_request'
     needs:
       - build
     permissions:
@@ -126,7 +128,6 @@ jobs:
           images: |
             ${{ env.GHCR_REPO }}
           tags: |
-            type=ref,event=branch
             type=ref,event=pr
 
       - name: Create manifest list and push
