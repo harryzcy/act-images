@@ -53,6 +53,7 @@ jobs:
 
       - name: Show docker image
         run: |
+          mkdir /var/lib/docker/tmp/
           docker load -i ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
           docker images
 
