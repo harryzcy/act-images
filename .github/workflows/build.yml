@@ -17,7 +17,6 @@ jobs:
     permissions:
       packages: write
     strategy:
-      fail-fast: false
       matrix:
         arch: [amd64, amd64/v3, arm64]
         base-image: [22.04, 24.04]
@@ -80,7 +79,8 @@ jobs:
         with:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
-          outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true,push=${{ github.event_name == 'pull_request' }}
+          outputs: type=image,"name=${{ env.GHCR_REPO }}",push-by-digest=true,name-canonical=true
+          push: ${{ github.event_name == 'pull_request' }}
 
       - name: Export digest
         run: |
@@ -114,7 +114,7 @@ jobs:
           egress-policy: audit
 
       - name: Download digests
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v4.1.8
         with:
           path: ${{ runner.temp }}/digests
           pattern: digests-ubuntu-${{ matrix.base-image }}-*
