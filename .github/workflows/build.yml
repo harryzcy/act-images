@@ -48,13 +48,12 @@ jobs:
           context: images/ubuntu/${{ matrix.base-image }}
           platforms: linux/${{ matrix.arch }}
           tags: ubuntu:latest-${{ env.suffix }}
-          outputs: type=docker,dest=${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+          # outputs: type=docker,dest=${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
           push: false
 
       - name: Show docker image
         continue-on-error: true
         run: |
-          docker import ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar ubuntu:latest-${{ env.suffix }}
           docker images
 
       - name: Print package version
@@ -62,10 +61,14 @@ jobs:
           ls "$PWD/scripts"
           docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest-${{ env.suffix }} bash /version.sh
 
+      - name: Save docker image
+        run: |
+          docker save ubuntu:latest-${{ env.suffix }} -o ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4.6.0
         with:
-          name: ubuntu-${{ matrix.arch }}
+          name: ubuntu-${{ env.suffix }}.tar
           path: ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
 
   docker-manifest:
