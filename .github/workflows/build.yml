@@ -99,11 +99,11 @@ jobs:
 
       - name: Load docker images
         run: |
-          docker import ${{ runner.temp }}/ubuntu-${{ matrix.base-image }}-amd64.tar ubuntu:latest-amd64
-          if [ -f ${{ runner.temp }}/ubuntu-${{ matrix.base-image }}-amd64-v3.tar ]; then
-            docker import ${{ runner.temp }}/ubuntu-${{ matrix.base-image }}-amd64-v3.tar ubuntu:latest-amd64-v3
+          docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64.tar ubuntu:latest-amd64
+          if [ -f ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ]; then
+            docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ubuntu:latest-amd64-v3
           fi
-          docker import ${{ runner.temp }}/ubuntu-${{ matrix.base-image }}-arm64.tar ubuntu:latest-arm64
+          docker import ${{ runner.temp }}/${{ matrix.base-image }}-arm64.tar ubuntu:latest-arm64
           docker images ls -a
 
       - name: Create docker manifest
