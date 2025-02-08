@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         arch: [amd64, amd64/v3, arm64]
-        base-image: [24.04]
+        base-image: [22.04, 24.04]
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
@@ -37,8 +37,8 @@ jobs:
 
       - name: Prepare
         run: |
-          platform=linux/${{ matrix.arch }}
-          echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
+          ARTIFACT_NAME=ubuntu-${{ matrix.base-image }}-linux/${{ matrix.arch }}
+          echo "ARTIFACT_NAME=${ARTIFACT_NAME//\//-}" >> $GITHUB_ENV
 
       - name: Docker meta
         id: meta
@@ -82,13 +82,13 @@ jobs:
       - name: Upload digest
         uses: actions/upload-artifact@v4
         with:
-          name: digests-${{ env.PLATFORM_PAIR }}
+          name: digests-${{ env.ARTIFACT_NAME }}
           path: ${{ runner.temp }}/digests/*
           if-no-files-found: error
           retention-days: 1
 
   merge:
-    name: Merge digests
+    name: Merge Digests
     runs-on: ubuntu-24.04
     if: github.event_name == 'pull_request'
     needs:
@@ -97,7 +97,7 @@ jobs:
       packages: write
     strategy:
       matrix:
-        base-image: [24.04]
+        base-image: [22.04, 24.04]
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
@@ -108,7 +108,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: ${{ runner.temp }}/digests
-          pattern: digests-*
+          pattern: digests-ubuntu-${{ matrix.base-image }}-*
           merge-multiple: true
 
       - name: Login to GitHub Container Registry
