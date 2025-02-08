@@ -54,13 +54,7 @@ jobs:
       - name: Show docker image
         continue-on-error: true
         run: |
-          # sudo ls /var/lib/docker/tmp/
-          # sudo mkdir -p /var/lib/docker/tmp/
-          # cd ${{ runner.temp }}
-          # ls -l ubuntu-${{ env.suffix }}.tar
-          # cat ubuntu-${{ env.suffix }}.tar | docker load
-          # # docker load --input ubuntu-${{ env.suffix }}.tar
-          docker import ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+          docker import ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar ubuntu:latest-${{ env.suffix }}
           docker images
 
       - name: Print package version
@@ -71,7 +65,7 @@ jobs:
         uses: actions/upload-artifact@v4.6.0
         with:
           name: ubuntu-${{ matrix.arch }}
-          path: ${{ runner.temp }}/ubuntu-${{ matrix.arch }}.tar
+          path: ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
 
   docker-manifest:
     name: Docker Manifest
@@ -97,9 +91,9 @@ jobs:
 
       - name: Load docker images
         run: |
-          docker load -i ${{ runner.temp }}/ubuntu-amd64.tar
-          docker load -i ${{ runner.temp }}/ubuntu-arm64-v3.tar
-          docker load -i ${{ runner.temp }}/ubuntu-arm64.tar
+          docker import ${{ runner.temp }}/ubuntu-amd64.tar ubuntu:latest-amd64
+          docker import ${{ runner.temp }}/ubuntu-arm64-v3.tar ubuntu:latest-arm64-v3
+          docker import ${{ runner.temp }}/ubuntu-arm64.tar ubuntu:latest-arm64
           docker images ls -a
 
       - name: Create docker manifest
