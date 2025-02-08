@@ -68,8 +68,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4.6.0
         with:
-          name: ubuntu-${{ env.suffix }}.tar
-          path: ${{ runner.temp }}/ubuntu-${{ env.suffix }}.tar
+          name: ${{ env.tag }}.tar
+          path: ${{ runner.temp }}/${{ env.tag }}.tar
 
   docker-manifest:
     name: Docker Manifest
