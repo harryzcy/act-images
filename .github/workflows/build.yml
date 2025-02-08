@@ -14,11 +14,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [amd64, arm64]
+        arch: [amd64, amd64/v3, arm64]
         base-image: [22.04, 24.04]
-        include:
-          - arch: amd64/v3
-            base-image: 24.04
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
@@ -100,14 +97,14 @@ jobs:
       - name: Load docker images
         run: |
           docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64.tar ubuntu:latest-amd64
-          if [ -f ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ]; then
-            docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ubuntu:latest-amd64-v3
-          fi
+          docker import ${{ runner.temp }}/${{ matrix.base-image }}-amd64-v3.tar ubuntu:latest-amd64-v3
           docker import ${{ runner.temp }}/${{ matrix.base-image }}-arm64.tar ubuntu:latest-arm64
           docker images
 
       - name: Create docker manifest
         run: |
           docker manifest create ubuntu:latest \
-            ubuntu:latest-amd64 ubuntu:latest-arm64-v3 ubuntu:latest-arm64
+            --amend ubuntu:latest-amd64
+            --amend ubuntu:latest-arm64-v3
+            --amend ubuntu:latest-arm64
           docker images
