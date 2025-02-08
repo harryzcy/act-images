@@ -59,6 +59,7 @@ jobs:
 
       - name: Print package version
         run: |
+          ls "$PWD/scripts"
           docker run --rm -v "$PWD/scripts/version.sh:/version.sh" ubuntu:latest-${{ env.suffix }} /version.sh
 
       - name: Upload artifact
