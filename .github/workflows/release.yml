@@ -48,7 +48,7 @@ jobs:
     needs: tag
     strategy:
       matrix:
-        arch: [amd64. amd64/v2, amd64/v3, arm64]
+        arch: [amd64, amd64/v2, amd64/v3, arm64]
         base-image: [22.04, 24.04]
     steps:
       - name: Harden runner
