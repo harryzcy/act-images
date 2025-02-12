@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.24rc3"
+        "version": "1.24.0"
       },
       {
         "name": "Node",
