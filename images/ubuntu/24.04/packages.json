@@ -4,11 +4,11 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.23.6"
+        "version": "1.24.0"
       },
       {
         "name": "Node",
-        "version": "22.13.1"
+        "version": "22.14.0"
       },
       {
         "name": "Python",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.9.5"
+        "version": "0.9.6"
       },
       {
         "name": "sqlite3"
