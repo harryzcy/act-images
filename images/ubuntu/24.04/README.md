@@ -32,7 +32,7 @@
 - ruff 0.9.6
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.29.5
+- typos-cli 1.29.7
 - wget
 - xz
 - yamllint 1.35.1
