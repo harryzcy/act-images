@@ -27,7 +27,7 @@
 - chktex
 - git 2.48.1
 - kubeconform 0.6.7
-- kube-linter 0.7.1
+- kube-linter 0.7.2
 - lsof
 - ruff 0.9.7
 - sqlite3
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:28.0.0-1\~ubuntu.24.04\~noble
-- docker-buildx-plugin 0.21.0-1\~ubuntu.24.04\~noble
+- docker-ce-cli 5:28.0.1-1\~ubuntu.24.04\~noble
+- docker-buildx-plugin 0.21.1-1\~ubuntu.24.04\~noble
