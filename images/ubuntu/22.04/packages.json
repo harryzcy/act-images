@@ -80,7 +80,7 @@
       },
       {
         "name": "kube-linter",
-        "version": "0.7.1"
+        "version": "0.7.2"
       },
       {
         "name": "lsof"
@@ -126,11 +126,11 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:28.0.0-1~ubuntu.22.04~jammy"
+        "version": "5:28.0.1-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker-buildx-plugin",
-        "version": "0.21.0-1~ubuntu.22.04~jammy"
+        "version": "0.21.1-1~ubuntu.22.04~jammy"
       }
     ]
   }
