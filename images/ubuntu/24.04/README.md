@@ -35,7 +35,7 @@
 - typos-cli 1.30.2
 - wget
 - xz
-- yamllint 1.36.0
+- yamllint 1.36.1
 - zip
 - zsh
 - zstd
