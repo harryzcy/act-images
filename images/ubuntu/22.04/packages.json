@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.85.0"
+        "version": "1.85.1"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.85.0",
+        "version": "1.85.1",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -108,7 +108,7 @@
       },
       {
         "name": "yamllint",
-        "version": "1.36.2"
+        "version": "1.37.0"
       },
       {
         "name": "zip"
