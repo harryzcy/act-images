@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.85.1"
+        "version": "1.86.0"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.85.1",
+        "version": "1.86.0",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "25.2.0"
+        "version": "25.2.1"
       },
       {
         "name": "awk"
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.11.2"
+        "version": "0.11.3"
       },
       {
         "name": "sqlite3"
