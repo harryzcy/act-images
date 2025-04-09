@@ -6,12 +6,12 @@
 
 - Go 1.24.2
 - Node 22.14.0
-- Python 3.13.2
+- Python 3.13.3
 - Rust 1.86.0
 
 ### Package Managers
 
-- npm 11.2.0
+- npm 11.3.0
 - pip 25.0.1
 - pipx 1.7.1
 - rustup 1.28.1
