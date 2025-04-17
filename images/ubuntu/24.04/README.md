@@ -29,7 +29,7 @@
 - kubeconform 0.6.7
 - kube-linter 0.7.2
 - lsof
-- ruff 0.11.5
+- ruff 0.11.6
 - sqlite3
 - jq 1.7.1
 - typos-cli 1.31.1
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:28.0.4-1\~ubuntu.24.04\~noble
+- docker-ce-cli 5:28.1.0-1\~ubuntu.24.04\~noble
 - docker-buildx-plugin 0.22.0-1\~ubuntu.24.04\~noble
