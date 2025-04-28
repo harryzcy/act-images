@@ -21,7 +21,7 @@
 
 - ansible 11.5.0
 - ansible-core 2.18.5
-- ansible-lint 25.2.1
+- ansible-lint 25.4.0
 - awk
 - curl
 - chktex
@@ -32,7 +32,7 @@
 - ruff 0.11.7
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.31.1
+- typos-cli 1.31.2
 - wget
 - xz
 - yamllint 1.37.0
