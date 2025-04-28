@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "25.2.1"
+        "version": "25.4.0"
       },
       {
         "name": "awk"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.31.1"
+        "version": "1.31.2"
       },
       {
         "name": "wget"
