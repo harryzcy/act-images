@@ -4,5 +4,19 @@
   ],
   "ignorePaths": [
     "requirements-*.txt"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "images/ubuntu/22.04/scripts/build.sh",
+        "images/ubuntu/24.04/scripts/build.sh"
+      ],
+      "matchStrings": [
+        "PYTHON_VERSION=\"(?<currentValue>.*?)\"\\n"
+      ],
+      "depNameTemplate": "python",
+      "datasourceTemplate": "python-version"
+    }
   ]
 }
