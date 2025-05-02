@@ -12,7 +12,7 @@
 ### Package Managers
 
 - npm 11.3.0
-- pip 25.1
+- pip 25.1.1
 - pipx 1.7.1
 - rustup 1.28.1
 - cargo 1.86.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
@@ -32,7 +32,7 @@
 - ruff 0.11.8
 - sqlite3
 - jq 1.7.1
-- typos-cli 1.31.2
+- typos-cli 1.32.0
 - wget
 - xz
 - yamllint 1.37.0
