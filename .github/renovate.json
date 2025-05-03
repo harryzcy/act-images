@@ -9,11 +9,17 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "images/ubuntu/22.04/scripts/build.sh",
-        "images/ubuntu/24.04/scripts/build.sh"
+        "images/ubuntu/22.04/scripts/*.sh",
+        "images/ubuntu/24.04/scripts/*.sh",
+        "images/ubuntu/22.04/packages.json",
+        "images/ubuntu/24.04/packages.json",
+        "images/ubuntu/22.04/README.md",
+        "images/ubuntu/24.04/README.md"
       ],
       "matchStrings": [
-        "PYTHON_VERSION=\"(?<currentValue>.*?)\"\\n"
+        "PYTHON_VERSION=\"(?<currentValue>.*?)\"\\n",
+        "\"name\": \"Python\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "Python (?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "depNameTemplate": "python",
       "datasourceTemplate": "python-version"
