@@ -11,7 +11,7 @@
       "fileMatch": [
         "images\/ubuntu\/.*?\/scripts\/.*?\\.sh$",
         "images\/ubuntu\/.*?\/packages\\.json$",
-        "images\/ubuntu\/.*?\/README.md$"
+        "images\/ubuntu\/.*?\/README\\.md$"
       ],
       "matchStrings": [
         "GO_VERSION=\"(?<currentValue>.*?)\"\\n",
@@ -26,7 +26,7 @@
       "fileMatch": [
         "images\/ubuntu\/.*?\/scripts\/.*?\\.sh$",
         "images\/ubuntu\/.*?\/packages\\.json$",
-        "images\/ubuntu\/.*?\/README.md$"
+        "images\/ubuntu\/.*?\/README\\.md$"
       ],
       "matchStrings": [
         "NODE_VERSION=\"(?<currentValue>.*?)\"\\n",
@@ -41,7 +41,7 @@
       "fileMatch": [
         "images\/ubuntu\/.*?\/scripts\/.*?\\.sh$",
         "images\/ubuntu\/.*?\/packages\\.json$",
-        "images\/ubuntu\/.*?\/README.md$"
+        "images\/ubuntu\/.*?\/README\\.md$"
       ],
       "matchStrings": [
         "PYTHON_VERSION=\"(?<currentValue>.*?)\"\\n",
