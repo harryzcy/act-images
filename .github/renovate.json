@@ -9,12 +9,9 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "images/ubuntu/22.04/scripts/*.sh",
-        "images/ubuntu/24.04/scripts/*.sh",
-        "images/ubuntu/22.04/packages.json",
-        "images/ubuntu/24.04/packages.json",
-        "images/ubuntu/22.04/README.md",
-        "images/ubuntu/24.04/README.md"
+        "images/ubuntu/.*?/scripts/.*?\\.sh$",
+        "images/ubuntu/.*?/packages\\.json$",
+        "images/ubuntu/.*?/README.md$"
       ],
       "matchStrings": [
         "GO_VERSION=\"(?<currentValue>.*?)\"\\n",
@@ -27,12 +24,9 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "images/ubuntu/22.04/scripts/*.sh",
-        "images/ubuntu/24.04/scripts/*.sh",
-        "images/ubuntu/22.04/packages.json",
-        "images/ubuntu/24.04/packages.json",
-        "images/ubuntu/22.04/README.md",
-        "images/ubuntu/24.04/README.md"
+        "images/ubuntu/.*?/scripts/.*?\\.sh$",
+        "images/ubuntu/.*?/packages\\.json$",
+        "images/ubuntu/.*?/README.md$"
       ],
       "matchStrings": [
         "NODE_VERSION=\"(?<currentValue>.*?)\"\\n",
@@ -45,12 +39,9 @@
     {
       "customType": "regex",
       "fileMatch": [
-        "images/ubuntu/22.04/scripts/*.sh",
-        "images/ubuntu/24.04/scripts/*.sh",
-        "images/ubuntu/22.04/packages.json",
-        "images/ubuntu/24.04/packages.json",
-        "images/ubuntu/22.04/README.md",
-        "images/ubuntu/24.04/README.md"
+        "images/ubuntu/.*?/scripts/.*?\\.sh$",
+        "images/ubuntu/.*?/packages\\.json$",
+        "images/ubuntu/.*?/README.md$"
       ],
       "matchStrings": [
         "PYTHON_VERSION=\"(?<currentValue>.*?)\"\\n",
