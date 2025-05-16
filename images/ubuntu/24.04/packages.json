@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.86.0"
+        "version": "1.87.0"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.86.0",
+        "version": "1.87.0",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
