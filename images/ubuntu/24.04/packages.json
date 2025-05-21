@@ -8,7 +8,7 @@
       },
       {
         "name": "Node",
-        "version": "22.15.1"
+        "version": "22.16.0"
       },
       {
         "name": "Python",
@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "11.5.0"
+        "version": "11.6.0"
       },
       {
         "name": "ansible-core",
