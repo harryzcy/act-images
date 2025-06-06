@@ -4,7 +4,7 @@
 
 ### Languages
 
-- Go 1.24.3
+- Go 1.24.4
 - Node 22.16.0
 - Python 3.13.4
 - Rust 1.87.0
@@ -29,7 +29,7 @@
 - kubeconform 0.7.0
 - kube-linter 0.7.2
 - lsof
-- ruff 0.11.12
+- ruff 0.11.13
 - sqlite3
 - jq 1.8.0
 - typos-cli 1.33.1

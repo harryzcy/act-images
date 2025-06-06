@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.24.3"
+        "version": "1.24.4"
       },
       {
         "name": "Node",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.11.12"
+        "version": "0.11.13"
       },
       {
         "name": "sqlite3"
