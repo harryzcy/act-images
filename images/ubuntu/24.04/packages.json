@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "11.6.0"
+        "version": "11.7.0"
       },
       {
         "name": "ansible-core",
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "25.5.0"
+        "version": "25.6.0"
       },
       {
         "name": "awk"
