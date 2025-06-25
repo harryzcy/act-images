@@ -21,7 +21,7 @@
 
 - ansible 11.7.0
 - ansible-core 2.18.6
-- ansible-lint 25.6.0
+- ansible-lint 25.6.1
 - awk
 - curl
 - chktex
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:28.2.2-1\~ubuntu.24.04\~noble
-- docker-buildx-plugin 0.24.0-1\~ubuntu.24.04\~noble
+- docker-ce-cli 5:28.3.0-1\~ubuntu.24.04\~noble
+- docker-buildx-plugin 0.25.0-1\~ubuntu.24.04\~noble
