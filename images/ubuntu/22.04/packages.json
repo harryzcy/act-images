@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.24.4"
+        "version": "1.24.5"
       },
       {
         "name": "Node",
@@ -72,7 +72,7 @@
       },
       {
         "name": "git",
-        "version": "2.50.0"
+        "version": "2.50.1"
       },
       {
         "name": "kubeconform",

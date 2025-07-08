@@ -4,7 +4,7 @@
 
 ### Languages
 
-- Go 1.24.4
+- Go 1.24.5
 - Node 22.17.0
 - Python 3.13.5
 - Rust 1.88.0
@@ -25,7 +25,7 @@
 - awk
 - curl
 - chktex
-- git 2.50.0
+- git 2.50.1
 - kubeconform 0.7.0
 - kube-linter 0.7.4
 - lsof
