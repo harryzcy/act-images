@@ -5,7 +5,7 @@
 ### Languages
 
 - Go 1.24.5
-- Node 22.17.0
+- Node 22.17.1
 - Python 3.13.5
 - Rust 1.88.0
 
@@ -20,7 +20,7 @@
 ### Tools
 
 - ansible 11.7.0
-- ansible-core 2.18.6
+- ansible-core 2.18.7
 - ansible-lint 25.6.1
 - awk
 - curl
