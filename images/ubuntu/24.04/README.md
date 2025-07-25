@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 11.4.2
+- npm 11.5.1
 - pip 25.1.1
 - pipx 1.7.1
 - rustup 1.28.2
@@ -29,7 +29,7 @@
 - kubeconform 0.7.0
 - kube-linter 0.7.4
 - lsof
-- ruff 0.12.4
+- ruff 0.12.5
 - sqlite3
 - jq 1.8.1
 - typos-cli 1.34.0
