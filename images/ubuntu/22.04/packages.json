@@ -126,11 +126,11 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:28.3.2-1~ubuntu.22.04~jammy"
+        "version": "5:28.3.3-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker-buildx-plugin",
-        "version": "0.25.0-1~ubuntu.22.04~jammy"
+        "version": "0.26.1-1~ubuntu.22.04~jammy"
       }
     ]
   }
