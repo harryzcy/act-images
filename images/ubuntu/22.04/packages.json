@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "11.8.0"
+        "version": "11.9.0"
       },
       {
         "name": "ansible-core",
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.35.3"
+        "version": "1.35.4"
       },
       {
         "name": "wget"
