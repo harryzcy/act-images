@@ -2,7 +2,6 @@ FROM ubuntu:24.04@sha256:7c06e91f61fa88c08cc74f7e1b7c69ae24910d745357e0dfe1d2c03
 
 # checkov:skip=CKV_DOCKER_3:"Allow root user"
 # checkov:skip=CKV_DOCKER_2:"No healthcheck"
-# trivy:ignore:AVD-DS-0002
 
 FROM base AS builder
 
@@ -23,6 +22,9 @@ RUN chmod +x /scripts/*.sh && \
   rm -rf /scripts
 
 FROM scratch AS final
+
+#trivy:ignore:AVD-DS-0002
+#trivy:ignore:AVD-DS-0026
 
 COPY --from=installer / /
 
