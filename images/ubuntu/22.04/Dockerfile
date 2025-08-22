@@ -23,8 +23,8 @@ RUN chmod +x /scripts/*.sh && \
 
 FROM scratch AS final
 
-#trivy:ignore:AVD-DS-0002
-#trivy:ignore:AVD-DS-0026
+# trivy:ignore:AVD-DS-0002
+# trivy:ignore:AVD-DS-0026
 
 COPY --from=installer / /
 
