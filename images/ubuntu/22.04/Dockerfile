@@ -2,6 +2,7 @@ FROM ubuntu:22.04@sha256:1aa979d85661c488ce030ac292876cf6ed04535d3a237e49f61542d
 
 # checkov:skip=CKV_DOCKER_3:"Allow root user"
 # checkov:skip=CKV_DOCKER_2:"No healthcheck"
+# trivy:ignore:AVD-DS-0002
 
 FROM base AS builder
 
