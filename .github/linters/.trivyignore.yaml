@@ -1,0 +1,9 @@
+misconfigurations:
+  - id: AVD-DS-0002
+    paths:
+      - "images/ubuntu/22.04/Dockerfile"
+      - "images/ubuntu/24.04/Dockerfile"
+  - id: AVD-DS-0026
+    paths:
+      - "images/ubuntu/22.04/Dockerfile"
+      - "images/ubuntu/24.04/Dockerfile"

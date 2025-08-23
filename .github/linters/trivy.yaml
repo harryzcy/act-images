@@ -1,0 +1,2 @@
+disable-telemetry: true
+ignorefile: .github/linters/.trivyignore.yaml
