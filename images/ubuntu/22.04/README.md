@@ -5,7 +5,7 @@
 ### Languages
 
 - Go 1.25.0
-- Node 22.18.0
+- Node 22.19.0
 - Python 3.13.7
 - Rust 1.89.0
 
@@ -32,7 +32,7 @@
 - ruff 0.12.11
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.35.5
+- typos-cli 1.35.6
 - wget
 - xz
 - yamllint 1.37.1
