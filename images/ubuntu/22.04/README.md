@@ -4,14 +4,14 @@
 
 ### Languages
 
-- Go 1.25.0
+- Go 1.25.1
 - Node 22.19.0
 - Python 3.13.7
 - Rust 1.89.0
 
 ### Package Managers
 
-- npm 11.5.2
+- npm 11.6.0
 - pip 25.2
 - pipx 1.7.1
 - rustup 1.28.2
@@ -32,7 +32,7 @@
 - ruff 0.12.11
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.36.0
+- typos-cli 1.36.1
 - wget
 - xz
 - yamllint 1.37.1
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:28.3.3-1\~ubuntu.22.04\~jammy
-- docker-buildx-plugin 0.26.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:28.4.0-1\~ubuntu.22.04\~jammy
+- docker-buildx-plugin 0.27.0-1\~ubuntu.22.04\~jammy
