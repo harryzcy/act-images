@@ -21,7 +21,7 @@
 
 - ansible 12.0.0
 - ansible-core 2.19.2
-- ansible-lint 25.9.0
+- ansible-lint 25.9.1
 - awk
 - curl
 - chktex
@@ -32,7 +32,7 @@
 - ruff 0.13.2
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.37.0
+- typos-cli 1.37.1
 - wget
 - xz
 - yamllint 1.37.1
@@ -43,4 +43,4 @@
 ### apt Packages
 
 - docker-ce-cli 5:28.4.0-1\~ubuntu.24.04\~noble
-- docker-buildx-plugin 0.28.0-0\~ubuntu.24.04\~noble
+- docker-buildx-plugin 0.29.0-0\~ubuntu.24.04\~noble
