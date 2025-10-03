@@ -130,7 +130,7 @@
       },
       {
         "name": "docker-buildx-plugin",
-        "version": "0.29.0-0~ubuntu.22.04~jammy"
+        "version": "0.29.1-1~ubuntu.22.04~jammy"
       }
     ]
   }
