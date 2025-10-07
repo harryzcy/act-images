@@ -55,7 +55,7 @@
       },
       {
         "name": "ansible-core",
-        "version": "2.19.2"
+        "version": "2.19.3"
       },
       {
         "name": "ansible-lint",
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.37.2"
+        "version": "1.38.0"
       },
       {
         "name": "wget"
