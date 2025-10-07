@@ -20,7 +20,7 @@
 ### Tools
 
 - ansible 12.0.0
-- ansible-core 2.19.2
+- ansible-core 2.19.3
 - ansible-lint 25.9.1
 - awk
 - curl
@@ -32,7 +32,7 @@
 - ruff 0.13.3
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.37.2
+- typos-cli 1.38.0
 - wget
 - xz
 - yamllint 1.37.1
