@@ -4,9 +4,9 @@
 
 ### Languages
 
-- Go 1.25.1
+- Go 1.25.2
 - Node 22.20.0
-- Python 3.13.7
+- Python 3.13.8
 - Rust 1.90.0
 
 ### Package Managers
@@ -29,10 +29,10 @@
 - kubeconform 0.7.0
 - kube-linter 0.7.6
 - lsof
-- ruff 0.13.3
+- ruff 0.14.0
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.38.0
+- typos-cli 1.38.1
 - wget
 - xz
 - yamllint 1.37.1

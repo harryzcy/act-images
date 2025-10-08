@@ -4,7 +4,7 @@
     "items": [
       {
         "name": "Go",
-        "version": "1.25.1"
+        "version": "1.25.2"
       },
       {
         "name": "Node",
@@ -12,7 +12,7 @@
       },
       {
         "name": "Python",
-        "version": "3.13.7"
+        "version": "3.13.8"
       },
       {
         "name": "Rust",
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.13.3"
+        "version": "0.14.0"
       },
       {
         "name": "sqlite3"
@@ -98,7 +98,7 @@
       },
       {
         "name": "typos-cli",
-        "version": "1.38.0"
+        "version": "1.38.1"
       },
       {
         "name": "wget"
