@@ -29,7 +29,7 @@
 - kubeconform 0.7.0
 - kube-linter 0.7.6
 - lsof
-- ruff 0.14.0
+- ruff 0.14.1
 - sqlite3
 - jq 1.8.1
 - typos-cli 1.38.1
