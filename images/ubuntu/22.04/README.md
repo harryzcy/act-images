@@ -20,7 +20,7 @@
 ### Tools
 
 - ansible 12.1.0
-- ansible-core 2.19.3
+- ansible-core 2.20.0
 - ansible-lint 25.9.2
 - awk
 - curl
