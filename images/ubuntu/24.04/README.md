@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 11.6.2
+- npm 11.6.3
 - pip 25.3
 - pipx 1.8.0
 - rustup 1.28.2
@@ -19,7 +19,7 @@
 
 ### Tools
 
-- ansible 12.2.0
+- ansible 13.0.0
 - ansible-core 2.20.0
 - ansible-lint 25.11.0
 - awk
