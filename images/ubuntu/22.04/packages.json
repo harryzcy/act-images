@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.14.6"
+        "version": "0.14.7"
       },
       {
         "name": "sqlite3"
@@ -126,7 +126,7 @@
     "items": [
       {
         "name": "docker-ce-cli",
-        "version": "5:29.1.0-1~ubuntu.22.04~jammy"
+        "version": "5:29.1.1-1~ubuntu.22.04~jammy"
       },
       {
         "name": "docker-buildx-plugin",
