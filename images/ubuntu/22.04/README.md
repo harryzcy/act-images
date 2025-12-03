@@ -6,7 +6,7 @@
 
 - Go 1.25.5
 - Node 24.11.1
-- Python 3.14.0
+- Python 3.14.1
 - Rust 1.91.1
 
 ### Package Managers
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.1.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:29.1.2-1\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.30.1-1\~ubuntu.22.04\~jammy
