@@ -5,13 +5,13 @@
 ### Languages
 
 - Go 1.25.5
-- Node 24.11.1
+- Node 24.12.0
 - Python 3.14.2
 - Rust 1.91.1
 
 ### Package Managers
 
-- npm 11.6.4
+- npm 11.7.0
 - pip 25.3
 - pipx 1.8.0
 - rustup 1.28.2
@@ -19,9 +19,9 @@
 
 ### Tools
 
-- ansible 13.0.0
+- ansible 13.1.0
 - ansible-core 2.20.1
-- ansible-lint 25.12.0
+- ansible-lint 25.12.1
 - awk
 - curl
 - chktex
