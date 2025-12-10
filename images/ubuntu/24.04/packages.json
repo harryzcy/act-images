@@ -8,7 +8,7 @@
       },
       {
         "name": "Node",
-        "version": "24.11.1"
+        "version": "24.12.0"
       },
       {
         "name": "Python",
@@ -25,7 +25,7 @@
     "items": [
       {
         "name": "npm",
-        "version": "11.6.4"
+        "version": "11.7.0"
       },
       {
         "name": "pip",
@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "13.0.0"
+        "version": "13.1.0"
       },
       {
         "name": "ansible-core",
@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "25.12.0"
+        "version": "25.12.1"
       },
       {
         "name": "awk"
