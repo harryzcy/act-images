@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.91.1"
+        "version": "1.92.0"
       }
     ]
   },
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.91.1",
+        "version": "1.92.0",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.14.8"
+        "version": "0.14.9"
       },
       {
         "name": "sqlite3"
