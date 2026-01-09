@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.1.3-1\~ubuntu.24.04\~noble
+- docker-ce-cli 5:29.1.4-1\~ubuntu.24.04\~noble
 - docker-buildx-plugin 0.30.1-1\~ubuntu.24.04\~noble
