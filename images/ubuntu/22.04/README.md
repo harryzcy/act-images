@@ -32,7 +32,7 @@
 - ruff 0.14.14
 - sqlite3
 - jq 1.8.1
-- typos-cli 1.42.2
+- typos-cli 1.42.3
 - wget
 - xz
 - yamllint 1.38.0
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.1.5-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:29.2.0-1\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.30.1-1\~ubuntu.22.04\~jammy
