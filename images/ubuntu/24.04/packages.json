@@ -130,7 +130,7 @@
       },
       {
         "name": "docker-buildx-plugin",
-        "version": "0.30.1-1~ubuntu.24.04~noble"
+        "version": "0.31.1-1~ubuntu.24.04~noble"
       }
     ]
   }
