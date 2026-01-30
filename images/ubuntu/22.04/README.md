@@ -19,8 +19,8 @@
 
 ### Tools
 
-- ansible 13.2.0
-- ansible-core 2.20.1
+- ansible 13.3.0
+- ansible-core 2.20.2
 - ansible-lint 26.1.1
 - awk
 - curl
