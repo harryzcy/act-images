@@ -51,11 +51,11 @@
     "items": [
       {
         "name": "ansible",
-        "version": "13.2.0"
+        "version": "13.3.0"
       },
       {
         "name": "ansible-core",
-        "version": "2.20.1"
+        "version": "2.20.2"
       },
       {
         "name": "ansible-lint",
