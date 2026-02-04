@@ -3,7 +3,7 @@
 set -o errexit
 set -o pipefail
 
-PYTHON_VERSION="3.14.2"
+PYTHON_VERSION="3.14.3"
 
 PIP_VERSION="26.0"
 GIT_VERSION="2.53.0"
