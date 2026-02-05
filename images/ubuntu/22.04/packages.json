@@ -25,11 +25,11 @@
     "items": [
       {
         "name": "npm",
-        "version": "11.8.0"
+        "version": "11.9.0"
       },
       {
         "name": "pip",
-        "version": "26.0"
+        "version": "26.0.1"
       },
       {
         "name": "pipx",

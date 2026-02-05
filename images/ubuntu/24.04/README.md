@@ -11,8 +11,8 @@
 
 ### Package Managers
 
-- npm 11.8.0
-- pip 26.0
+- npm 11.9.0
+- pip 26.0.1
 - pipx 1.8.0
 - rustup 1.28.2
 - cargo 1.93.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
