@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "version": "1.93.0"
+        "version": "1.93.1"
       }
     ]
   },
@@ -25,7 +25,7 @@
     "items": [
       {
         "name": "npm",
-        "version": "11.9.0"
+        "version": "libnpmpack-v9.1.1"
       },
       {
         "name": "pip",
@@ -41,7 +41,7 @@
       },
       {
         "name": "cargo",
-        "version": "1.93.0",
+        "version": "1.93.1",
         "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
       }
     ]
@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.15.0"
+        "version": "0.15.1"
       },
       {
         "name": "sqlite3"
