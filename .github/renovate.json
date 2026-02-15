@@ -65,7 +65,8 @@
         "\"name\": \"cargo\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
         "cargo (?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "rust-lang/rust",
+      "depNameTemplate": "rust",
+      "packageNameTemplate": "rust-lang/rust",
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     }
