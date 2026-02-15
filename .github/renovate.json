@@ -50,6 +50,23 @@
       ],
       "depNameTemplate": "python",
       "datasourceTemplate": "python-version"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/scripts/.*?\\.sh$/",
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "RUST_VERSION=\"(?<currentValue>.*?)\"\\n",
+        "\"name\": \"Rust\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "Rust (?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "\"name\": \"cargo\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "cargo (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "rust",
+      "datasourceTemplate": "rust-version"
     }
   ]
 }
