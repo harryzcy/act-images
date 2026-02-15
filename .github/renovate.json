@@ -61,7 +61,9 @@
       "matchStrings": [
         "RUST_VERSION=\"(?<currentValue>.*?)\"\\n",
         "\"name\": \"Rust\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "Rust (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "Rust (?<currentValue>\\d+\\.\\d+\\.\\d+)",
+        "\"name\": \"cargo\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "cargo (?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
       "depNameTemplate": "rust",
       "datasourceTemplate": "rust-version"
