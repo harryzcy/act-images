@@ -8,7 +8,7 @@ FROM base AS parse-versions
 COPY packages.json /packages.json
 RUN apt-get update && apt-get install -y --no-install-recommends \
   jq && \
-  jq -r '.[] | .items[] | select(.version) | "\(.name | ascii_upcase | gsub("[ .-]"; "_"))_VERSION=\(.version)"' /packages.json > /versions.env && \
+  jq -r '.[] | .items[] | select(.version) | "\(.name | ascii_upcase | gsub("[ .-]"; "_"))_VERSION=\(.version | @sh)"' /packages.json > /versions.env && \
   cat /versions.env
 
 FROM base AS builder
