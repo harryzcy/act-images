@@ -113,7 +113,7 @@
       ],
       "depNameTemplate": "rustup",
       "packageNameTemplate": "rust-lang/rustup",
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "versioningTemplate": "semver"
     }
   ]
