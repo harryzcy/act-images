@@ -6,11 +6,6 @@ from urllib.request import urlopen
 padding = 2
 padding_str = " " * padding
 
-script_files = [
-    "images/ubuntu/{ubuntu_version}/scripts/build.sh",
-    "images/ubuntu/{ubuntu_version}/scripts/install.sh",
-]
-
 requirements_files = [
     "images/ubuntu/{ubuntu_version}/scripts/requirements-pip.txt",
     "images/ubuntu/{ubuntu_version}/scripts/requirements-pipx.txt",
@@ -25,15 +20,6 @@ def clean_ubuntu_versions(ubuntu_version: str | None):
     if ubuntu_version == "jammy" or ubuntu_version == "22.04":
         return ["22.04"]
     print(f"Unknown Ubuntu version {ubuntu_version}")
-
-
-def get_script_files(ubuntu_version: str | None = None):
-    files = []
-    versions = clean_ubuntu_versions(ubuntu_version)
-    for version in versions:
-        for file in script_files:
-            files.append(file.format(ubuntu_version=version))
-    return files
 
 
 def get_requirements_files(ubuntu_version: str | None = None):
@@ -55,28 +41,6 @@ def write_packages(ubuntu_version: str, packages: dict):
     with open(f"images/ubuntu/{ubuntu_version}/packages.json", "w") as f:
         json.dump(packages, f, indent=2)
         f.write("\n")
-
-
-def update_script_files(
-    package: str,
-    from_version: str,
-    to_version: str,
-    ubuntu_version: str | None = None,
-):
-    package_env = f"{package.upper().replace('-', '_')}_VERSION"
-    old_env = f'{package_env}="{from_version}"'
-    new_env = f'{package_env}="{to_version}"'
-    for file in get_script_files(ubuntu_version):
-        with open(file) as f:
-            contents = f.read()
-        new_content = contents.replace(old_env, new_env)
-        if new_content == contents:
-            print(f"Skipping {file}")
-            continue
-        print(f"Updating {file}")
-
-        with open(file, "w") as f:
-            f.write(new_content)
 
 
 def update_requirements_files(
@@ -134,9 +98,6 @@ def update_environment(
     sha256s: list = None,
     ubuntu_version: str | None = None,
 ):
-    update_script_files(
-        package, from_version, to_version, ubuntu_version=ubuntu_version
-    )
     update_requirements_files(
         package,
         from_version,
