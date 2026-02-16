@@ -61,6 +61,19 @@
       "packageNameTemplate": "rust-lang/rust",
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"npm\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "npm (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "npm",
+      "datasourceTemplate": "npm"
     }
   ]
 }
