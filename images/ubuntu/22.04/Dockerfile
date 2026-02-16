@@ -17,6 +17,7 @@ COPY --from=parse-versions /versions.env /versions.env
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
   /scripts/build.sh && \
+  rm /versions.env && \
   rm -rf /scripts
 
 FROM base AS installer
