@@ -100,6 +100,21 @@
       ],
       "depNameTemplate": "pipx",
       "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"rustup\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "rustup (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "rustup",
+      "packageNameTemplate": "rust-lang/rustup",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "semver"
     }
   ]
 }
