@@ -255,18 +255,6 @@ def update(ubuntu_version: str):
             "source": "custom",
             "function": update_rust,
         },
-        # "npm": {
-        #     "source": "github-release",
-        #     "repo": "npm/cli",
-        # },
-        "pip": {
-            "source": "pypi",
-            "project": "pip",
-        },
-        "pipx": {
-            "source": "pypi",
-            "project": "pipx",
-        },
         "git": {
             "source": "github-tag",
             "repo": "git/git",
@@ -312,11 +300,6 @@ def update(ubuntu_version: str):
         "ruff": {
             "source": "github-release",
             "repo": "astral-sh/ruff",
-        },
-        "rustup": {
-            "source": "github-tag",
-            "repo": "rust-lang/rustup",
-            "prefix": "",
         },
         "yamllint": {
             "source": "github-tag",
