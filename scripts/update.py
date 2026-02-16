@@ -255,10 +255,10 @@ def update(ubuntu_version: str):
             "source": "custom",
             "function": update_rust,
         },
-        "npm": {
-            "source": "github-release",
-            "repo": "npm/cli",
-        },
+        # "npm": {
+        #     "source": "github-release",
+        #     "repo": "npm/cli",
+        # },
         "pip": {
             "source": "pypi",
             "project": "pip",
