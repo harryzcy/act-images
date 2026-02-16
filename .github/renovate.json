@@ -74,6 +74,32 @@
       ],
       "depNameTemplate": "npm",
       "datasourceTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"pip\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "pip (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "pip",
+      "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"pipx\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "pipx (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "pipx",
+      "datasourceTemplate": "pypi"
     }
   ]
 }
