@@ -2,9 +2,6 @@
   "extends": [
     "github>harryzcy/renovate-config"
   ],
-  "ignorePaths": [
-    "requirements-*.txt"
-  ],
   "customManagers": [
     {
       "customType": "regex",
