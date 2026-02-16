@@ -161,18 +161,6 @@ def get_version_from_release(repo: str, prefix: str = "v"):
     return latest
 
 
-def get_version_from_pypi(project: str):
-    url = f"https://pypi.org/pypi/{project}/json"
-    with urlopen(url) as f:
-        content = json.loads(f.read().decode("utf-8").strip())
-    version = content["info"]["version"]
-    sha256s = []
-    for release in content["releases"][version]:
-        sha256s.append(release["digests"]["sha256"])
-    print(sha256s)
-    return version, sha256s
-
-
 def get_version_from_apt(url: str, ubuntu_version: str, package: str):
     if ubuntu_version == "22.04":
         distribution = "jammy"
@@ -255,18 +243,6 @@ def update(ubuntu_version: str):
             "source": "custom",
             "function": update_rust,
         },
-        # "npm": {
-        #     "source": "github-release",
-        #     "repo": "npm/cli",
-        # },
-        "pip": {
-            "source": "pypi",
-            "project": "pip",
-        },
-        "pipx": {
-            "source": "pypi",
-            "project": "pipx",
-        },
         "git": {
             "source": "github-tag",
             "repo": "git/git",
@@ -313,11 +289,6 @@ def update(ubuntu_version: str):
             "source": "github-release",
             "repo": "astral-sh/ruff",
         },
-        "rustup": {
-            "source": "github-tag",
-            "repo": "rust-lang/rustup",
-            "prefix": "",
-        },
         "yamllint": {
             "source": "github-tag",
             "repo": "adrienverge/yamllint",
@@ -340,9 +311,6 @@ def update(ubuntu_version: str):
             prefix = check.get("prefix", "v")
             latest = get_version_from_release(repo, prefix=prefix)
             updated = update_current(packages, package, latest)
-        elif check["source"] == "pypi":
-            latest, sha256s = get_version_from_pypi(check["project"])
-            updated = update_current(packages, package, latest, sha256s)
         elif check["source"] == "apt":
             latest = get_version_from_apt(check["url"], ubuntu_version, package)
             updated = update_current(
