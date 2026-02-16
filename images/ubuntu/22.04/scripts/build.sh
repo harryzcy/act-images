@@ -3,7 +3,9 @@
 set -o errexit
 set -o pipefail
 
-echo "Retrieving versions from environment variables for build"
+echo "Loading package versions for build"
+source /versions.env
+
 echo "PYTHON_VERSION: $PYTHON_VERSION"
 
 echo "PIP_VERSION: $PIP_VERSION"

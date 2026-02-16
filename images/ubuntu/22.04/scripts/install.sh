@@ -3,12 +3,14 @@
 set -o errexit
 set -o pipefail
 
-echo "Retrieving versions from environment variables for install"
+echo "Loading package versions for install"
+source /versions.env
+
 echo "NODE_VERSION: $NODE_VERSION"
 echo "GO_VERSION: $GO_VERSION"
 echo "RUST_VERSION: $RUST_VERSION"
 
-NPM_VERSION="11.9.0"
+echo "NPM_VERSION: $NPM_VERSION"
 
 ANSIBLE_VERSION="13.3.0"
 ANSIBLE_CORE_VERSION="2.20.2"

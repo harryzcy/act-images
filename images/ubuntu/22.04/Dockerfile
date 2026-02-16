@@ -16,7 +16,6 @@ FROM base AS builder
 COPY --from=parse-versions /versions.env /versions.env
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
-  . /versions.env && \
   /scripts/build.sh && \
   rm -rf /scripts
 
@@ -27,7 +26,6 @@ COPY --from=builder /usr/local/ /usr/local/
 COPY --from=parse-versions /versions.env /versions.env
 COPY ./scripts /scripts
 RUN chmod +x /scripts/*.sh && \
-  . /versions.env && \
   /scripts/install.sh && \
   /scripts/configure.sh && \
   /scripts/cleanup.sh && \
