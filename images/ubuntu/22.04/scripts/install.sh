@@ -16,7 +16,7 @@ echo "ANSIBLE_VERSION: $ANSIBLE_VERSION"
 echo "ANSIBLE_CORE_VERSION: $ANSIBLE_CORE_VERSION"
 echo "ANSIBLE_LINT_VERSION: $ANSIBLE_LINT_VERSION"
 echo "DOCKER_CE_CLI_VERSION: $DOCKER_CE_CLI_VERSION"
-echo "DOCKER_BUILDX_PLUGIN_VERSIONfs: $DOCKER_BUILDX_PLUGIN_VERSION"
+echo "DOCKER_BUILDX_PLUGIN_VERSION: $DOCKER_BUILDX_PLUGIN_VERSION"
 echo "KUBECONFORM_VERSION: $KUBECONFORM_VERSION"
 echo "KUBE_LINTER_VERSION: $KUBE_LINTER_VERSION"
 echo "JQ_VERSION: $JQ_VERSION"
@@ -122,7 +122,7 @@ echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSIONfs"
+apt-get -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSION"
 rm /etc/apt/sources.list.d/docker.list
 rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
