@@ -3,10 +3,11 @@
 set -o errexit
 set -o pipefail
 
-PYTHON_VERSION="3.14.3"
+echo "Retrieving versions from environment variables for build"
+echo "PYTHON_VERSION: $PYTHON_VERSION"
 
-PIP_VERSION="26.0.1"
-GIT_VERSION="2.53.0"
+echo "PIP_VERSION: $PIP_VERSION"
+echo "GIT_VERSION: $GIT_VERSION"
 
 BASEDIR=$(dirname $0)
 

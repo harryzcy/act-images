@@ -3,9 +3,10 @@
 set -o errexit
 set -o pipefail
 
-NODE_VERSION="24.13.1"
-GO_VERSION="1.26.0"
-RUST_VERSION="1.93.0"
+echo "Retrieving versions from environment variables for install"
+echo "NODE_VERSION: $NODE_VERSION"
+echo "GO_VERSION: $GO_VERSION"
+echo "RUST_VERSION: $RUST_VERSION"
 
 NPM_VERSION="11.9.0"
 
