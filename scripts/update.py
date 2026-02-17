@@ -247,19 +247,6 @@ def update(ubuntu_version: str):
             "source": "github-tag",
             "repo": "git/git",
         },
-        "ansible": {
-            "source": "github-tag",
-            "repo": "ansible-community/ansible-build-data",
-            "prefix": "",
-        },
-        "ansible-core": {
-            "source": "github-release",
-            "repo": "ansible/ansible",
-        },
-        "ansible-lint": {
-            "source": "github-release",
-            "repo": "ansible/ansible-lint",
-        },
         "docker-ce-cli": {
             "source": "apt",
             "url": "https://download.docker.com/linux/ubuntu",
