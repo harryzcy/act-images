@@ -151,6 +151,22 @@
       ],
       "depNameTemplate": "ansible-lint",
       "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"git\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "git (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "git",
+      "packageNameTemplate": "git/git",
+      "datasourceTemplate": "github-tags",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioningTemplate": "semver"
     }
   ]
 }
