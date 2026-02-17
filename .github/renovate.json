@@ -165,7 +165,7 @@
       "depNameTemplate": "git",
       "packageNameTemplate": "git/git",
       "datasourceTemplate": "github-tags",
-      "extractVersionTemplate": "^v(?<version>.*)$",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioningTemplate": "semver"
     }
   ]
