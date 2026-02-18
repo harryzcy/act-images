@@ -167,6 +167,38 @@
       "datasourceTemplate": "github-tags",
       "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"kubeconform\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "kubeconform (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "kubeconform",
+      "packageNameTemplate": "yannh/kubeconform",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"kube-linter\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "kube-linter (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "kube-linter",
+      "packageNameTemplate": "stackrox/kube-linter",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioningTemplate": "semver"
     }
   ]
 }
