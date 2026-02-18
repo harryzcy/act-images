@@ -255,31 +255,6 @@ def update(ubuntu_version: str):
             "source": "apt",
             "url": "https://download.docker.com/linux/ubuntu",
         },
-        "kubeconform": {
-            "source": "github-release",
-            "repo": "yannh/kubeconform",
-        },
-        "kube-linter": {
-            "source": "github-release",
-            "repo": "stackrox/kube-linter",
-        },
-        "jq": {
-            "source": "github-tag",
-            "repo": "jqlang/jq",
-            "prefix": "jq-",
-        },
-        "typos-cli": {
-            "source": "github-release",
-            "repo": "crate-ci/typos",
-        },
-        "ruff": {
-            "source": "github-release",
-            "repo": "astral-sh/ruff",
-        },
-        "yamllint": {
-            "source": "github-tag",
-            "repo": "adrienverge/yamllint",
-        },
     }
 
     num_updates = 0

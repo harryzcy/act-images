@@ -199,6 +199,61 @@
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>\\d+\\.\\d+\\.\\d+)$",
       "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"ruff\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "ruff (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "ruff",
+      "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"jq\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "jq (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "jq",
+      "packageNameTemplate": "jqlang/jq",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^jq-(?<version>\\d+\\.\\d+\\.\\d+)$",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"typos-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "typos-cli (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "typos-cli",
+      "datasourceTemplate": "crate"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"yamllint\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "yamllint (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "yamllint",
+      "datasourceTemplate": "pypi"
     }
   ]
 }
