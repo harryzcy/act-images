@@ -59,7 +59,7 @@
       },
       {
         "name": "ansible-lint",
-        "version": "26.1.1"
+        "version": "26.2.0"
       },
       {
         "name": "awk"
