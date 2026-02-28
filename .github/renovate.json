@@ -263,7 +263,7 @@
       ],
       "matchStrings": [
         "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "docker-ce-cli (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "docker-ce-cli (?<currentValue>[0-9A-Za-z.+:~-]+)"
       ],
       "depNameTemplate": "docker-ce-cli",
       "datasourceTemplate": "deb",
@@ -277,7 +277,7 @@
       ],
       "matchStrings": [
         "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "docker-ce-cli (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "docker-ce-cli (?<currentValue>[0-9A-Za-z.+:~-]+)"
       ],
       "depNameTemplate": "docker-ce-cli",
       "datasourceTemplate": "deb",
@@ -291,7 +291,7 @@
       ],
       "matchStrings": [
         "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "docker-buildx-plugin (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "docker-buildx-plugin (?<currentValue>[0-9A-Za-z.+:~-]+)"
       ],
       "depNameTemplate": "docker-buildx-plugin",
       "datasourceTemplate": "deb",
@@ -305,7 +305,7 @@
       ],
       "matchStrings": [
         "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "docker-buildx-plugin (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "docker-buildx-plugin (?<currentValue>[0-9A-Za-z.+:~-]+)"
       ],
       "depNameTemplate": "docker-buildx-plugin",
       "datasourceTemplate": "deb",
