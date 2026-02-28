@@ -258,8 +258,22 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/images/ubuntu/.*?/packages\\.json$/",
-        "/images/ubuntu/.*?/README\\.md$/"
+        "/images/ubuntu/20.04/packages\\.json$/",
+        "/images/ubuntu/20.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-ce-cli (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "docker-ce-cli",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=focal&components=stable&binaryArch=amd64"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/24.04/packages\\.json$/",
+        "/images/ubuntu/24.04/README\\.md$/"
       ],
       "matchStrings": [
         "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
@@ -272,8 +286,22 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/images/ubuntu/.*?/packages\\.json$/",
-        "/images/ubuntu/.*?/README\\.md$/"
+        "/images/ubuntu/20.04/packages\\.json$/",
+        "/images/ubuntu/20.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-buildx-plugin (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "docker-buildx-plugin",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=focal&components=stable&binaryArch=amd64"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/24.04/packages\\.json$/",
+        "/images/ubuntu/24.04/README\\.md$/"
       ],
       "matchStrings": [
         "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
