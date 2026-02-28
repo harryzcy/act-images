@@ -254,6 +254,34 @@
       ],
       "depNameTemplate": "yamllint",
       "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-ce-cli (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "docker-ce-cli",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/ubuntu?suite=stable&components=main&binaryArch=amd64",
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/.*?/packages\\.json$/",
+        "/images/ubuntu/.*?/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-buildx-plugin (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+      ],
+      "depNameTemplate": "docker-buildx-plugin",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/ubuntu?suite=stable&components=main&binaryArch=amd64",
     }
   ]
 }
