@@ -254,6 +254,62 @@
       ],
       "depNameTemplate": "yamllint",
       "datasourceTemplate": "pypi"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/22.04/packages\\.json$/",
+        "/images/ubuntu/22.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-ce-cli (?<currentValue>[0-9A-Za-z.+:\\~-]+)"
+      ],
+      "depNameTemplate": "docker-ce-cli",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=jammy&components=stable&binaryArch=amd64"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/24.04/packages\\.json$/",
+        "/images/ubuntu/24.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-ce-cli\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-ce-cli (?<currentValue>[0-9A-Za-z.+:\\~-]+)"
+      ],
+      "depNameTemplate": "docker-ce-cli",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=noble&components=stable&binaryArch=amd64"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/22.04/packages\\.json$/",
+        "/images/ubuntu/22.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-buildx-plugin (?<currentValue>[0-9A-Za-z.+:\\~-]+)"
+      ],
+      "depNameTemplate": "docker-buildx-plugin",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=jammy&components=stable&binaryArch=amd64"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/images/ubuntu/24.04/packages\\.json$/",
+        "/images/ubuntu/24.04/README\\.md$/"
+      ],
+      "matchStrings": [
+        "\"name\": \"docker-buildx-plugin\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "docker-buildx-plugin (?<currentValue>[0-9A-Za-z.+:\\~-]+)"
+      ],
+      "depNameTemplate": "docker-buildx-plugin",
+      "datasourceTemplate": "deb",
+      "registryUrlTemplate": "https://download.docker.com/linux/ubuntu?suite=noble&components=stable&binaryArch=amd64"
     }
   ]
 }
