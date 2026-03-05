@@ -7,7 +7,7 @@
 - Go 1.26.0
 - Node 24.14.0
 - Python 3.14.3
-- Rust 1.93.1
+- Rust 1.94.0
 
 ### Package Managers
 
@@ -15,7 +15,7 @@
 - pip 26.0.1
 - pipx 1.8.0
 - rustup 1.28.2
-- cargo 1.93.1 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
+- cargo 1.94.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
 
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.2.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:29.3.0-1\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.31.1-1\~ubuntu.22.04\~jammy
