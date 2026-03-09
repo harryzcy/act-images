@@ -27,7 +27,7 @@
 - chktex
 - git 2.53.0
 - kubeconform 0.7.0
-- kube-linter 0.8.1
+- kube-linter 0.8.2
 - lsof
 - ruff 0.15.5
 - sqlite3
