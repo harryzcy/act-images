@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.3.1-1\~ubuntu.22.04\~jammy
+- docker-ce-cli 5:29.4.0-1~ubuntu.22.04~jammy\~ubuntu.22.04\~jammy
 - docker-buildx-plugin 0.33.0-1\~ubuntu.22.04\~jammy
