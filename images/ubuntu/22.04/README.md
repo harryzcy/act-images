@@ -4,9 +4,9 @@
 
 ### Languages
 
-- Go 1.26.1
+- Go 1.26.2
 - Node 24.14.1
-- Python 3.14.3
+- Python 3.14.4
 - Rust 1.94.1
 
 ### Package Managers
