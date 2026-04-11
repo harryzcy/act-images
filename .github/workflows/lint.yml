@@ -10,7 +10,7 @@ permissions:
 jobs:
   super-linter:
     name: Super Linter
-    uses: harryzcy/github-actions/.github/workflows/linter.yml@16bdbb2247468d7d997e4961b77a2bb17b18767b # main
+    uses: harryzcy/github-actions/.github/workflows/linter.yml@1ea62348150d44bc99a8bf88a12438a9ecffd323 # main
 
   readme:
     name: Correct README
@@ -38,4 +38,4 @@ jobs:
 
   renovate:
     name: Renovate Config
-    uses: harryzcy/github-actions/.github/workflows/renovate.yml@16bdbb2247468d7d997e4961b77a2bb17b18767b # main
+    uses: harryzcy/github-actions/.github/workflows/renovate.yml@1ea62348150d44bc99a8bf88a12438a9ecffd323 # main
