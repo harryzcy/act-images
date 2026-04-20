@@ -72,7 +72,7 @@
       },
       {
         "name": "git",
-        "version": "2.53.0"
+        "version": "2.54.0"
       },
       {
         "name": "kubeconform",

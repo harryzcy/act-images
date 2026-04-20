@@ -25,7 +25,7 @@
 - awk
 - curl
 - chktex
-- git 2.53.0
+- git 2.54.0
 - kubeconform 0.7.0
 - kube-linter 0.8.3
 - lsof
