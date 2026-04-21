@@ -51,7 +51,7 @@
     "items": [
       {
         "name": "ansible",
-        "version": "13.5.0"
+        "version": "13.6.0"
       },
       {
         "name": "ansible-core",
