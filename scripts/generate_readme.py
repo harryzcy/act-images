@@ -37,5 +37,5 @@ if __name__ == "__main__":
     if cwd.endswith("scripts"):
         os.chdir("..")
 
-    for version in ["22.04", "24.04"]:
+    for version in ["22.04", "24.04", "26.04"]:
         update_packages(version)
