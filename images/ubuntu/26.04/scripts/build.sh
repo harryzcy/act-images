@@ -21,6 +21,7 @@ packages=(
   ca-certificates
   curl
   # required by python
+  # based on doc: https://devguide.python.org/getting-started/setup-building/#build-dependencies
   build-essential
   gdb
   lcov
