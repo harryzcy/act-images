@@ -1,0 +1,137 @@
+[
+  {
+    "title": "Languages",
+    "items": [
+      {
+        "name": "Go",
+        "version": "1.26.2"
+      },
+      {
+        "name": "Node",
+        "version": "24.15.0"
+      },
+      {
+        "name": "Python",
+        "version": "3.14.4"
+      },
+      {
+        "name": "Rust",
+        "version": "1.95.0"
+      }
+    ]
+  },
+  {
+    "title": "Package Managers",
+    "items": [
+      {
+        "name": "npm",
+        "version": "11.13.0"
+      },
+      {
+        "name": "pip",
+        "version": "26.0.1"
+      },
+      {
+        "name": "pipx",
+        "version": "1.11.1"
+      },
+      {
+        "name": "rustup",
+        "version": "1.29.0"
+      },
+      {
+        "name": "cargo",
+        "version": "1.95.0",
+        "extra": "[cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs)"
+      }
+    ]
+  },
+  {
+    "title": "Tools",
+    "items": [
+      {
+        "name": "ansible",
+        "version": "13.6.0"
+      },
+      {
+        "name": "ansible-core",
+        "version": "2.20.5"
+      },
+      {
+        "name": "ansible-lint",
+        "version": "26.4.0"
+      },
+      {
+        "name": "awk"
+      },
+      {
+        "name": "curl"
+      },
+      {
+        "name": "chktex"
+      },
+      {
+        "name": "git",
+        "version": "2.54.0"
+      },
+      {
+        "name": "kubeconform",
+        "version": "0.7.0"
+      },
+      {
+        "name": "kube-linter",
+        "version": "0.8.3"
+      },
+      {
+        "name": "lsof"
+      },
+      {
+        "name": "ruff",
+        "version": "0.15.12"
+      },
+      {
+        "name": "sqlite3"
+      },
+      {
+        "name": "jq",
+        "version": "1.8.1"
+      },
+      {
+        "name": "typos-cli",
+        "version": "1.44.0"
+      },
+      {
+        "name": "wget"
+      },
+      {
+        "name": "xz"
+      },
+      {
+        "name": "yamllint",
+        "version": "1.38.0"
+      },
+      {
+        "name": "zip"
+      },
+      {
+        "name": "zsh"
+      },
+      {
+        "name": "zstd"
+      }
+    ]
+  },
+  {
+    "title": "apt Packages",
+    "items": [
+      {
+        "name": "docker-ce-cli",
+        "version": "5:29.4.1-1~ubuntu.26.04~resolute"
+      },
+      {
+        "name": "docker-buildx-plugin",
+        "version": "0.33.0-1~ubuntu.26.04~resolute"
+      }
+    ]
+  }
+]
