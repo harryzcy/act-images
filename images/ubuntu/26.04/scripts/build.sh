@@ -35,7 +35,7 @@ packages=(
   libsqlite3-dev
   libssl-dev
   lzma
-  lzma-dev
+  # lzma-dev # TODO: confirm if this can be removed
   tk-dev
   uuid-dev
   zlib1g-dev
