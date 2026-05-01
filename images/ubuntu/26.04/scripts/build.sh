@@ -35,7 +35,7 @@ packages=(
   libsqlite3-dev
   libssl-dev
   lzma
-  # lzma-dev # TODO: confirm if this can be removed
+  # lzma-dev # TODO: not available in 26.04, revisit this
   tk-dev
   uuid-dev
   zlib1g-dev
