@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli 5:29.4.1-1\~ubuntu.26.04\~resolute
+- docker-ce-cli 5:29.4.2-1\~ubuntu.26.04\~resolute
 - docker-buildx-plugin 0.33.0-1\~ubuntu.26.04\~resolute
