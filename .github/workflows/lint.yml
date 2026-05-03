@@ -10,7 +10,7 @@ permissions:
 jobs:
   super-linter:
     name: Super Linter
-    uses: harryzcy/github-actions/.github/workflows/linter.yml@825de87bb7a41da3f54e6863939129d6dfc82da8 # main
+    uses: harryzcy/github-actions/.github/workflows/linter.yml@87c34ce6929775ac6d5f18b0eefb70c098151418 # main
 
   readme:
     name: Correct README
@@ -20,7 +20,7 @@ jobs:
       pull-requests: read
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
         with:
           egress-policy: audit
 
@@ -38,4 +38,4 @@ jobs:
 
   renovate:
     name: Renovate Config
-    uses: harryzcy/github-actions/.github/workflows/renovate.yml@825de87bb7a41da3f54e6863939129d6dfc82da8 # main
+    uses: harryzcy/github-actions/.github/workflows/renovate.yml@87c34ce6929775ac6d5f18b0eefb70c098151418 # main
