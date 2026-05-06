@@ -29,7 +29,7 @@
       },
       {
         "name": "pip",
-        "version": "26.0.1"
+        "version": "26.1.1"
       },
       {
         "name": "pipx",
