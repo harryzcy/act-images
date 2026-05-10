@@ -22,7 +22,9 @@ def update_packages(ubuntu_version: str):
         for item in items:
             text = item["name"]
             if "version" in item:
-                version = item["version"].replace("~", "\\~")
+                version = item["version"]
+                if '~' in version:
+                    version = f"`{version}`"
                 text += f" {version}"
             if "extra" in item:
                 text += f" ({item['extra']})"
