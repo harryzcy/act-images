@@ -5,7 +5,7 @@
 ### Languages
 
 - Go 1.26.3
-- Node 24.15.0
+- Node 24.16.0
 - Python 3.14.5
 - Rust 1.95.0
 
@@ -42,5 +42,5 @@
 
 ### apt Packages
 
-- docker-ce-cli `5:29.5.0-1~ubuntu.24.04~noble`
+- docker-ce-cli `5:29.5.2-1~ubuntu.24.04~noble`
 - docker-buildx-plugin `0.34.0-1~ubuntu.24.04~noble`
