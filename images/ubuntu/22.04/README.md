@@ -31,7 +31,7 @@
 - lsof
 - ruff 0.15.18
 - sqlite3
-- jq 1.8.1
+- jq 1.8.2
 - typos-cli 1.44.0
 - wget
 - xz
