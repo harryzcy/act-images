@@ -13,7 +13,7 @@
 
 - npm 11.17.0
 - pip 26.1.2
-- pipx 1.14.1
+- pipx 1.15.0
 - rustup 1.29.0
 - cargo 1.96.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
