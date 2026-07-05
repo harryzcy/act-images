@@ -63,6 +63,7 @@ echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 
 # git (build from source)
+# requre Rust to be installed
 echo "Installing git"
 pushd /tmp || exit >/dev/null
 curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$GIT_VERSION.tar.gz
