@@ -58,6 +58,7 @@ apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages
 # Rust
 echo "Installing Rust"
 curl -fsSL https://raw.githubusercontent.com/rust-lang/rustup/$RUSTUP_VERSION/rustup-init.sh | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
+export PATH="${PATH}:/root/.cargo/bin"
 echo "Rust installed: $(rustc --version) at $(which rustc)"
 # End Rust
 

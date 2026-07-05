@@ -40,7 +40,7 @@ else
   return 1
 fi
 
-export PATH="${PATH}:/usr/local/go/bin:/root/.cargo/bin:/root/.local/bin"
+export PATH="${PATH}:/usr/local/go/bin:/root/.local/bin"
 
 packages=(
   # buildpack packages
