@@ -7,9 +7,11 @@ echo "Loading package versions for build"
 source /versions.env
 
 echo "PYTHON_VERSION: $PYTHON_VERSION"
+echo "RUST_VERSION: $RUST_VERSION"
 
 echo "PIP_VERSION: $PIP_VERSION"
 echo "GIT_VERSION: $GIT_VERSION"
+echo "RUSTUP_VERSION: $RUSTUP_VERSION"
 
 BASEDIR=$(dirname $0)
 
@@ -55,7 +57,15 @@ apt-get -qq update
 apt-get -qq -y upgrade
 apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
+# Rust
+echo "Installing Rust"
+curl -fsSL https://raw.githubusercontent.com/rust-lang/rustup/$RUSTUP_VERSION/rustup-init.sh | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
+export PATH="${PATH}:/root/.cargo/bin"
+echo "Rust installed: $(rustc --version) at $(which rustc)"
+# End Rust
+
 # git (build from source)
+# requre Rust to be installed
 echo "Installing git"
 pushd /tmp || exit >/dev/null
 curl -OL https://mirrors.edge.kernel.org/pub/software/scm/git/git-$GIT_VERSION.tar.gz

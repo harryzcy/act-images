@@ -8,7 +8,6 @@ source /versions.env
 
 echo "NODE_VERSION: $NODE_VERSION"
 echo "GO_VERSION: $GO_VERSION"
-echo "RUST_VERSION: $RUST_VERSION"
 
 echo "NPM_VERSION: $NPM_VERSION"
 
@@ -23,7 +22,6 @@ echo "JQ_VERSION: $JQ_VERSION"
 echo "PIPX_VERSION: $PIPX_VERSION"
 echo "TYPOS_CLI_VERSION: $TYPOS_CLI_VERSION"
 echo "RUFF_VERSION: $RUFF_VERSION"
-echo "RUSTUP_VERSION: $RUSTUP_VERSION"
 echo "YAMLLINT_VERSION: $YAMLLINT_VERSION"
 
 BASEDIR=$(dirname $0)
@@ -142,12 +140,6 @@ npm install -g npm@$NPM_VERSION
 echo "Node installed: $(node -v) at $(which node)"
 echo "npm installed: $(npm -v) at $(which npm)"
 # End Node
-
-# Rust
-echo "Installing Rust"
-curl -fsSL https://raw.githubusercontent.com/rust-lang/rustup/$RUSTUP_VERSION/rustup-init.sh | sh -s -- -y --default-toolchain=$RUST_VERSION --profile=minimal
-echo "Rust installed: $(rustc --version) at $(which rustc)"
-# End Rust
 
 # Python
 python -m pip install --user --require-hashes -r "$BASEDIR/requirements-pipx.txt"
