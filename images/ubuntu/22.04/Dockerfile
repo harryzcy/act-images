@@ -24,6 +24,7 @@ FROM base AS installer
 
 COPY --from=builder /usr/local/ /usr/local/
 COPY --from=builder /root/.cargo/ /root/.cargo/
+COPY --from=builder /root/.rustup/ /root/.rustup/
 
 COPY --from=parse-versions /versions.env /versions.env
 COPY ./scripts /scripts
