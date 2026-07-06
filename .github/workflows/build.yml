@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     name: Docker Build
-    runs-on: ${{ startsWith(matrix.arch, 'amd64') && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    runs-on: ${{ startsWith(matrix.arch, 'amd64') && 'ubuntu-26.04' || 'ubuntu-26.04-arm' }}
     permissions:
       packages: write
     strategy:
@@ -99,7 +99,7 @@ jobs:
 
   merge:
     name: Merge Digests
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     if: github.event_name == 'pull_request'
     needs:
       - build
