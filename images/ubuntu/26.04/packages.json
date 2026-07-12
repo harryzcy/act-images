@@ -87,7 +87,7 @@
       },
       {
         "name": "ruff",
-        "version": "0.15.20"
+        "version": "0.15.21"
       },
       {
         "name": "sqlite3"
