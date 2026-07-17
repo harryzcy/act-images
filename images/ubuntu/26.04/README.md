@@ -19,7 +19,7 @@
 
 ### Tools
 
-- ansible 14.1.0
+- ansible 14.2.0
 - ansible-core 2.21.2
 - ansible-lint 26.6.0
 - awk
