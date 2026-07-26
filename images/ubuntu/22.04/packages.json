@@ -32,10 +32,6 @@
         "version": "26.1.2"
       },
       {
-        "name": "pipx",
-        "version": "1.15.0"
-      },
-      {
         "name": "uv",
         "version": "0.11.32"
       },

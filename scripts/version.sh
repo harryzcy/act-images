@@ -12,7 +12,7 @@ echo "$(rustup --version 2>/dev/null) $(which rustup)"
 echo "npm $(npm -v) $(which npm)"
 echo "$(pip -V) $(which pip)"
 echo "$(pip3 -V) $(which pip3)"
-echo "$(pipx --version) $(which pipx)"
+echo "$(uv --version) $(which uv)"
 
 # Tools
 ansible --version
