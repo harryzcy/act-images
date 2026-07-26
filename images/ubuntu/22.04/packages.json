@@ -36,6 +36,10 @@
         "version": "1.15.0"
       },
       {
+        "name": "uv",
+        "version": "0.11.32"
+      },
+      {
         "name": "rustup",
         "version": "1.29.0"
       },

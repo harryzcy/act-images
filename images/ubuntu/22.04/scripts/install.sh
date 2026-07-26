@@ -20,6 +20,7 @@ echo "KUBECONFORM_VERSION: $KUBECONFORM_VERSION"
 echo "KUBE_LINTER_VERSION: $KUBE_LINTER_VERSION"
 echo "JQ_VERSION: $JQ_VERSION"
 echo "PIPX_VERSION: $PIPX_VERSION"
+echo "UV_VERSION: $UV_VERSION"
 echo "TYPOS_CLI_VERSION: $TYPOS_CLI_VERSION"
 echo "RUFF_VERSION: $RUFF_VERSION"
 echo "YAMLLINT_VERSION: $YAMLLINT_VERSION"
@@ -144,6 +145,7 @@ echo "npm installed: $(npm -v) at $(which npm)"
 # Python
 python -m pip install --user --require-hashes -r "$BASEDIR/requirements-pipx.txt"
 python -m pipx ensurepath
+python -m pip install --user --require-hashes -r "$BASEDIR/requirements-uv.txt"
 # End Python
 
 # ansible
