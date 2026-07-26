@@ -143,8 +143,6 @@ echo "npm installed: $(npm -v) at $(which npm)"
 # End Node
 
 # Python
-python -m pip install --user --require-hashes -r "$BASEDIR/requirements-pipx.txt"
-python -m pipx ensurepath
 python -m pip install --user --require-hashes -r "$BASEDIR/requirements-uv.txt"
 # End Python
 
