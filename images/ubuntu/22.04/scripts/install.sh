@@ -150,9 +150,7 @@ python -m pip install --user --require-hashes -r "$BASEDIR/requirements-uv.txt"
 
 # ansible
 echo "Installing ansible"
-python -m pipx install "ansible-core==$ANSIBLE_CORE_VERSION"
-python -m pipx install --include-deps "ansible==$ANSIBLE_VERSION"
-python -m pipx install "ansible-lint==$ANSIBLE_LINT_VERSION"
+uv tool install --with-executables-from ansible-core==$ANSIBLE_CORE_VERSION,ansible-lint==$ANSIBLE_LINT_VERSION ansible==$ANSIBLE_VERSION
 echo "ansible installed: $(ansible --version)"
 echo "ansible-lint installed: $(ansible-lint --version) at $(which ansible-lint)"
 # End ansible
@@ -190,10 +188,10 @@ echo "typos installed: $(typos --version) at $(which typos)"
 
 # ruff
 echo "Installing ruff"
-python -m pipx install "ruff==$RUFF_VERSION"
+uv tool install "ruff==$RUFF_VERSION"
 echo "ruff installed: $(ruff --version) at $(which ruff)"
 
 # yamllint
 echo "Installing yamllint"
-python -m pipx install yamllint==$YAMLLINT_VERSION
+uv tool install yamllint==$YAMLLINT_VERSION
 echo "yamllint installed: $(yamllint --version) at $(which yamllint)"
