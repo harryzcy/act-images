@@ -92,10 +92,10 @@
         "/images/ubuntu/.*?/README\\.md$/"
       ],
       "matchStrings": [
-        "\"name\": \"pipx\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
-        "pipx (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+        "\"name\": \"uv\",\\n *?\"version\": \"(?<currentValue>.*?)\"",
+        "uv (?<currentValue>\\d+\\.\\d+\\.\\d+)"
       ],
-      "depNameTemplate": "pipx",
+      "depNameTemplate": "uv",
       "datasourceTemplate": "pypi"
     },
     {

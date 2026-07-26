@@ -8,7 +8,6 @@ padding_str = " " * padding
 
 requirements_files = [
     "images/ubuntu/{ubuntu_version}/scripts/requirements-pip.txt",
-    "images/ubuntu/{ubuntu_version}/scripts/requirements-pipx.txt",
 ]
 
 
