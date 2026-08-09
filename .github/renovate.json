@@ -2,6 +2,23 @@
   "extends": [
     "github>harryzcy/renovate-config"
   ],
+  "packageRules": [
+    {
+      "description": "Each images/ubuntu/<version> directory pins its own Ubuntu release; only digest updates are wanted",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "ubuntu"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
+      "enabled": false
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
