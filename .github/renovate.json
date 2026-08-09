@@ -13,8 +13,7 @@
       ],
       "matchUpdateTypes": [
         "major",
-        "minor",
-        "patch"
+        "minor"
       ],
       "enabled": false
     }
