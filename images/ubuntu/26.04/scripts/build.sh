@@ -52,10 +52,27 @@ packages=(
   # end
 )
 
+# ports.ubuntu.com occasionally serves a package index whose pool files are not
+# synced yet, which fails the fetch with a 404. apt's Acquire::Retries does not
+# retry 404s, so refresh the index and run the whole command again.
+apt_retry() {
+  local attempt=1
+  until "$@"; do
+    if [ "$attempt" -ge 3 ]; then
+      echo "still failing after $attempt attempts: $*"
+      return 1
+    fi
+    echo "failed (attempt $attempt), refreshing package index and retrying: $*"
+    sleep $((attempt * 10))
+    apt-get -qq update || true
+    attempt=$((attempt + 1))
+  done
+}
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
-apt-get -qq -y upgrade
-apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt_retry apt-get -qq -y upgrade
+apt_retry apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # Rust
 echo "Installing Rust"
