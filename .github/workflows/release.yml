@@ -47,6 +47,7 @@ jobs:
       packages: write
     needs: tag
     strategy:
+      fail-fast: false
       matrix:
         arch: [amd64, amd64/v2, amd64/v3, arm64]
         base-image: [22.04, 24.04, 26.04]
