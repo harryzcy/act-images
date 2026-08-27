@@ -106,15 +106,15 @@ packages=(
 
 # ports.ubuntu.com occasionally serves a package index whose pool files are not
 # synced yet, which fails the fetch with a 404. apt's Acquire::Retries does not
-# retry 404s, so refresh the index and run the whole command again.
-apt_retry() {
+# retry 404s, so refresh the index and run apt-get again.
+apt-get-retry() {
   local attempt=1
-  until "$@"; do
+  until apt-get "$@"; do
     if [ "$attempt" -ge 3 ]; then
-      echo "still failing after $attempt attempts: $*"
+      echo "apt-get still failing after $attempt attempts: $*"
       return 1
     fi
-    echo "failed (attempt $attempt), refreshing package index and retrying: $*"
+    echo "apt-get failed (attempt $attempt), refreshing package index and retrying: $*"
     sleep $((attempt * 10))
     apt-get -qq update || true
     attempt=$((attempt + 1))
@@ -123,8 +123,8 @@ apt_retry() {
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
-apt_retry apt-get -qq -y upgrade
-apt_retry apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get-retry -qq -y upgrade
+apt-get-retry -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # Docker
 echo "Installing Docker"
@@ -137,7 +137,7 @@ echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
-apt_retry apt-get -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSION"
+apt-get-retry -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSION"
 rm /etc/apt/sources.list.d/docker.list
 rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
