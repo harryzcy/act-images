@@ -104,9 +104,8 @@ packages=(
   sqlite3
 )
 
-# ports.ubuntu.com occasionally serves a package index whose pool files are not
-# synced yet, which fails the fetch with a 404. apt's Acquire::Retries does not
-# retry 404s, so refresh the index and run apt-get again.
+# Mirrors sometimes serve an index whose pool files aren't synced yet (404).
+# apt's Acquire::Retries doesn't cover those, so refresh the index and retry.
 apt-get-retry() {
   local attempt=1
   until apt-get "$@"; do
