@@ -14,6 +14,8 @@ echo "GIT_VERSION: $GIT_VERSION"
 echo "RUSTUP_VERSION: $RUSTUP_VERSION"
 
 BASEDIR=$(dirname $0)
+# shellcheck source=utility.sh
+source "$BASEDIR/utility.sh"
 
 # shellcheck disable=SC2034
 IFS='.' read -r PYTHON_MAJOR PYTHON_MINOR PYTHON_PATCH <<<"$PYTHON_VERSION"
@@ -53,8 +55,8 @@ packages=(
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
-apt-get -qq -y upgrade
-apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get-retry -qq -y upgrade
+apt-get-retry -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # Rust
 echo "Installing Rust"

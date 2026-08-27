@@ -25,6 +25,8 @@ echo "RUFF_VERSION: $RUFF_VERSION"
 echo "YAMLLINT_VERSION: $YAMLLINT_VERSION"
 
 BASEDIR=$(dirname $0)
+# shellcheck source=utility.sh
+source "$BASEDIR/utility.sh"
 
 archstr=$(uname -m)
 echo "Architecture: $archstr"
@@ -106,8 +108,8 @@ packages=(
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get -qq update
-apt-get -qq -y upgrade
-apt-get -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
+apt-get-retry -qq -y upgrade
+apt-get-retry -qq -y install --no-install-recommends --no-install-suggests "${packages[@]}"
 
 # Docker
 echo "Installing Docker"
@@ -120,7 +122,7 @@ echo \
   "deb [arch=$dpkg_arch signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $codename stable" |
   tee /etc/apt/sources.list.d/docker.list >/dev/null
 apt-get -qq update
-apt-get -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSION"
+apt-get-retry -qq -y install --no-install-recommends --no-install-suggests "docker-ce-cli=$DOCKER_CE_CLI_VERSION" "docker-buildx-plugin=$DOCKER_BUILDX_PLUGIN_VERSION"
 rm /etc/apt/sources.list.d/docker.list
 rm /etc/apt/keyrings/docker.gpg
 echo "Docker installed: $(docker --version)"
