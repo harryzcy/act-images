@@ -7,7 +7,7 @@
 - Go 1.27.1
 - Node 26.8.1
 - Python 3.14.7
-- Rust 1.98.0
+- Rust 1.98.1
 
 ### Package Managers
 
@@ -15,7 +15,7 @@
 - pip 26.2.1
 - uv 0.12.9
 - rustup 1.29.1
-- cargo 1.98.0 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
+- cargo 1.98.1 ([cargo-the-binary](https://github.com/rust-lang/cargo/blob/master/src/cargo/version.rs))
 
 ### Tools
 
