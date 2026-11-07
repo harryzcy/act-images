@@ -55,7 +55,7 @@
       },
       {
         "name": "ansible-core",
-        "version": "2.21.5"
+        "version": "2.22.0"
       },
       {
         "name": "ansible-lint",
