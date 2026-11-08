@@ -11,7 +11,7 @@
 
 ### Package Managers
 
-- npm 12.2.1
+- npm 12.2.2
 - pip 26.2.2
 - uv 0.13.7
 - rustup 1.29.3
