@@ -1,4 +1,4 @@
-FROM ubuntu:22.04@sha256:74b12b11ffa550fba1929ad4d8d16533c34f6612728469671afba1b03b66881c AS base
+FROM ubuntu:22.04@sha256:f64b2ffc2f10ab8f8505aa56b2664bd846cbb9df87c7e2532e30f7667021c0e6 AS base
 
 # checkov:skip=CKV_DOCKER_3:"Allow root user"
 # checkov:skip=CKV_DOCKER_2:"No healthcheck"
